@@ -1,3 +1,5 @@
+```js
+
 {
   currentUser: {
     id: 1,
@@ -42,5 +44,7 @@
       shelter_id: 1,
     }
   }
-  petFilters: [1, 7, 14] // Used to track selected options for filtering of pets
+  petFilters: [1, 4, 13] // Used to track selected options for filtering of pets
 }
+
+```
