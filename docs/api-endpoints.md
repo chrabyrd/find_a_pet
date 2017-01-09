@@ -4,7 +4,7 @@
 
 ### Root
 
-- `GET /` 
+- `GET /`
 
 ## JSON API
 
@@ -23,14 +23,14 @@
 - `PATCH /api/users/:user_id/watchlist/:watchlist_id`
 - `DELETE /api/users/:user_id/watchlist/:watchlist_id`
 
-## Shelters
+### Shelters
 
 - `POST /api/shelters`
 - `PATCH /api/shelters`
 - `GET /api/shelters/:shelter_id`
 - `DELETE /api/shelters/:shelter_id`
 
-## Messages
+### Messages
 
 - `GET /api/users/:user_id/messages`
 - `POST /api/users/:user_id/messages`
