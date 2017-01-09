@@ -11,6 +11,19 @@ FindAPet! is a full-stack web application inspired by Petfinder. It utilizes Rub
 - Search Filter
 - Automated User Alerts
 
+## Design Docs
+* [View Wireframes][wireframes]
+* [React Components][components]
+* [API endpoints][api-endpoints]
+* [DB schema][schema]
+* [Sample State][sample-state]
+
+[wireframes]: wireframes
+[components]: component-hierarchy.md
+[sample-state]: sample-state.md
+[api-endpoints]: api-endpoints.md
+[schema]: schema.md
+
 ## Implementation Timeline
 
 ### Phase 1: Backend Setup and Front End User Authentication (2 days)
