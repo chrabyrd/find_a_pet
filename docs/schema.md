@@ -8,7 +8,17 @@ username        | string    | not null, indexed, unique
 email           | string    | not null, indexed, unique
 password_digest | string    | not null
 session_token   | string    | not null, indexed, unique
-is_shelter      | boolean   | not null
+
+## shelters
+column name     | data type | details
+----------------|-----------|-----------------------
+id              | integer   | not null, primary key
+shelter_name    | string    | not null, indexed, unique
+email           | string    | not null, indexed, unique
+address         | string    | not null, indexed, unique
+phone_number    | integer   | not null, unique
+password_digest | string    | not null
+session_token   | string    | not null, indexed, unique
 
 ## watchlists
 column name     | data type | details
@@ -31,7 +41,7 @@ breed        | string    | not null, indexed
 age          | integer   | not null, indexed
 gender       | string    | not null, indexed
 description  | text      | not null
-user_id      | integer   | not null, foreign key (references users), indexed
+shelter_id   | integer   | not null, foreign key (references shelters), indexed
 watchlist_id | integer   | not null, foreign key (references watchlists), indexed
 
 ## pets_images
@@ -39,6 +49,6 @@ column name  | data type | details
 -------------|-----------|-----------------------
 id           | integer   | not null, primary key
 url          | string    | not null
-name         | string    | 
+name         | string    |
 description  | text      |
 pet_id       | integer   | not null, foreign key (references pets), indexed
