@@ -3,7 +3,11 @@
 ```js
 
 {
-  currentUser: {
+  session: {
+    user: "John",
+    errors: []
+  },
+  users: {
     id: 1,
     username: "I_like_pets"
     ...
