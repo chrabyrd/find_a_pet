@@ -7,11 +7,15 @@
     "doc": "docs"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "postinstall": "./node_modules/.bin/webpack"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/chrabyrd/find_a_pet.git"
+  },
+  "engines": {
+    "node": "6.2.1",
+    "npm": "3.9.x"
   },
   "keywords": [],
   "author": "",
