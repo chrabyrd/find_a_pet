@@ -1,6 +1,6 @@
 # Find a Pet!
 
-[Heroku Link](https://calm-sea-24517.herokuapp.com/)
+[Heroku Link](https://findapet.herokuapp.com)
 
 [Trello Link](https://trello.com/b/vpOAqZzL/findapet)
 
