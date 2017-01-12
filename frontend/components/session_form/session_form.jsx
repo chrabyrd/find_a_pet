@@ -18,39 +18,54 @@ class SessionForm extends React.Component {
 		this.signupForm	= this.signupForm.bind(this);
 		this.loginForm = this.loginForm.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
-		this.demoAccount = this.demoAccount.bind(this);
 	}
 
 	openModal() {
 	this.setState({modalIsOpen: true});
-}
+	}
 
 	closeModal() {
 		this.setState({modalIsOpen: false});
+		this.props.clearErrors();
 	}
 
 	signupForm() {
-		this.setState({signup: true});
+		this.setState({
+			signup: true,
+			username: "",
+			password: ""
+		});
 		this.openModal();
 	}
 
 	loginForm() {
-		this.setState({signup: false});
-		this.openModal();
-	}
-
-	demoAccount() {
 		this.setState({
 			signup: false,
-			username: 'John',
+			username: 'Demo Account',
 			password: 'password'
 		});
+		this.openModal();
 	}
 
 	update(field) {
 		return e => this.setState({
 			[field]: e.currentTarget.value
 		});
+	}
+
+	clear() {
+		if (this.state.username === "Demo Account") {
+			return e => this.setState({
+				username: "",
+				password: ""
+			});
+		}
+	}
+
+	demoOrNot() {
+		return (
+			this.state.username === "Demo Account" ? "demo-input" : "user-auth-input"
+		);
 	}
 
 	handleSubmit(e) {
@@ -79,7 +94,7 @@ class SessionForm extends React.Component {
 					<input type="email"
 						value={this.state.email}
 						onChange={this.update("email")}
-						className="login-input" />
+						className={this.demoOrNot()} />
 				</label>
 			</div>
 		);
@@ -129,8 +144,8 @@ class SessionForm extends React.Component {
 								<input type="text"
 									value={this.state.username}
 									onChange={this.update("username")}
-									className="login-input"
-									autoFocus />
+									onFocus={this.clear()}
+									className={this.demoOrNot()} />
 							</label>
 						</div>
 
@@ -142,12 +157,13 @@ class SessionForm extends React.Component {
 								<input type="password"
 									value={this.state.password}
 									onChange={this.update("password")}
-									className="login-input" />
+									onFocus={this.clear()}
+									className={this.demoOrNot()} />
 							</label>
 						</div>
 
 						<div className="user-auth-fields">
-							<input type="submit" value="Submit" />
+							<input type="submit" value="Submit" autoFocus/>
 						</div>
 
 						{this.renderErrors()}

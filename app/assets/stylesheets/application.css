@@ -50,6 +50,15 @@ body {
   padding: 5% 0;
 }
 
+.demo-input {
+  font-style: italic;
+  color: silver;
+}
+
+.user-auth-input {
+  font-weight: bold;
+}
+
 .user-auth-errors {
   /*text-align: center;
   justify-content: center;
