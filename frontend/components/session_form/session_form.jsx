@@ -18,6 +18,7 @@ class SessionForm extends React.Component {
 		this.signupForm	= this.signupForm.bind(this);
 		this.loginForm = this.loginForm.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
+		this.demoAccount = this.demoAccount.bind(this);
 	}
 
 	openModal() {
@@ -38,6 +39,14 @@ class SessionForm extends React.Component {
 		this.openModal();
 	}
 
+	demoAccount() {
+		this.setState({
+			signup: false,
+			username: 'John',
+			password: 'password'
+		});
+	}
+
 	update(field) {
 		return e => this.setState({
 			[field]: e.currentTarget.value
@@ -46,7 +55,7 @@ class SessionForm extends React.Component {
 
 	handleSubmit(e) {
 		e.preventDefault();
-
+		console.log(this.props);
 		if (this.state.signup) {
 			const user = {
 				username: this.state.username,
@@ -65,28 +74,34 @@ class SessionForm extends React.Component {
 
 	emailField() {
 		return(
-			<label> Email:
-				<input type="email"
-					value={this.state.email}
-					onChange={this.update("email")}
-					className="login-input" />
-			</label>
+			<div className="user-auth-fields">
+				<label className="user-auth-label"> Email
+					<br/>
+					<input type="email"
+						value={this.state.email}
+						onChange={this.update("email")}
+						className="login-input" />
+				</label>
+			</div>
 		);
 	}
 
 	renderErrors() {
 		return(
-			<ul>
-				{this.props.errors.map((error, i) => (
-					<li key={`error-${i}`}>
-						{error}
-					</li>
-				))}
-			</ul>
+			<div className="user-auth-fields">
+				<ul className="user-auth-errors">
+					{this.props.errors.map((error, i) => (
+						<li key={`error-${i}`}>
+							{error}
+						</li>
+					))}
+				</ul>
+			</div>
 		);
 	}
 
 	render() {
+
 		return (
 			<div className="authentication-form-container">
 
@@ -94,36 +109,52 @@ class SessionForm extends React.Component {
 				<button onClick={this.signupForm}>Sign Up</button>
 
         <Modal
+					className="auth-modal"
           isOpen={this.state.modalIsOpen}
           onAfterOpen={this.afterOpenModal}
           onRequestClose={this.closeModal}
           contentLabel="Authentication"
         >
 
-				<form onSubmit={this.handleSubmit} className="login-form-box">
-					{this.renderErrors()}
-					<div className="login-form">
+					<form onSubmit={this.handleSubmit}
+						className="login-form-box">
 
-						<label> Username:
-							<input type="text"
-								value={this.state.username}
-								onChange={this.update("username")}
-								className="login-input" />
-						</label>
+						<div className="user-auth-title">
+							{this.state.signup ? <h3>Please Sign Up</h3> :
+								<h3>Please Log In</h3>}
+						</div>
+
+						<div className="user-auth-fields">
+							<label className="user-auth-label"> Username
+								<br/>
+								<input type="text"
+									value={this.state.username}
+									onChange={this.update("username")}
+									className="login-input"
+									autoFocus />
+							</label>
+						</div>
 
 						{this.state.signup ? this.emailField() : ""}
 
-						<label> Password:
-							<input type="password"
-								value={this.state.password}
-								onChange={this.update("password")}
-								className="login-input" />
-						</label>
+						<div className="user-auth-fields">
+							<label className="user-auth-label"> Password
+								<br/>
+								<input type="password"
+									value={this.state.password}
+									onChange={this.update("password")}
+									className="login-input" />
+							</label>
+						</div>
 
-						<input type="submit" value="Submit" />
-					</div>
-				</form>
-			</Modal>
+						<div className="user-auth-fields">
+							<input type="submit" value="Submit" />
+						</div>
+
+						{this.renderErrors()}
+
+					</form>
+				</Modal>
 			</div>
 		);
 	}

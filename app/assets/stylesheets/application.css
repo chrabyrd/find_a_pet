@@ -14,10 +14,45 @@
  *= require_self
  */
 
+
 body {
   background: grey;
+  font-family: sans-serif;
 }
 
-#header {
+.header {
   background: green;
+}
+
+.auth-modal {
+  position: fixed;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: rgba(255, 255, 255, 0.75);
+  overflow: auto;
+  width:  250px;
+  height:  400px;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-auth-title {
+  font-size: 22px;
+  text-align: center;
+  padding: 5% 0;
+}
+
+.user-auth-fields {
+  text-align: center;
+  padding: 5% 0;
+}
+
+.user-auth-errors {
+  /*text-align: center;
+  justify-content: center;
+  list-style: none;
+  vertical-align: middle;*/
 }
