@@ -17,3 +17,7 @@
 body {
   background: grey;
 }
+
+#header {
+  background: green;
+}

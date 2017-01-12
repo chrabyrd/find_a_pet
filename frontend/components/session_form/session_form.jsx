@@ -1,21 +1,41 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router';
+import Modal from 'react-modal';
 
 class SessionForm extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = { username: "", email: "", password: "" };
+
+		this.state = {
+			username: "",
+			email: "",
+			password: "",
+			modalIsOpen: false,
+			signup: false
+		};
+
+		this.openModal = this.openModal.bind(this);
+		this.closeModal = this.closeModal.bind(this);
+		this.signupForm	= this.signupForm.bind(this);
+		this.loginForm = this.loginForm.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
-	componentDidUpdate() {
-		this.redirectIfLoggedIn();
+	openModal() {
+	this.setState({modalIsOpen: true});
+}
+
+	closeModal() {
+		this.setState({modalIsOpen: false});
 	}
 
-	redirectIfLoggedIn() {
-		if (this.props.loggedIn) {
-			this.props.router.push("/");
-		}
+	signupForm() {
+		this.setState({signup: true});
+		this.openModal();
+	}
+
+	loginForm() {
+		this.setState({signup: false});
+		this.openModal();
 	}
 
 	update(field) {
@@ -26,16 +46,32 @@ class SessionForm extends React.Component {
 
 	handleSubmit(e) {
 		e.preventDefault();
-		const user = this.state;
-		this.props.processForm(user);
+
+		if (this.state.signup) {
+			const user = {
+				username: this.state.username,
+				email: this.state.email,
+				password: this.state.password
+			};
+			this.props.processSignUp(user);
+		} else {
+			const user = {
+				username: this.state.username,
+				password: this.state.password
+			};
+			this.props.processLogIn(user);
+		}
 	}
 
-	navLink() {
-		if (this.props.formType === "login") {
-			return <Link to="/signup">sign up instead</Link>;
-		} else {
-			return <Link to="/login">log in instead</Link>;
-		}
+	emailField() {
+		return(
+			<label> Email:
+				<input type="email"
+					value={this.state.email}
+					onChange={this.update("email")}
+					className="login-input" />
+			</label>
+		);
 	}
 
 	renderErrors() {
@@ -52,42 +88,46 @@ class SessionForm extends React.Component {
 
 	render() {
 		return (
-			<div className="login-form-container">
+			<div className="authentication-form-container">
+
+				<button onClick={this.loginForm}>Log In</button>
+				<button onClick={this.signupForm}>Sign Up</button>
+
+        <Modal
+          isOpen={this.state.modalIsOpen}
+          onAfterOpen={this.afterOpenModal}
+          onRequestClose={this.closeModal}
+          contentLabel="Authentication"
+        >
+
 				<form onSubmit={this.handleSubmit} className="login-form-box">
-					FindAPet!
-					<br/>
-					Please {this.props.formType} or {this.navLink()}
 					{this.renderErrors()}
 					<div className="login-form">
-						<br/>
+
 						<label> Username:
 							<input type="text"
 								value={this.state.username}
 								onChange={this.update("username")}
 								className="login-input" />
 						</label>
-						<br/>
-						<label> Email:
-							<input type="email"
-								value={this.state.email}
-								onChange={this.update("email")}
-								className="login-input" />
-						</label>
-						<br/>
+
+						{this.state.signup ? this.emailField() : ""}
+
 						<label> Password:
 							<input type="password"
 								value={this.state.password}
 								onChange={this.update("password")}
 								className="login-input" />
 						</label>
-						<br/>
+
 						<input type="submit" value="Submit" />
 					</div>
 				</form>
+			</Modal>
 			</div>
 		);
 	}
 
 }
 
-export default withRouter(SessionForm);
+export default SessionForm;

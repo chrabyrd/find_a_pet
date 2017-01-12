@@ -1,13 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
-
-const sessionLinks = () => (
-  <nav className="login-signup">
-    <Link to="/login" activeClassName="current">Login</Link>
-    <br />
-    <Link to="/signup" activeClassName="current">Sign up!</Link>
-  </nav>
-);
+import SessionFormContainer from '../../session_form/session_form_container';
 
 const personalGreeting = (user, logout) => (
 	<hgroup className="header-group">
@@ -17,7 +9,9 @@ const personalGreeting = (user, logout) => (
 );
 
 const Greeting = ({ user, logout }) => (
-  user ? personalGreeting(user, logout) : sessionLinks()
+	<div id="greeting">
+  	{user ? personalGreeting(user, logout) : <SessionFormContainer />}
+	</div>
 );
 
 export default Greeting;
