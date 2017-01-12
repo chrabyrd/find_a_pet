@@ -55,7 +55,6 @@ class SessionForm extends React.Component {
 
 	handleSubmit(e) {
 		e.preventDefault();
-		console.log(this.props);
 		if (this.state.signup) {
 			const user = {
 				username: this.state.username,
