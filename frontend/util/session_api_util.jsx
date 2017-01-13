@@ -1,8 +1,16 @@
-export const signup = user => (
+export const signupUser = user => (
   $.ajax({
     method: 'POST',
     url: './api/users',
     data: { user }
+  })
+);
+
+export const signupShelter = shelter => (
+  $.ajax({
+    method: 'POST',
+    url: './api/shelters',
+    data: { shelter }
   })
 );
 
