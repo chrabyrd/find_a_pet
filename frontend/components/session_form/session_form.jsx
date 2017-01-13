@@ -90,7 +90,6 @@ class SessionForm extends React.Component {
 		return(
 			<div className="user-auth-fields">
 				<label className="user-auth-label"> Email
-					<br/>
 					<input type="email"
 						value={this.state.email}
 						onChange={this.update("email")}
@@ -119,8 +118,12 @@ class SessionForm extends React.Component {
 		return (
 			<div className="authentication-form-container">
 
-				<button onClick={this.loginForm}>Log In</button>
-				<button onClick={this.signupForm}>Sign Up</button>
+				<button
+					className='greeting-button'
+					onClick={this.loginForm}>Log In</button>
+				<button
+					className='greeting-button'
+					onClick={this.signupForm}>Sign Up</button>
 
         <Modal
 					className="auth-modal"
@@ -140,7 +143,6 @@ class SessionForm extends React.Component {
 
 						<div className="user-auth-fields">
 							<label className="user-auth-label"> Username
-								<br/>
 								<input type="text"
 									value={this.state.username}
 									onChange={this.update("username")}
@@ -153,7 +155,6 @@ class SessionForm extends React.Component {
 
 						<div className="user-auth-fields">
 							<label className="user-auth-label"> Password
-								<br/>
 								<input type="password"
 									value={this.state.password}
 									onChange={this.update("password")}

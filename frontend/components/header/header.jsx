@@ -4,9 +4,22 @@ import GreetingContainer from './greeting/greeting_container';
 
 const Header = () => (
   <div className="header">
-    <h2>Everything's working!</h2>
+    <div className="header-logo">
+
+      <div className="header-icon">
+        <img className="header-icon-image" src={'assets/header-icon.png'} />
+      </div>
+
+      <div className="header-title">
+        <h2>Find A Pet!</h2>
+      </div>
+
+    </div>
+
     <GreetingContainer />
+
   </div>
 );
+
 
 export default Header;
