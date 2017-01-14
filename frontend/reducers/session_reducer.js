@@ -3,10 +3,8 @@ import { RECEIVE_CURRENT_USER, RECEIVE_CURRENT_SHELTER,
   RECEIVE_ERRORS, CLEAR_ERRORS }
   from '../actions/session_actions';
 
-
 const _nullUser = {
   user: null,
-  shelter: null,
   errors: []
 };
 

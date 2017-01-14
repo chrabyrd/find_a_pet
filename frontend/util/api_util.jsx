@@ -6,14 +6,6 @@ export const signupUser = user => (
   })
 );
 
-export const signupShelter = shelter => (
-  $.ajax({
-    method: 'POST',
-    url: './api/shelters',
-    data: { shelter }
-  })
-);
-
 export const login = user => (
   $.ajax({
     method: 'POST',
@@ -26,5 +18,13 @@ export const logout = () => (
   $.ajax({
     method: 'DELETE',
     url: './api/session'
+  })
+);
+
+export const createShelter = shelter => (
+  $.ajax({
+    method: 'POST',
+    url: './api/shelters',
+    data: { shelter }
   })
 );

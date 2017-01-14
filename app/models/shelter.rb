@@ -13,39 +13,11 @@
 #
 
 class Shelter < ActiveRecord::Base
+  belongs_to :user
   has_many :pets
 
-  validates :shelter_name, :email, :address, :phone_number, :password_digest, :session_token, presence: true
-  validates :shelter_name, :email, :address, :phone_number, uniqueness: true
-  validates :password, length: { minimum: 6, allow_nil: true }
-
-  attr_reader :password
-  after_initialize :ensure_session_token
-
-  def self.find_by_credentials(shelter_name, password)
-    shelter = Shelter.find_by_shelter_name(shelter_name)
-    return nil unless shelter
-    shelter.valid_password?(password) ? shelter_: nil
-  end
-
-  def password=(password)
-    @password = password
-    self.password_digest = BCrypt::Password.create(password)
-  end
-
-  def valid_password?(password)
-    BCrypt::Password.new(self.password_digest).is_password?(password)
-  end
-
-  def reset_session_token!
-    self.session_token = SecureRandom.urlsafe_base64(16)
-    self.save
-    self.session_token
-  end
-
-  private
-
-  def ensure_session_token
-    self.session_token ||= SecureRandom.urlsafe_base64(16)
-  end
+  validates :shelter_name, presence: true, uniqueness: true;
+  validates :email, presence: true, uniqueness: true;
+  validates :address, presence: true, uniqueness: true;
+  validates :phone_number, presence: true, uniqueness: true;
 end
