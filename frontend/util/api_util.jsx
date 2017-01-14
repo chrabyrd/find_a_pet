@@ -1,3 +1,6 @@
+
+// Users
+
 export const signupUser = user => (
   $.ajax({
     method: 'POST',
@@ -5,6 +8,14 @@ export const signupUser = user => (
     data: { user }
   })
 );
+
+export const fetchUser = id => (
+  $.ajax({
+    url: `./api/users/${id}`
+  })
+);
+
+// Session
 
 export const login = user => (
   $.ajax({
@@ -20,6 +31,8 @@ export const logout = () => (
     url: './api/session'
   })
 );
+
+// Shelters
 
 export const fetchShelter = id => (
   $.ajax({
