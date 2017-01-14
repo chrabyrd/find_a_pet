@@ -5,7 +5,6 @@ import Greeting from './greeting';
 const mapStateToProps = ({ session }) => {
   return ({
     user: session.user,
-    shelter: session.shelter
   });
 };
 

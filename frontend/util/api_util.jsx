@@ -21,10 +21,30 @@ export const logout = () => (
   })
 );
 
+export const fetchShelter = id => (
+  $.ajax({
+    url: `./api/shelters/${id}`,
+  })
+);
+
 export const createShelter = shelter => (
   $.ajax({
     method: 'POST',
     url: './api/shelters',
     data: { shelter }
+  })
+);
+export const updateShelter = shelter => (
+  $.ajax({
+    method: 'PATCH',
+    url: `./api/shelters/${shelter.id}`,
+    data: { shelter }
+  })
+);
+
+export const deleteShelter = id => (
+  $.ajax({
+    method: 'DELETE',
+    url: `.api/shelters/${id}`
   })
 );

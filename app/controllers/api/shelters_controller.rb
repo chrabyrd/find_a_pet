@@ -19,9 +19,9 @@ class Api::SheltersController < ApplicationController
   end
 
   def update
-    @shelter = Shelter.update(shelter_params)
+    @shelter = Shelter.find(params[:id])
 
-    if @shelter.save
+    if @shelter.update(shelter_params)
       render 'api/shelters/show'
     else
       render json: @shelter.errors.full_messages, status: 422
@@ -29,9 +29,9 @@ class Api::SheltersController < ApplicationController
   end
 
   def destroy
-    @shelter = shelter.find(params[:id])
+    @shelter = Shelter.find(params[:id])
     @shelter.destroy
-    render 'api/users/show'
+    # render 'api/users'
   end
 
   private
