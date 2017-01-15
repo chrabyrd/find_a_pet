@@ -1,20 +1,4 @@
 
-// Users
-
-export const signupUser = user => (
-  $.ajax({
-    method: 'POST',
-    url: './api/users',
-    data: { user }
-  })
-);
-
-export const fetchUser = id => (
-  $.ajax({
-    url: `./api/users/${id}`
-  })
-);
-
 // Session
 
 export const login = user => (
@@ -32,7 +16,29 @@ export const logout = () => (
   })
 );
 
+// Users
+
+export const signupUser = user => (
+  $.ajax({
+    method: 'POST',
+    url: './api/users',
+    data: { user }
+  })
+);
+
+export const fetchUser = id => (
+  $.ajax({
+    url: `./api/users/${id}`
+  })
+);
+
 // Shelters
+
+export const fetchShelters = () => (
+  $.ajax({
+    url: `./api/shelters`,
+  })
+);
 
 export const fetchShelter = id => (
   $.ajax({
@@ -59,5 +65,77 @@ export const deleteShelter = id => (
   $.ajax({
     method: 'DELETE',
     url: `.api/shelters/${id}`
+  })
+);
+
+// Pets
+
+export const fetchPets = () => (
+  $.ajax({
+    url: `./api/pets`,
+  })
+);
+
+export const fetchPet = id => (
+  $.ajax({
+    url: `./api/pets/${id}`,
+  })
+);
+
+export const createPet = pet => (
+  $.ajax({
+    method: 'POST',
+    url: './api/pets',
+    data: { pet }
+  })
+);
+export const updatePet = pet => (
+  $.ajax({
+    method: 'PATCH',
+    url: `./api/pets/${pet.id}`,
+    data: { pet }
+  })
+);
+
+export const deletePet = id => (
+  $.ajax({
+    method: 'DELETE',
+    url: `.api/pets/${id}`
+  })
+);
+
+// Pet Images
+
+export const fetchPetImages = () => (
+  $.ajax({
+    url: `./api/pet_images`,
+  })
+);
+
+export const fetchPetImage = id => (
+  $.ajax({
+    url: `./api/pet_images/${id}`,
+  })
+);
+
+export const createPetImage = pet_image => (
+  $.ajax({
+    method: 'POST',
+    url: './api/pet_images',
+    data: { pet_image }
+  })
+);
+export const updatePetImage = pet_image => (
+  $.ajax({
+    method: 'PATCH',
+    url: `./api/pet_images/${pet_image.id}`,
+    data: { pet_image }
+  })
+);
+
+export const deletePetImage = id => (
+  $.ajax({
+    method: 'DELETE',
+    url: `.api/pet_images/${id}`
   })
 );

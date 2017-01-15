@@ -4,7 +4,7 @@
 #
 #  id          :integer          not null, primary key
 #  name        :string           not null
-#  type        :string           not null
+#  pet_type    :string           not null
 #  age         :integer          not null
 #  breed       :string           not null
 #  gender      :string           not null
@@ -15,4 +15,8 @@
 #
 
 class Pet < ActiveRecord::Base
+  belongs_to :shelter
+  has_many :pet_images
+
+  validates :name, :pet_type, :age, :breed, :gender, presence: true
 end

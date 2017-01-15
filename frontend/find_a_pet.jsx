@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
 import Modal from 'react-modal';
-import { updateShelter } from './actions/shelter_actions';
+import { createPetImage } from './actions/pet_image_actions';
 
 
 
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   window.store = store;
-  window.updateShelter = updateShelter;
+  window.createPetImage = createPetImage;
 
 
   const root = document.getElementById('root');

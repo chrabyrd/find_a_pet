@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     resources :users
     resources :shelters
+    resources :pets
+    resources :pet_images
     resource :session, only: [:create, :destroy]
   end
 end

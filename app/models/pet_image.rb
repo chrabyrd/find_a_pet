@@ -12,4 +12,6 @@
 #
 
 class PetImage < ActiveRecord::Base
+  belongs_to :pet
+  validates :url, :pet_id, presence: true
 end

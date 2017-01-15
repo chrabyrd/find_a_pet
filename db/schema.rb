@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170113230329) do
+ActiveRecord::Schema.define(version: 20170115074449) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20170113230329) do
 
   create_table "pets", force: :cascade do |t|
     t.string   "name",        null: false
-    t.string   "type",        null: false
+    t.string   "pet_type",    null: false
     t.integer  "age",         null: false
     t.string   "breed",       null: false
     t.string   "gender",      null: false
@@ -42,14 +42,14 @@ ActiveRecord::Schema.define(version: 20170113230329) do
   add_index "pets", ["age"], name: "index_pets_on_age", using: :btree
   add_index "pets", ["breed"], name: "index_pets_on_breed", using: :btree
   add_index "pets", ["gender"], name: "index_pets_on_gender", using: :btree
+  add_index "pets", ["pet_type"], name: "index_pets_on_pet_type", using: :btree
   add_index "pets", ["shelter_id"], name: "index_pets_on_shelter_id", using: :btree
-  add_index "pets", ["type"], name: "index_pets_on_type", using: :btree
 
   create_table "shelters", force: :cascade do |t|
     t.string   "shelter_name", null: false
     t.string   "email",        null: false
     t.string   "address",      null: false
-    t.integer  "phone_number", null: false
+    t.string   "phone_number", null: false
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.integer  "user_id",      null: false
