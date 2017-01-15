@@ -1,13 +1,15 @@
 import merge from 'lodash/merge';
-import { RECEIVE_PET, REMOVE_PET, RECEIVE_ERRORS, CLEAR_ERRORS } from '../actions/pet_actions';
+import { RECEIVE_PETS, RECEIVE_PET, REMOVE_PET, RECEIVE_ERRORS, CLEAR_ERRORS } from '../actions/pet_actions';
 
 const petReducer = (state = {}, action) => {
   Object.freeze(state);
   let newState = merge({}, state);
 
   switch (action.type) {
+    case RECEIVE_PETS:
+      return action.pets;
     case RECEIVE_PET:
-      return merge({}, state, { pet: action.pet });
+      return merge({}, state, { [action.pet.id]: action.pet });
     case REMOVE_PET:
       delete newState[action.pet.id];
       return newState;

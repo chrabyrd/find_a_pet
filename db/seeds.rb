@@ -7,4 +7,10 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 User.create(username: 'Demo Account', email: 'demo@demo.demo', password: 'password')
+User.create(username: 'Richard', email: 'demo1@demo.demo', password: 'password')
+
 Shelter.create(shelter_name: 'Test Shelter', email: 'shelter@shelter.shelter', address: '123 Fake st.', phone_number: '010101', user_id: '1')
+
+
+Pet.create(name: 'Fido', pet_type:'blue', age: '3', breed: 'Husky', gender: 'M', shelter_id:'1')
+Pet.create(name: 'Fido1', pet_type:'blue1', age: '31', breed: 'Husky1', gender: 'F', shelter_id:'1')

@@ -3,6 +3,7 @@ import sessionReducer from './session_reducer';
 import userReducer from './user_reducer';
 import shelterReducer from './shelter_reducer';
 import petReducer from './pet_reducer';
+import petDetailsReducer from './pet_details_reducer';
 import petImageReducer from './pet_image_reducer';
 
 
@@ -11,5 +12,6 @@ export default combineReducers({
   users: userReducer,
   shelters: shelterReducer,
   pets: petReducer,
+  petDetails: petDetailsReducer,
   petImages: petImageReducer
 });

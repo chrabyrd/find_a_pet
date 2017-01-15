@@ -8,6 +8,10 @@ class Api::PetsController < ApplicationController
     @pet = Pet.find(params[:id])
   end
 
+  def index
+    @pets = Pet.all
+  end
+
   def create
     @pet = Pet.new(pet_params)
 

@@ -1,19 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router';
 
+import PetDetail from './pet_detail';
+
 class PetShow extends React.Component {
   constructor(props) {
     super(props);
+
+  }
+
+  componentWillMount() {
+    this.props.fetchPet(parseInt(this.props.params.petId));
   }
 
   render () {
-    const pet = this.props.pet;
 
     return (
       <div>
-        <h3>{pet.name}</h3>
-        <p>{pet.description}</p>
-        <Link to="/">Back to Index</Link>
+        <PetDetail pet={this.props.petDetails} />
+        <Link to="/pets">Back to Index</Link>
       </div>
     );
   }
