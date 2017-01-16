@@ -8,6 +8,10 @@ class Api::SheltersController < ApplicationController
     @shelter = Shelter.find(params[:id])
   end
 
+  def index
+    @shelters = Shelter.all
+  end
+
   def create
     @shelter = Shelter.new(shelter_params)
 
@@ -29,9 +33,10 @@ class Api::SheltersController < ApplicationController
   end
 
   def destroy
+    @shelters.Shelter.all
     @shelter = Shelter.find(params[:id])
     @shelter.destroy
-    # render 'api/users'
+    render 'api/shelters/index'
   end
 
   private

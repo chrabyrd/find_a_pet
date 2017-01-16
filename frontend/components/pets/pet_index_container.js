@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import PetIndex from './pet_index';
-import { fetchPets } from '../../actions/pet_actions';
+import { fetchPets, deletePet } from '../../actions/pet_actions';
 import { selectAllPets } from '../../reducers/selectors';
 
 const mapStateToProps = state => ({
@@ -8,7 +8,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchPets: () => dispatch(fetchPets())
+  fetchPets: () => dispatch(fetchPets()),
+  deletePet: (id) => dispatch(deletePet(id))
 });
 
 export default connect(

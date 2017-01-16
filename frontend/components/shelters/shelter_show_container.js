@@ -1,13 +1,14 @@
 import { connect } from 'react-redux';
 import ShelterShow from './shelter_show';
-import { fetchShelter } from '../../actions/shelter_actions';
+import { fetchShelter, deleteShelter } from '../../actions/shelter_actions';
 
-const mapStateToProps = shelter => ({
-  shelter
+const mapStateToProps = ({shelterDetails}) => ({
+  shelterDetails
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchShelter: id => dispatch(fetchShelter(id))
+  fetchShelter: id => dispatch(fetchShelter(id)),
+  deleteShelter: id => dispatch(deleteShelter(id))
 });
 
 export default connect(

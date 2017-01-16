@@ -53,13 +53,23 @@ export const createShelter = shelter => (
     data: { shelter }
   })
 );
-export const updateShelter = shelter => (
-  $.ajax({
+
+export const updateShelter = shelterWithID => {
+  const shelter = {
+    shelter_name: shelterWithID.shelter_name,
+    email: shelterWithID.email,
+    address: shelterWithID.address,
+    phone_number: shelterWithID.phone_number
+  };
+
+  return (
+    $.ajax({
     method: 'PATCH',
-    url: `./api/shelters/${shelter.id}`,
+    url: `./api/shelters/${shelterWithID.id}`,
     data: { shelter }
-  })
-);
+    })
+  );
+};
 
 export const deleteShelter = id => (
   $.ajax({

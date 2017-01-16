@@ -35,6 +35,7 @@ class PetShow extends React.Component {
         <PetFormContainer petDetails={this.props.petDetails}/>
         <PetDetail pet={this.props.petDetails} />
         <Link to="/pets">Back to Index</Link>
+        <Link to={`/shelters/${this.props.petDetails.shelter_id}`}>Back to Shelter</Link>
       </div>
     );
   }

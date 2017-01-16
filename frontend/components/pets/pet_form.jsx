@@ -5,6 +5,8 @@ class PetForm extends React.Component {
 	constructor(props) {
 		super(props);
 
+		const petStringToBoolean = (this.props.createPetForm === 'true');
+
 		this.state = {
 			name: "",
 			pet_type: "",
@@ -13,17 +15,18 @@ class PetForm extends React.Component {
 			gender: "",
 			description: "",
 			shelter_id: "",
-			createPet: false,
+			createPetForm: petStringToBoolean,
 			modalIsOpen: false
 		};
 
 		this.openModal = this.openModal.bind(this);
 		this.closeModal = this.closeModal.bind(this);
-		this.loginForm = this.loginForm.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
 	openModal() {
+		const petStringToBoolean = (this.props.createPetForm === 'true');
+
 		this.setState({
 			name: this.props.petDetails.name,
 			pet_type: this.props.petDetails.pet_type,
@@ -32,7 +35,7 @@ class PetForm extends React.Component {
 			gender: this.props.petDetails.gender,
 			description: this.props.petDetails.description || "",
 			shelter_id: this.props.petDetails.shelter_id,
-			createPet: false,
+			createPetForm: petStringToBoolean,
 			modalIsOpen: true
 		});
 }
@@ -41,65 +44,60 @@ class PetForm extends React.Component {
 		this.setState({modalIsOpen: false});
 	}
 
-	loginForm() {
-		this.setState({
-			createPet: false,
-			name: 'Demo Account',
-		});
-	}
-
 	update(field) {
 		return e => this.setState({
 			[field]: e.currentTarget.value
 		});
 	}
 
-	clear() {
-		if (this.state.username === "Demo Account") {
-			return e => this.setState({
-				name: "",
-			});
-		}
-	}
-
-	demoOrNot() {
-		return (
-			this.state.name === "Demo Account" ? "demo-input" : "user-auth-input"
-		);
-	}
-
 	handleSubmit(e) {
 		e.preventDefault();
-		const pet = {
-			name: this.state.name,
-			pet_type: this.state.pet_type,
-			age: this.state.age,
-			breed: this.state.breed,
-			gender: this.state.gender,
-			description: this.state.description,
-			id: this.props.petDetails.id,
-		};
-
-		this.props.updatePet(pet);
+		if (this.state.createPetForm) {
+			const pet = {
+				name: this.state.name,
+				pet_type: this.state.pet_type,
+				age: this.state.age,
+				breed: this.state.breed,
+				gender: this.state.gender,
+				description: this.state.description,
+				shelter_id: this.props.shelterDetails.id,
+			};
+			this.props.createPet(pet);
+		} else {
+			const pet = {
+				name: this.state.name,
+				pet_type: this.state.pet_type,
+				age: this.state.age,
+				breed: this.state.breed,
+				gender: this.state.gender,
+				description: this.state.description,
+				id: this.props.petDetails.id,
+			};
+			this.props.updatePet(pet);
+		}
+		this.closeModal();
 	}
 
 	render() {
+
 		return (
 			<div className="authentication-form-container">
 
-				<button onClick={this.openModal}>Update Info</button>
+				{this.state.createPetForm ? <button onClick={this.openModal}>
+					Create Pet</button> : <button onClick={this.openModal}>
+						Update Pet</button>}
 
 				<Modal
 					isOpen={this.state.modalIsOpen}
 					onAfterOpen={this.afterOpenModal}
 					onRequestClose={this.closeModal}
-					contentLabel="Example Modal"
+					contentLabel="Shelter Modal"
 				>
 					<form onSubmit={this.handleSubmit}
 						className="auth-form">
 
 						<div className="user-auth-title">
-							{this.state.createPet ? <h3>Create a Pet</h3> :
+							{this.state.createPetForm ? <h3>Create a Pet</h3> :
 								<h3>Update a Pet</h3>}
 						</div>
 
@@ -107,54 +105,42 @@ class PetForm extends React.Component {
 							<label>Name</label>
 							<input type="text"
 								value={this.state.name}
-								onChange={this.update("name")}
-								onFocus={this.clear()}
-								className={this.demoOrNot()} />
+								onChange={this.update("name")} />
 						</div>
 
 						<div className="user-auth-fields">
 							<label>Type</label>
 							<input type="text"
 								value={this.state.pet_type}
-								onChange={this.update("pet_type")}
-								onFocus={this.clear()}
-								className={this.demoOrNot()} />
+								onChange={this.update("pet_type")} />
 						</div>
 
 						<div className="user-auth-fields">
 							<label>Breed</label>
 							<input type="text"
 								value={this.state.breed}
-								onChange={this.update("breed")}
-								onFocus={this.clear()}
-								className={this.demoOrNot()} />
+								onChange={this.update("breed")} />
 						</div>
 
 						<div className="user-auth-fields">
 							<label>Age</label>
 							<input type="text"
 								value={this.state.age}
-								onChange={this.update("age")}
-								onFocus={this.clear()}
-								className={this.demoOrNot()} />
+								onChange={this.update("age")} />
 						</div>
 
 						<div className="user-auth-fields">
 							<label>Gender</label>
 							<input type="text"
 								value={this.state.gender}
-								onChange={this.update("gender")}
-								onFocus={this.clear()}
-								className={this.demoOrNot()} />
+								onChange={this.update("gender")} />
 						</div>
 
 						<div className="user-auth-fields">
 							<label>Description</label>
 							<input type="text"
 								value={this.state.description}
-								onChange={this.update("description")}
-								onFocus={this.clear()}
-								className={this.demoOrNot()} />
+								onChange={this.update("description")} />
 						</div>
 
 						<div className="user-auth-buttons">

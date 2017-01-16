@@ -8,6 +8,7 @@ import App from './app';
 import SessionFormContainer from './session_form/session_form_container';
 import UserShowContainer from './users/user_show_container';
 import ShelterShowContainer from './shelters/shelter_show_container';
+import ShelterIndexContainer from './shelters/shelter_index_container';
 import PetShowContainer from './pets/pet_show_container';
 import PetIndexContainer from './pets/pet_index_container';
 import PetImageShowContainer from './pets/pet_image_show_container';
@@ -26,6 +27,7 @@ const _redirectIfLoggedIn = (nextState, replace) => {
       <Router history = {hashHistory}>
         <Route path='/' component={App} />
         <Route path="/users/:userId" component={UserShowContainer} />
+        <Route path="/shelters" component={ShelterIndexContainer} />
         <Route path="/shelters/:shelterId" component={ShelterShowContainer} />
         <Route path="/pets" component={PetIndexContainer} />
         <Route path="/pets/:petId" component={PetShowContainer} />

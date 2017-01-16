@@ -10,7 +10,7 @@ class PetIndex extends Component {
     return(
       <section>
         <ul>
-          {this.props.pets.map(pet => <PetIndexItem key={`pet${pet.id}`} pet={pet} />)}
+          {this.props.pets.map(pet => <PetIndexItem key={`pet${pet.id}`} pet={pet} />)};
         </ul>
       </section>
     );
