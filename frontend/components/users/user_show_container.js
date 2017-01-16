@@ -2,8 +2,8 @@ import { connect } from 'react-redux';
 import UserShow from './user_show';
 import { fetchUser } from '../../actions/user_actions';
 
-const mapStateToProps = user => ({
-  user
+const mapStateToProps = ({session}) => ({
+  session
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -10,7 +10,7 @@ import { fetchPet } from './actions/pet_actions';
 document.addEventListener('DOMContentLoaded', () => {
   let store;
   if (window.user) {
-    const preloadedState = { session: { user: window.user, shelter: null } };
+    const preloadedState = { session: { user: window.user } };
     store = configureStore(preloadedState);
   } else {
     store = configureStore();

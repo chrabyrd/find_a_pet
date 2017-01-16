@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PetIndexItem from './pet_index_item';
+import PetIndexItemContainer from './pet_index_item_container';
 
 class PetIndex extends Component {
   componentDidMount() {
@@ -10,7 +10,7 @@ class PetIndex extends Component {
     return(
       <section>
         <ul>
-          {this.props.pets.map(pet => <PetIndexItem key={`pet${pet.id}`} pet={pet} />)};
+          {this.props.pets.map(pet => <PetIndexItemContainer key={`pet${pet.id}`} pet={pet} />)}
         </ul>
       </section>
     );

@@ -33,7 +33,7 @@ class Api::SheltersController < ApplicationController
   end
 
   def destroy
-    @shelters.Shelter.all
+    @shelters = Shelter.all
     @shelter = Shelter.find(params[:id])
     @shelter.destroy
     render 'api/shelters/index'

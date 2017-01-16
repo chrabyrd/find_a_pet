@@ -1,10 +1,10 @@
 import React from 'react';
 import HeaderContainer from './header/header_container';
 
-const App = () => (
+const App = (props) => (
   <div className="page">
     <HeaderContainer />
-    <div className="content">Content</div>
+    <div className="content">{props.children}</div>
     <div className="footer">Footer</div>
   </div>
 );

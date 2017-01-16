@@ -25,13 +25,15 @@ const _redirectIfLoggedIn = (nextState, replace) => {
   return(
     <Provider store={store}>
       <Router history = {hashHistory}>
-        <Route path='/' component={App} />
-        <Route path="/users/:userId" component={UserShowContainer} />
-        <Route path="/shelters" component={ShelterIndexContainer} />
-        <Route path="/shelters/:shelterId" component={ShelterShowContainer} />
-        <Route path="/pets" component={PetIndexContainer} />
-        <Route path="/pets/:petId" component={PetShowContainer} />
-        <Route path="/pet_images/:petImageId" component={PetImageShowContainer} />
+        <Route path='/' component={App}>
+          <IndexRoute component={PetIndexContainer} />
+          <Route path="/users/:userId" component={UserShowContainer} />
+          <Route path="/shelters" component={ShelterIndexContainer} />
+          <Route path="/shelters/:shelterId" component={ShelterShowContainer} />
+          <Route path="/pets" component={PetIndexContainer} />
+          <Route path="/pets/:petId" component={PetShowContainer} />
+          <Route path="/pet_images/:petImageId" component={PetImageShowContainer} />
+        </Route>
       </Router>
     </Provider>
   );

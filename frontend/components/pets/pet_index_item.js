@@ -5,21 +5,25 @@ class PetIndexItem extends React.Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      name: this.props.pet.name,
+      id: this.props.pet.id
+    };
+
     this.deleteCurrentPet = this.deleteCurrentPet.bind(this);
   }
 
   deleteCurrentPet() {
-    this.props.deletePet(parseInt(this.props.petDetails.id));
+    this.props.deletePet(parseInt(this.props.pet.id));
   }
 
   render () {
     return (
       <li className="pet-index-item">
-        <Link to={`/pets/${this.state.petDetails.id}`}>
-          <img src={this.state.petDetails.image_url} alt={this.state.petDetails.name} />
-          <span>{this.state.petDetails.name}</span>
-          <button onClick={this.deleteCurrentPet}>Delete Pet</button>
+        <Link to={`/pets/${this.state.id}`}>
+          <span>{this.state.name}</span>
         </Link>
+        <button onClick={this.deleteCurrentPet}>Delete Pet</button>
       </li>
     );
   }

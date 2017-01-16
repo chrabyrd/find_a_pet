@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ShelterIndexItem from './shelter_index_item';
+import ShelterIndexItemContainer from './shelter_index_item_container';
 
 class ShelterIndex extends Component {
   componentDidMount() {
@@ -10,7 +10,7 @@ class ShelterIndex extends Component {
     return(
       <section>
         <ul>
-          {this.props.shelters.map(shelter => <ShelterIndexItem key={`shelter${shelter.id}`} shelter={shelter} />)}
+          {this.props.shelters.map(shelter => <ShelterIndexItemContainer key={`shelter${shelter.id}`} shelter={shelter} />)}
         </ul>
       </section>
     );

@@ -5,30 +5,33 @@ class ShelterForm extends React.Component {
 	constructor(props) {
 		super(props);
 
+		const shelterStringToBoolean = (this.props.createShelterForm === 'true');
+
 		this.state = {
 			shelter_name: "",
 			email: "",
 			address: "",
 			phone_number: "",
 			user_id: "",
-			createShelter: false,
+			createShelterForm: shelterStringToBoolean,
 			modalIsOpen: false
 		};
 
 		this.openModal = this.openModal.bind(this);
 		this.closeModal = this.closeModal.bind(this);
-		this.loginForm = this.loginForm.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
 	openModal() {
+		const shelterStringToBoolean = (this.props.createShelterForm === 'true');
+
 		this.setState({
 			shelter_name: this.props.shelterDetails.shelter_name,
 			email: this.props.shelterDetails.email,
 			address: this.props.shelterDetails.address,
 			phone_number: this.props.shelterDetails.phone_number,
 			user_id: this.props.shelterDetails.user_id,
-			createShelter: false,
+			createShelterForm: shelterStringToBoolean,
 			modalIsOpen: true
 		});
 }
@@ -37,52 +40,46 @@ class ShelterForm extends React.Component {
 		this.setState({modalIsOpen: false});
 	}
 
-	loginForm() {
-		this.setState({
-			createShelter: false,
-			name: 'Demo Account',
-		});
-	}
-
 	update(field) {
 		return e => this.setState({
 			[field]: e.currentTarget.value
 		});
 	}
 
-	clear() {
-		if (this.state.shelter_name === "Demo Account") {
-			return e => this.setState({
-				name: "",
-			});
-		}
-	}
-
-	demoOrNot() {
-		return (
-			this.state.name === "Demo Account" ? "demo-input" : "user-auth-input"
-		);
-	}
-
 	handleSubmit(e) {
-		e.preventDefault();
-		const shelter = {
-			shelter_name: this.state.shelter_name,
-			email: this.state.email,
-			address: this.state.address,
-			phone_number: this.state.phone_number,
-			user_id: this.state.user_id,
-			id: this.props.shelterDetails.id
-		};
 
-		this.props.updateShelter(shelter);
+		e.preventDefault();
+		if (this.state.createShelterForm) {
+			const shelter = {
+				shelter_name: this.state.shelter_name,
+				email: this.state.email,
+				address: this.state.address,
+				phone_number: this.state.phone_number,
+				description: this.state.description,
+				user_id: this.props.userDetails.id,
+			};
+			this.props.createShelter(shelter);
+		} else {
+			const shelter = {
+				shelter_name: this.state.shelter_name,
+				email: this.state.email,
+				address: this.state.address,
+				phone_number: this.state.phone_number,
+				description: this.state.description,
+				id: this.props.shelterDetails.id,
+			};
+			this.props.updateShelter(shelter);
+		}
+		this.closeModal();
 	}
 
 	render() {
 		return (
 			<div className="authentication-form-container">
 
-				<button onClick={this.openModal}>Update Info</button>
+				{this.state.createShelterForm ? <button onClick={this.openModal}>
+					Create Shelter</button> : <button onClick={this.openModal}>
+						Update Shelter</button>}
 
 				<Modal
 					isOpen={this.state.modalIsOpen}
@@ -94,7 +91,7 @@ class ShelterForm extends React.Component {
 						className="auth-form">
 
 						<div className="user-auth-title">
-							{this.state.createShelter ? <h3>Create a Shelter</h3> :
+							{this.state.createShelterForm ? <h3>Create a Shelter</h3> :
 								<h3>Update a Shelter</h3>}
 						</div>
 
@@ -102,36 +99,28 @@ class ShelterForm extends React.Component {
 							<label>Name</label>
 							<input type="text"
 								value={this.state.shelter_name}
-								onChange={this.update("shelter_name")}
-								onFocus={this.clear()}
-								className={this.demoOrNot()} />
+								onChange={this.update("shelter_name")} />
 						</div>
 
 						<div className="user-auth-fields">
 							<label>Email</label>
 							<input type="text"
 								value={this.state.email}
-								onChange={this.update("email")}
-								onFocus={this.clear()}
-								className={this.demoOrNot()} />
+								onChange={this.update("email")} />
 						</div>
 
 						<div className="user-auth-fields">
 							<label>Address</label>
 							<input type="text"
 								value={this.state.address}
-								onChange={this.update("address")}
-								onFocus={this.clear()}
-								className={this.demoOrNot()} />
+								onChange={this.update("address")} />
 						</div>
 
 						<div className="user-auth-fields">
 							<label>Phone Number</label>
 							<input type="text"
 								value={this.state.phone_number}
-								onChange={this.update("phone_number")}
-								onFocus={this.clear()}
-								className={this.demoOrNot()} />
+								onChange={this.update("phone_number")} />
 						</div>
 
 						<div className="user-auth-buttons">

@@ -61,8 +61,8 @@ export const updateShelter = shelter => dispatch => (
     .then(hashHistory.push('/'))
 );
 
-export const deleteShelter = shelter => dispatch => (
-  APIUtil.deleteShelter(shelter)
-    .then(newShelter => dispatch(removeShelter(newShelter)),
+export const deleteShelter = id => dispatch => (
+  APIUtil.deleteShelter(id)
+    .then(shelter => dispatch(removeShelter(shelter)),
       err => dispatch(receiveErrors(err.responseJSON)))
 );

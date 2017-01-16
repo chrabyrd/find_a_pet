@@ -44,6 +44,7 @@ class ShelterShow extends React.Component {
         <label>Shelter Details</label>
         <ShelterDetail shelter={this.props.shelterDetails} />
         <Link to="/shelters">Back to Index</Link>
+        <Link to={`/users/${this.props.shelterDetails.user_id}`}>Back to User Account</Link>
       </div>
     );
   }

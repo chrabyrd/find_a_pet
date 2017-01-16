@@ -10,9 +10,9 @@ User.create(username: 'Demo Account', email: 'demo@demo.demo', password: 'passwo
 User.create(username: 'Richard', email: 'demo1@demo.demo', password: 'password')
 
 Shelter.create(shelter_name: 'Test Shelter', email: 'shelter@shelter.shelter', address: '123 Fake st.', phone_number: '010101', user_id: '1')
-Shelter.create(shelter_name: 'Test Shelter2', email: 'shelte2r@shelter.shelter', address: '1232 Fake st.', phone_number: '0101012', user_id: '1')
+Shelter.create(shelter_name: 'Test Shelter2', email: 'shelte2r@shelter.shelter', address: '1232 Fake st.', phone_number: '0101012', user_id: '2')
 Shelter.create(shelter_name: 'Test Shelter3', email: 'shelter3@shelter.shelter', address: '1233 Fake st.', phone_number: '0101031', user_id: '1')
 
 
 Pet.create(name: 'Fido', pet_type:'blue', age: '3', breed: 'Husky', gender: 'M', shelter_id:'1')
-Pet.create(name: 'Fido1', pet_type:'blue1', age: '31', breed: 'Husky1', gender: 'F', shelter_id:'1')
+Pet.create(name: 'Fido1', pet_type:'blue1', age: '31', breed: 'Husky1', gender: 'F', shelter_id:'2')

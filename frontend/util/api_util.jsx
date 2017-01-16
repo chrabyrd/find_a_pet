@@ -32,6 +32,28 @@ export const fetchUser = id => (
   })
 );
 
+export const updateUser = userWithID => {
+  const user = {
+    username: userWithID.username,
+    email: userWithID.email,
+  };
+
+  return (
+    $.ajax({
+    method: 'PATCH',
+    url: `./api/users/${userWithID.id}`,
+    data: { user }
+    })
+  );
+};
+
+export const deleteUser = id => (
+  $.ajax({
+    method: 'DELETE',
+    url: `./api/users/${id}`
+  })
+);
+
 // Shelters
 
 export const fetchShelters = () => (
