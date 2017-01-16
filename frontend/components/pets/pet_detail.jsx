@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 
 const PetDetail = ({ pet }) => {
+
   return (
     <div>
       <ul>
@@ -10,6 +11,7 @@ const PetDetail = ({ pet }) => {
         <li>Breed: {pet.breed}</li>
         <li>Age: {pet.age}</li>
         <li>Gender: {pet.gender}</li>
+        <li>Description: {pet.description}</li>
       </ul>
       <br/>
     </div>

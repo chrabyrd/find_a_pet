@@ -64,7 +64,7 @@ export const updateShelter = shelter => (
 export const deleteShelter = id => (
   $.ajax({
     method: 'DELETE',
-    url: `.api/shelters/${id}`
+    url: `./api/shelters/${id}`
   })
 );
 
@@ -89,18 +89,30 @@ export const createPet = pet => (
     data: { pet }
   })
 );
-export const updatePet = pet => (
-  $.ajax({
+
+export const updatePet = petWithID => {
+  const pet = {
+    name: petWithID.name,
+    pet_type: petWithID.pet_type,
+    age: petWithID.age,
+    breed: petWithID.breed,
+    gender: petWithID.gender,
+    description: petWithID.description
+  };
+
+  return (
+    $.ajax({
     method: 'PATCH',
-    url: `./api/pets/${pet.id}`,
+    url: `./api/pets/${petWithID.id}`,
     data: { pet }
-  })
-);
+    })
+  );
+};
 
 export const deletePet = id => (
   $.ajax({
     method: 'DELETE',
-    url: `.api/pets/${id}`
+    url: `./api/pets/${id}`
   })
 );
 
@@ -136,6 +148,6 @@ export const updatePetImage = pet_image => (
 export const deletePetImage = id => (
   $.ajax({
     method: 'DELETE',
-    url: `.api/pet_images/${id}`
+    url: `./api/pet_images/${id}`
   })
 );

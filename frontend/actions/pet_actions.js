@@ -2,7 +2,7 @@ import * as APIUtil from '../util/api_util';
 import { hashHistory } from 'react-router';
 
 export const RECEIVE_PET = 'RECEIVE_PET';
-export const RECEIVE_NEW_PET = 'RECEIVE_PET';
+export const RECEIVE_NEW_PET = 'RECEIVE_NEW_PET';
 export const RECEIVE_PETS = 'RECEIVE_PETS';
 export const REMOVE_PET = 'REMOVE_PET';
 export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
@@ -61,8 +61,8 @@ export const updatePet = pet => dispatch => (
     .then(hashHistory.push('/'))
 );
 
-export const deletePet = pet => dispatch => (
-  APIUtil.deletePet(pet)
-    .then(newPet => dispatch(removePet(newPet)),
+export const deletePet = id => dispatch => (
+  APIUtil.deletePet(id)
+    .then(pet => dispatch(removePet(pet)),
       err => dispatch(receiveErrors(err.responseJSON)))
 );

@@ -26,16 +26,17 @@ class Api::PetsController < ApplicationController
     @pet = Pet.find(params[:id])
 
     if @pet.update(pet_params)
-      render 'api/pets/show'
+      render "api/pets/show"
     else
       render json: @pet.errors.full_messages, status: 422
     end
   end
 
   def destroy
+    @pets = Pet.all
     @pet = Pet.find(params[:id])
     @pet.destroy
-    render 'api/shelters/show'
+    render 'api/pets/index'
   end
 
   private
