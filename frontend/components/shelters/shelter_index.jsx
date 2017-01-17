@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ShelterIndexItemContainer from './shelter_index_item_container';
+import { Link } from 'react-router';
 
-class ShelterIndex extends Component {
+class ShelterIndex extends React.Component {
   componentDidMount() {
     this.props.fetchShelters();
   }
@@ -12,6 +13,9 @@ class ShelterIndex extends Component {
         <ul>
           {this.props.shelters.map(shelter => <ShelterIndexItemContainer key={`shelter${shelter.id}`} shelter={shelter} />)}
         </ul>
+
+        <Link to="/pets">Back to Index</Link>
+
       </section>
     );
   }

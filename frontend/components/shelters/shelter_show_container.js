@@ -2,8 +2,9 @@ import { connect } from 'react-redux';
 import ShelterShow from './shelter_show';
 import { fetchShelter, deleteShelter } from '../../actions/shelter_actions';
 
-const mapStateToProps = ({shelterDetails}) => ({
-  shelterDetails
+const mapStateToProps = ({shelterDetails, session}) => ({
+  shelterDetails,
+  session
 });
 
 const mapDispatchToProps = dispatch => ({

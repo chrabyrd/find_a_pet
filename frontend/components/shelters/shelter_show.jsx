@@ -29,22 +29,33 @@ class ShelterShow extends React.Component {
     this.fetchCurrentShelter();
   }
 
-  render () {
-
+  shelterActions() {
     return (
       <div>
         <label>Actions</label>
         <ShelterFormContainer shelterDetails={this.props.shelterDetails}/>
         <button onClick={this.deleteCurrentShelter}>Delete Shelter</button>
-        <PetFormContainer shelterDetails={this.props.shelterDetails} createPetForm="true"/>
+          <PetFormContainer shelterDetails={this.props.shelterDetails} createPetForm="true"/>
+
+      </div>
+    );
+  }
+
+  render () {
+    return (
+      <div>
+
+        {(this.props.session.user.id === this.props.shelterDetails.user_id) ?
+            this.shelterActions() : "" }
 
         <label>Pets</label>
         <PetIndexContainer />
 
         <label>Shelter Details</label>
         <ShelterDetail shelter={this.props.shelterDetails} />
-        <Link to="/shelters">Back to Index</Link>
-        <Link to={`/users/${this.props.shelterDetails.user_id}`}>Back to User Account</Link>
+        <Link to="/shelters">Shelter Index</Link>
+        <br />
+        <Link to="/pets">Pet Index</Link>
       </div>
     );
   }

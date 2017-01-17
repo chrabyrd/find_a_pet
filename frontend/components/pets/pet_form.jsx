@@ -16,13 +16,15 @@ class PetForm extends React.Component {
 			description: "",
 			shelter_id: "",
 			user_id: "",
+			pet_image: "",
 			createPetForm: petStringToBoolean,
 			modalIsOpen: false
 		};
-		// debugger
+
 		this.openModal = this.openModal.bind(this);
 		this.closeModal = this.closeModal.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
+		this.cloudinate = this.cloudinate.bind(this);
 	}
 
 	componentWillReceiveProps(newProps) {
@@ -36,8 +38,8 @@ class PetForm extends React.Component {
 			gender: newProps.petDetails.gender,
 			description: newProps.petDetails.description || "",
 			shelter_id: newProps.petDetails.shelter_id,
-			createPetForm: petStringToBoolean,
 			user_id: newProps.petDetails.user_id,
+			createPetForm: petStringToBoolean,
 		});
 	}
 
@@ -57,16 +59,33 @@ class PetForm extends React.Component {
 				modalIsOpen: true,
 			});
 		}
-}
+
+	}
 
 	closeModal() {
 		this.setState({modalIsOpen: false});
+
 	}
 
 	update(field) {
 		return e => this.setState({
 			[field]: e.currentTarget.value
 		});
+	}
+
+	cloudinate(e) {
+		e.preventDefault();
+		cloudinary.openUploadWidget(
+			window.cloudinary_options,
+			(errors, imageInfo) => {
+				if (errors === null) {
+					let cloud_url = imageInfo[0].url;
+					this.setState({
+						pet_image: cloud_url
+					});
+				}
+			}
+		);
 	}
 
 	petActions() {
@@ -78,7 +97,6 @@ class PetForm extends React.Component {
 	}
 
 	handleSubmit(e) {
-		e.preventDefault();
 		if (this.state.createPetForm) {
 			const pet = {
 				name: this.state.name,
@@ -87,6 +105,7 @@ class PetForm extends React.Component {
 				breed: this.state.breed,
 				gender: this.state.gender,
 				description: this.state.description,
+				pet_image: this.state.pet_image,
 				shelter_id: this.props.shelterDetails.id,
 			};
 			this.props.createPet(pet);
@@ -98,6 +117,7 @@ class PetForm extends React.Component {
 				breed: this.state.breed,
 				gender: this.state.gender,
 				description: this.state.description,
+				pet_image: this.state.pet_image,
 				id: this.props.petDetails.id
 			};
 			this.props.updatePet(pet);
@@ -110,8 +130,7 @@ class PetForm extends React.Component {
 
 		return (
 			<div className="authentication-form-container">
-
-				{this.state.user_id === currentUser.id ? this.petActions() : ""}
+				{this.petActions()}
 
 				<Modal
 					isOpen={this.state.modalIsOpen}
@@ -126,6 +145,8 @@ class PetForm extends React.Component {
 							{this.state.createPetForm ? <h3>Create a Pet</h3> :
 								<h3>Update a Pet</h3>}
 						</div>
+
+						<button onClick={this.cloudinate}>Add Image</button>
 
 						<div className="user-auth-fields">
 							<label>Name</label>

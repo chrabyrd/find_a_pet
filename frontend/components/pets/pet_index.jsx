@@ -9,7 +9,7 @@ class PetIndex extends Component {
   render() {
     return(
       <section>
-        <ul>
+        <ul className="pet-index">
           {this.props.pets.map(pet => <PetIndexItemContainer key={`pet${pet.id}`} petDetails={pet} />)}
         </ul>
       </section>

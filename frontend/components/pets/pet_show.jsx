@@ -27,17 +27,38 @@ class PetShow extends React.Component {
     this.fetchCurrentPet();
   }
 
+  petActions() {
+    if (this.props.session.user.id === this.props.petDetails.user_id) {
+      return (
+        <div className="pet-actions">
+          <PetFormContainer />
+          <div>
+            <button onClick={this.deleteCurrentPet}>Delete Pet</button>
+          </div>
+        </div>
+      );
+    }
+  }
+
   render () {
-    console.log(this.props);
+
     return (
-      <div>
-        {(this.props.session.user.id === this.props.petDetails.user_id) ?
-          <button onClick={this.deleteCurrentPet}>Delete Pet</button> : "" }
-        <PetFormContainer />
-        <PetDetail pet={this.props.petDetails} />
-        <Link to="/pets">Back to Index</Link>
-        <br />
-        <Link to={`/shelters/${this.props.petDetails.shelter_id}`}>Shelter Page</Link>
+      <div className= "pet-show">
+
+        <div className="show-img-container">
+          {this.props.petDetails.pet_image === "" ? "" : <img src={this.props.petDetails.pet_image} alt="Pet Photo"/>  }
+        </div>
+
+        <div className="pet-detail-container">
+          <PetDetail pet={this.props.petDetails} />
+          {this.props.session.user ? this.petActions() : "" }
+
+          <div className="pet-links">
+            <Link to="/pets">Back to Index</Link>
+            <Link to={`/shelters/${this.props.petDetails.shelter_id}`}>Shelter Page</Link>
+          </div>
+        </div>
+
       </div>
     );
   }

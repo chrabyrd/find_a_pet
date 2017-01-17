@@ -22,7 +22,8 @@ class ShelterForm extends React.Component {
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
-	openModal() {
+	componentWillReceiveProps(newProps) {
+
 		const shelterStringToBoolean = (this.props.createShelterForm === 'true');
 
 		this.setState({
@@ -31,10 +32,25 @@ class ShelterForm extends React.Component {
 			address: this.props.shelterDetails.address,
 			phone_number: this.props.shelterDetails.phone_number,
 			user_id: this.props.shelterDetails.user_id,
-			createShelterForm: shelterStringToBoolean,
-			modalIsOpen: true
+			createShelterForm: shelterStringToBoolean
 		});
-}
+	}
+
+	openModal() {
+		if (this.state.createPetForm) {
+			this.setState({
+				shelter_name: "",
+				email: "",
+				address: "",
+				phone_number: "",
+				modalIsOpen: true
+			});
+		} else {
+			this.setState({
+				modalIsOpen: true
+			});
+		}
+	}
 
 	closeModal() {
 		this.setState({modalIsOpen: false});

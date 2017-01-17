@@ -5,10 +5,14 @@ class Api::PetsController < ApplicationController
   end
 
   def show
+    cloud_name = ENV['CLOUD_NAME']
+    upload_preset = ENV['UPLOAD_PRESET']
     @pet = Pet.find(params[:id])
   end
 
   def index
+    cloud_name = ENV['CLOUD_NAME']
+    upload_preset = ENV['UPLOAD_PRESET']
     @pets = Pet.all
   end
 
@@ -26,7 +30,7 @@ class Api::PetsController < ApplicationController
     @pet = Pet.find(params[:id])
 
     if @pet.update(pet_params)
-      render "api/pets/show"
+      render :show
     else
       render json: @pet.errors.full_messages, status: 422
     end
@@ -36,13 +40,13 @@ class Api::PetsController < ApplicationController
     @pets = Pet.all
     @pet = Pet.find(params[:id])
     @pet.destroy
-    render 'api/pets/index'
+    render :show
   end
 
   private
 
   def pet_params
     params.require(:pet).permit(:name, :pet_type, :age, :breed, :gender,
-                                :description, :shelter_id)
+                                :pet_image, :description, :shelter_id)
   end
 end

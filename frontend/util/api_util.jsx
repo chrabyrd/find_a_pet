@@ -129,7 +129,8 @@ export const updatePet = petWithID => {
     age: petWithID.age,
     breed: petWithID.breed,
     gender: petWithID.gender,
-    description: petWithID.description
+    description: petWithID.description,
+    pet_image: petWithID.pet_image
   };
 
   return (
