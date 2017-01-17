@@ -3,7 +3,8 @@ import { createShelter, updateShelter } from '../../actions/shelter_actions';
 import ShelterForm from './shelter_form';
 
 
-const mapStateToProps = ({ shelterDetails }) => ({
+const mapStateToProps = ({ session, shelterDetails }) => ({
+  session,
   shelterDetails
 });
 

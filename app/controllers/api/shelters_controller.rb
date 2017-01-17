@@ -42,7 +42,7 @@ class Api::SheltersController < ApplicationController
 
   def shelter_params
     params.require(:shelter).permit(
-    :shelter_name, :email, :address, :phone_number, :user_id)
+    :shelter_name, :email, :address, :phone_number, :user_id, :shelter_image)
   end
 
 end

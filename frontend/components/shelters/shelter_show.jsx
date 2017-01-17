@@ -30,32 +30,36 @@ class ShelterShow extends React.Component {
   }
 
   shelterActions() {
-    return (
-      <div>
-        <label>Actions</label>
-        <ShelterFormContainer shelterDetails={this.props.shelterDetails}/>
-        <button onClick={this.deleteCurrentShelter}>Delete Shelter</button>
+    if (this.props.session.user.id === this.props.shelterDetails.user_id) {
+      return (
+        <div className="shelter-actions">
           <PetFormContainer shelterDetails={this.props.shelterDetails} createPetForm="true"/>
+          <ShelterFormContainer shelterDetails={this.props.shelterDetails}/>
+          <button onClick={this.deleteCurrentShelter}>Delete Shelter</button>
 
-      </div>
-    );
+        </div>
+      );
+    }
   }
 
   render () {
     return (
-      <div>
+      <div className="shelter-show">
 
-        {(this.props.session.user.id === this.props.shelterDetails.user_id) ?
-            this.shelterActions() : "" }
 
-        <label>Pets</label>
+        <div className="shelter-detail-container">
+          <div className="show-img-container">
+            {this.props.shelterDetails.shelter_image === "" ? "" : <img src={this.props.shelterDetails.shelter_image} alt="Shelter Photo"/>  }
+          </div>
+          <ShelterDetail shelter={this.props.shelterDetails} />
+          { this.props.session.user ? this.shelterActions() : "" }
+        </div>
+
         <PetIndexContainer />
 
-        <label>Shelter Details</label>
-        <ShelterDetail shelter={this.props.shelterDetails} />
-        <Link to="/shelters">Shelter Index</Link>
-        <br />
-        <Link to="/pets">Pet Index</Link>
+        <div className="pet-links">
+          <Link to="/pets">Back to Index</Link>
+        </div>
       </div>
     );
   }

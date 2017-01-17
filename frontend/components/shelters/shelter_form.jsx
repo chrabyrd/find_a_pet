@@ -13,6 +13,7 @@ class ShelterForm extends React.Component {
 			address: "",
 			phone_number: "",
 			user_id: "",
+			shelter_image: "",
 			createShelterForm: shelterStringToBoolean,
 			modalIsOpen: false
 		};
@@ -20,6 +21,7 @@ class ShelterForm extends React.Component {
 		this.openModal = this.openModal.bind(this);
 		this.closeModal = this.closeModal.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
+		this.cloudinate = this.cloudinate.bind(this);
 	}
 
 	componentWillReceiveProps(newProps) {
@@ -62,6 +64,29 @@ class ShelterForm extends React.Component {
 		});
 	}
 
+	cloudinate(e) {
+		e.preventDefault();
+		cloudinary.openUploadWidget(
+			window.cloudinary_options,
+			(errors, imageInfo) => {
+				if (errors === null) {
+					let cloud_url = imageInfo[0].url;
+					this.setState({
+						shelter_image: cloud_url
+					});
+				}
+			}
+		);
+	}
+
+	shelterActions() {
+		return (
+			this.state.createShelterForm ? <button onClick={this.openModal}>
+				Create Shelter</button> : <button onClick={this.openModal}>
+					Update Shelter</button>
+		);
+	}
+
 	handleSubmit(e) {
 
 		e.preventDefault();
@@ -72,6 +97,7 @@ class ShelterForm extends React.Component {
 				address: this.state.address,
 				phone_number: this.state.phone_number,
 				description: this.state.description,
+				shelter_image: this.state.shelter_image,
 				user_id: this.props.userDetails.id,
 			};
 			this.props.createShelter(shelter);
@@ -82,6 +108,7 @@ class ShelterForm extends React.Component {
 				address: this.state.address,
 				phone_number: this.state.phone_number,
 				description: this.state.description,
+				shelter_image: this.state.shelter_image,
 				id: this.props.shelterDetails.id,
 			};
 			this.props.updateShelter(shelter);
@@ -93,9 +120,7 @@ class ShelterForm extends React.Component {
 		return (
 			<div className="authentication-form-container">
 
-				{this.state.createShelterForm ? <button onClick={this.openModal}>
-					Create Shelter</button> : <button onClick={this.openModal}>
-						Update Shelter</button>}
+				{this.shelterActions()}
 
 				<Modal
 					isOpen={this.state.modalIsOpen}
@@ -110,6 +135,8 @@ class ShelterForm extends React.Component {
 							{this.state.createShelterForm ? <h3>Create a Shelter</h3> :
 								<h3>Update a Shelter</h3>}
 						</div>
+
+						<button onClick={this.cloudinate}>Add Image</button>
 
 						<div className="user-auth-fields">
 							<label>Name</label>

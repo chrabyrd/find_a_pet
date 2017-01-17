@@ -81,7 +81,8 @@ export const updateShelter = shelterWithID => {
     shelter_name: shelterWithID.shelter_name,
     email: shelterWithID.email,
     address: shelterWithID.address,
-    phone_number: shelterWithID.phone_number
+    phone_number: shelterWithID.phone_number,
+    shelter_image: shelterWithID.shelter_image
   };
 
   return (

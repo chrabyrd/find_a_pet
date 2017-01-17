@@ -136,7 +136,7 @@ class PetForm extends React.Component {
 					isOpen={this.state.modalIsOpen}
 					onAfterOpen={this.afterOpenModal}
 					onRequestClose={this.closeModal}
-					contentLabel="Shelter Modal"
+					contentLabel="Pet Modal"
 				>
 					<form onSubmit={this.handleSubmit}
 						className="auth-form">
@@ -151,7 +151,6 @@ class PetForm extends React.Component {
 						<div className="user-auth-fields">
 							<label>Name</label>
 							<input type="text"
-								placeholder={this.state.createPetForm ? "" : this.state.name}
 								value={this.state.name}
 								onChange={this.update("name")} />
 						</div>
@@ -159,7 +158,6 @@ class PetForm extends React.Component {
 						<div className="user-auth-fields">
 							<label>Type</label>
 							<input type="text"
-								placeholder={this.state.createPetForm ? "" : this.state.pet_type}
 								value={this.state.pet_type}
 								onChange={this.update("pet_type")} />
 						</div>
@@ -167,7 +165,6 @@ class PetForm extends React.Component {
 						<div className="user-auth-fields">
 							<label>Breed</label>
 							<input type="text"
-								placeholder={this.state.createPetForm ? "" : this.state.breed}
 								value={this.state.breed}
 								onChange={this.update("breed")} />
 						</div>
@@ -175,7 +172,6 @@ class PetForm extends React.Component {
 						<div className="user-auth-fields">
 							<label>Age</label>
 							<input type="text"
-								placeholder={this.state.createPetForm ? "" : this.state.age}
 								value={this.state.age}
 								onChange={this.update("age")} />
 						</div>
@@ -183,7 +179,6 @@ class PetForm extends React.Component {
 						<div className="user-auth-fields">
 							<label>Gender</label>
 							<input type="text"
-								placeholder={this.state.createPetForm ? "" : this.state.gender}
 								value={this.state.gender}
 								onChange={this.update("gender")} />
 						</div>
@@ -191,7 +186,6 @@ class PetForm extends React.Component {
 						<div className="user-auth-fields">
 							<label>Description</label>
 							<input type="text"
-								placeholder={this.state.createPetForm ? "" : this.state.description}
 								value={this.state.description}
 								onChange={this.update("description")} />
 						</div>

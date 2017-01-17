@@ -241,8 +241,8 @@
 .pet-detail-container {
   display: flex;
   background: chocolate;
-  flex: 1 1 auto;
   flex-direction: column;
+  flex: 1 1 auto;
   height: 96%;
   margin: 5px;
   padding: 5px;
@@ -252,6 +252,7 @@
   background-color: chartreuse;
   display: flex;
   flex: 1 1 auto;
+  align-items: center;
   justify-content: space-around;
   margin: 5px;
   padding: 5px;
@@ -261,6 +262,7 @@
   background-color: salmon;
   display: flex;
   flex: 1 1 auto;
+  align-items: center;
   justify-content: space-around;
   margin: 5px;
   padding: 5px;
@@ -270,7 +272,40 @@
   background-color: plum;
   display: flex;
   flex: 1 1 auto;
+  align-items: center;
   justify-content: space-around;
+  margin: 5px;
+  padding: 5px;
+}
+
+/* Shelter Show */
+
+.shelter-detail-container {
+  display: flex;
+  background: gold;
+  flex: 1 1 auto;
+  width: 100%;
+  margin: 5px;
+  padding: 5px;
+}
+
+.shelter-show {
+  display: flex;
+  background-color: lightgreen;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  padding: 10px;
+  margin: 10px;
+}
+
+.shelter-actions {
+  background-color: violet;
+  display: flex;
+  flex: 1 1 auto;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
   margin: 5px;
   padding: 5px;
 }
