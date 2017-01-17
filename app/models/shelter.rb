@@ -14,7 +14,7 @@
 
 class Shelter < ActiveRecord::Base
   belongs_to :user
-  has_many :pets
+  has_many :pets, dependent: :destroy
 
   validates :shelter_name, :email, :address, :phone_number,
             presence: true, uniqueness: true

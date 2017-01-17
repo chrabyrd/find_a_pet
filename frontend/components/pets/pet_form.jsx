@@ -15,29 +15,48 @@ class PetForm extends React.Component {
 			gender: "",
 			description: "",
 			shelter_id: "",
+			user_id: "",
 			createPetForm: petStringToBoolean,
 			modalIsOpen: false
 		};
-
+		// debugger
 		this.openModal = this.openModal.bind(this);
 		this.closeModal = this.closeModal.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
-	openModal() {
+	componentWillReceiveProps(newProps) {
 		const petStringToBoolean = (this.props.createPetForm === 'true');
 
 		this.setState({
-			name: this.props.petDetails.name,
-			pet_type: this.props.petDetails.pet_type,
-			age: this.props.petDetails.age,
-			breed: this.props.petDetails.breed,
-			gender: this.props.petDetails.gender,
-			description: this.props.petDetails.description || "",
-			shelter_id: this.props.petDetails.shelter_id,
+			name: newProps.petDetails.name,
+			pet_type: newProps.petDetails.pet_type,
+			age: newProps.petDetails.age,
+			breed: newProps.petDetails.breed,
+			gender: newProps.petDetails.gender,
+			description: newProps.petDetails.description || "",
+			shelter_id: newProps.petDetails.shelter_id,
 			createPetForm: petStringToBoolean,
-			modalIsOpen: true
+			user_id: newProps.petDetails.user_id,
 		});
+	}
+
+	openModal() {
+		if (this.state.createPetForm) {
+			this.setState({
+				modalIsOpen: true,
+				name: "",
+				pet_type: "",
+				breed: "",
+				age: "",
+				gender: "",
+				description: "",
+			});
+		} else {
+			this.setState({
+				modalIsOpen: true,
+			});
+		}
 }
 
 	closeModal() {
@@ -48,6 +67,14 @@ class PetForm extends React.Component {
 		return e => this.setState({
 			[field]: e.currentTarget.value
 		});
+	}
+
+	petActions() {
+		return (
+			this.state.createPetForm ? <button onClick={this.openModal}>
+				Create Pet</button> : <button onClick={this.openModal}>
+					Update Pet</button>
+		);
 	}
 
 	handleSubmit(e) {
@@ -71,7 +98,7 @@ class PetForm extends React.Component {
 				breed: this.state.breed,
 				gender: this.state.gender,
 				description: this.state.description,
-				id: this.props.petDetails.id,
+				id: this.props.petDetails.id
 			};
 			this.props.updatePet(pet);
 		}
@@ -79,13 +106,12 @@ class PetForm extends React.Component {
 	}
 
 	render() {
+		const currentUser = this.props.session.user || "";
 
 		return (
 			<div className="authentication-form-container">
 
-				{this.state.createPetForm ? <button onClick={this.openModal}>
-					Create Pet</button> : <button onClick={this.openModal}>
-						Update Pet</button>}
+				{this.state.user_id === currentUser.id ? this.petActions() : ""}
 
 				<Modal
 					isOpen={this.state.modalIsOpen}
@@ -104,6 +130,7 @@ class PetForm extends React.Component {
 						<div className="user-auth-fields">
 							<label>Name</label>
 							<input type="text"
+								placeholder={this.state.createPetForm ? "" : this.state.name}
 								value={this.state.name}
 								onChange={this.update("name")} />
 						</div>
@@ -111,6 +138,7 @@ class PetForm extends React.Component {
 						<div className="user-auth-fields">
 							<label>Type</label>
 							<input type="text"
+								placeholder={this.state.createPetForm ? "" : this.state.pet_type}
 								value={this.state.pet_type}
 								onChange={this.update("pet_type")} />
 						</div>
@@ -118,6 +146,7 @@ class PetForm extends React.Component {
 						<div className="user-auth-fields">
 							<label>Breed</label>
 							<input type="text"
+								placeholder={this.state.createPetForm ? "" : this.state.breed}
 								value={this.state.breed}
 								onChange={this.update("breed")} />
 						</div>
@@ -125,6 +154,7 @@ class PetForm extends React.Component {
 						<div className="user-auth-fields">
 							<label>Age</label>
 							<input type="text"
+								placeholder={this.state.createPetForm ? "" : this.state.age}
 								value={this.state.age}
 								onChange={this.update("age")} />
 						</div>
@@ -132,6 +162,7 @@ class PetForm extends React.Component {
 						<div className="user-auth-fields">
 							<label>Gender</label>
 							<input type="text"
+								placeholder={this.state.createPetForm ? "" : this.state.gender}
 								value={this.state.gender}
 								onChange={this.update("gender")} />
 						</div>
@@ -139,6 +170,7 @@ class PetForm extends React.Component {
 						<div className="user-auth-fields">
 							<label>Description</label>
 							<input type="text"
+								placeholder={this.state.createPetForm ? "" : this.state.description}
 								value={this.state.description}
 								onChange={this.update("description")} />
 						</div>

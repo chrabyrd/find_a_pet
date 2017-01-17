@@ -12,6 +12,8 @@
 #
 
 class User < ActiveRecord::Base
+  has_many :shelters, dependent: :destroy
+  has_many :pets, through: :shelters
 
   validates :username, :email, :password_digest, :session_token, presence: true
   validates :username, :email, uniqueness: true

@@ -16,7 +16,8 @@
 
 class Pet < ActiveRecord::Base
   belongs_to :shelter
-  has_many :pet_images
+  has_one :user, through: :shelter
+  has_many :pet_images, dependent: :destroy
 
   validates :name, :pet_type, :age, :breed, :gender, presence: true
 end

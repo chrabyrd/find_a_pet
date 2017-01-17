@@ -2,8 +2,8 @@ import { connect } from 'react-redux';
 import PetIndexItem from './pet_index_item.js';
 import { deletePet } from '../../actions/pet_actions';
 
-const mapStateToProps = ({ petDetails }) => ({
-  petDetails
+const mapStateToProps = ({ session }) => ({
+  session
 });
 
 const mapDispatchToProps = dispatch => ({

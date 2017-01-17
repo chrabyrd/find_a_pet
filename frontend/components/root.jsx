@@ -12,6 +12,7 @@ import ShelterIndexContainer from './shelters/shelter_index_container';
 import PetShowContainer from './pets/pet_show_container';
 import PetIndexContainer from './pets/pet_index_container';
 import PetImageShowContainer from './pets/pet_image_show_container';
+import Welcome from './content/welcome';
 
 const Root = ({store}) => {
 
@@ -26,7 +27,7 @@ const _redirectIfLoggedIn = (nextState, replace) => {
     <Provider store={store}>
       <Router history = {hashHistory}>
         <Route path='/' component={App}>
-          <IndexRoute component={PetIndexContainer} />
+          <IndexRoute component={Welcome} />
           <Route path="/users/:userId" component={UserShowContainer} />
           <Route path="/shelters" component={ShelterIndexContainer} />
           <Route path="/shelters/:shelterId" component={ShelterShowContainer} />

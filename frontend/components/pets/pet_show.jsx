@@ -28,14 +28,16 @@ class PetShow extends React.Component {
   }
 
   render () {
-
+    console.log(this.props);
     return (
       <div>
-        <button onClick={this.deleteCurrentPet}>Delete Pet</button>
-        <PetFormContainer petDetails={this.props.petDetails}/>
+        {(this.props.session.user.id === this.props.petDetails.user_id) ?
+          <button onClick={this.deleteCurrentPet}>Delete Pet</button> : "" }
+        <PetFormContainer />
         <PetDetail pet={this.props.petDetails} />
         <Link to="/pets">Back to Index</Link>
-        <Link to={`/shelters/${this.props.petDetails.shelter_id}`}>Back to Shelter</Link>
+        <br />
+        <Link to={`/shelters/${this.props.petDetails.shelter_id}`}>Shelter Page</Link>
       </div>
     );
   }

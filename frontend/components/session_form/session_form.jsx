@@ -8,18 +8,14 @@ class SessionForm extends React.Component {
 		this.state = {
 			username: "",
 			email: "",
-			address: "",
-			phoneNumber: "",
 			password: "",
 			modalIsOpen: false,
 			signup: false,
-			shelterSignup: false
 		};
 
 		this.openModal = this.openModal.bind(this);
 		this.closeModal = this.closeModal.bind(this);
 		this.userSignupForm	= this.userSignupForm.bind(this);
-		this.shelterSignupForm	= this.shelterSignupForm.bind(this);
 		this.loginForm = this.loginForm.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
@@ -32,7 +28,6 @@ class SessionForm extends React.Component {
 		this.setState({
 			modalIsOpen: false,
 			signup: false,
-			shelterSignup: false
 		});
 		this.props.clearErrors();
 	}
@@ -40,16 +35,6 @@ class SessionForm extends React.Component {
 	userSignupForm() {
 		this.setState({
 			signup: true,
-			username: "",
-			password: ""
-		});
-		this.openModal();
-	}
-
-	shelterSignupForm() {
-		this.setState({
-			signup: true,
-			shelterSignup: true,
 			username: "",
 			password: ""
 		});
@@ -88,16 +73,7 @@ class SessionForm extends React.Component {
 
 	handleSubmit(e) {
 		e.preventDefault();
-		if (this.state.signup && this.state.shelterSignup) {
-			const shelter = {
-				shelter_name: this.state.username,
-				email: this.state.email,
-				address: this.state.address,
-				phone_number: this.state.phoneNumber,
-				password: this.state.password
-			};
-			this.props.processSignupShelter(shelter);
-		} else if (this.state.signup){
+		if (this.state.signup){
 			const user = {
 				username: this.state.username,
 				email: this.state.email,
@@ -125,30 +101,6 @@ class SessionForm extends React.Component {
 		);
 	}
 
-	addressField() {
-		return(
-			<div className="user-auth-fields">
-				<input type="text"
-					placeholder="Physical Address"
-					value={this.state.address}
-					onChange={this.update("address")}
-					className={this.demoOrNot()} />
-			</div>
-		);
-	}
-
-	phoneNumberField() {
-		return(
-			<div className="user-auth-fields">
-				<input type="integer"
-					placeholder="Phone Number"
-					value={this.state.phoneNumber}
-					onChange={this.update("phoneNumber")}
-					className={this.demoOrNot()} />
-			</div>
-		);
-	}
-
 	renderErrors() {
 		return(
 			<ul className="user-auth-errors">
@@ -171,9 +123,6 @@ class SessionForm extends React.Component {
 				<button
 					className='greeting-button'
 					onClick={this.userSignupForm}>Create User Account</button>
-				<button
-					className='greeting-button'
-					onClick={this.shelterSignupForm}>Create Shelter Account</button>
 
         <Modal
 					className="auth-modal"
@@ -184,8 +133,7 @@ class SessionForm extends React.Component {
           contentLabel="Authentication"
         >
 
-					<form onSubmit={this.handleSubmit}
-						className="auth-form">
+					<form onSubmit={this.handleSubmit} className="auth-form">
 
 						<div className="user-auth-title">
 							{this.state.signup ? <h3>Please Sign Up</h3> :
@@ -194,8 +142,7 @@ class SessionForm extends React.Component {
 
 						<div className="user-auth-fields">
 							<input type="text"
-								placeholder={this.state.shelterSignup
-									? "Shelter Name" : "Username"}
+								placeholder={"Username"}
 								value={this.state.username}
 								onChange={this.update("username")}
 								onFocus={this.clear()}
@@ -203,12 +150,6 @@ class SessionForm extends React.Component {
 						</div>
 
 						{this.state.signup ? this.emailField() : ""}
-
-						{(this.state.signup && this.state.shelterSignup)
-							 ? this.addressField() : ""}
-
-						{(this.state.signup && this.state.shelterSignup)
-							? this.phoneNumberField() : ""}
 
 						<div className="user-auth-fields">
 							<input type="password"

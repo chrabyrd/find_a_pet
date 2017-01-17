@@ -3,7 +3,8 @@ import { createPet, updatePet} from '../../actions/pet_actions';
 import PetForm from './pet_form';
 
 
-const mapStateToProps = ({ petDetails }) => ({
+const mapStateToProps = ({ session, petDetails }) => ({
+  session,
   petDetails
 });
 
