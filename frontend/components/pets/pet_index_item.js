@@ -25,16 +25,11 @@ class PetIndexItem extends React.Component {
       <div className="pet-index-item">
         <label className="pet-name">Name</label>
         <li>
-
           <Link to={`/pets/${this.state.id}`}>
             <div className="index-img-container">
               {this.props.petDetails.pet_image === "" ? "" : <img src={this.props.petDetails.pet_image} alt="Pet Photo"/>  }
             </div>
           </Link>
-
-
-          {(this.state.user_id === currentUser.id) ?
-            <button onClick={this.deleteCurrentPet}>Delete Pet</button> : "" }
         </li>
       </div>
     );

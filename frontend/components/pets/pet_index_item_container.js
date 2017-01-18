@@ -7,7 +7,6 @@ const mapStateToProps = ({ session }) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  deletePet: id => dispatch(deletePet(id)),
 });
 
 export default connect(

@@ -7,6 +7,7 @@ export const RECEIVE_SHELTERS = 'RECEIVE_SHELTERS';
 export const REMOVE_SHELTER = 'REMOVE_SHELTER';
 export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
 export const CLEAR_ERRORS = 'CLEAR_ERRORS';
+export const CLEAR_SHELTERS = 'CLEAR_SHELTERS';
 
 const receiveShelters = shelters => ({
   type: RECEIVE_SHELTERS,
@@ -35,6 +36,10 @@ const receiveErrors = errors => ({
 
 export const clearErrors = () => ({
   type: CLEAR_ERRORS,
+});
+
+export const clearShelters = () => ({
+  type: CLEAR_SHELTERS,
 });
 
 export const fetchShelters = () => dispatch => (

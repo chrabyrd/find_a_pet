@@ -77,8 +77,8 @@
  }
 
  .index-img-container {
-   max-width: 200px;
-   max-height: 200px;
+   max-width: 150px;
+   max-height: 150px;
    padding: 5px;
    margin: 5px;
    background-color: lime;
@@ -216,8 +216,6 @@
 }
 
 .pet-index-item {
-  max-width: 200px;
-  max-height: 200px;
   background-color: orange;
   margin: 5px;
   padding: 5px;
