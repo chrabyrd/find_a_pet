@@ -125,51 +125,55 @@ class ShelterForm extends React.Component {
 				{this.shelterActions()}
 
 				<Modal
+					className="auth-modal"
+					overlayClassName="auth-overlay"
 					isOpen={this.state.modalIsOpen}
 					onAfterOpen={this.afterOpenModal}
 					onRequestClose={this.closeModal}
 					contentLabel="Shelter Modal"
 				>
-					<form onSubmit={this.handleSubmit}
-						className="auth-form">
+					<form onSubmit={this.handleSubmit}>
 
 						<div className="user-auth-title">
 							{this.state.createShelterForm ? <h3>Create a Shelter</h3> :
 								<h3>Update a Shelter</h3>}
 						</div>
 
-						<button onClick={this.cloudinate}>Add Image</button>
+						<div className="auth-form">
+							<div className="user-auth-fields">
+								<label>Name</label>
+								<input type="text"
+									value={this.state.shelter_name}
+									onChange={this.update("shelter_name")} />
+							</div>
 
-						<div className="user-auth-fields">
-							<label>Name</label>
-							<input type="text"
-								value={this.state.shelter_name}
-								onChange={this.update("shelter_name")} />
+							<div className="user-auth-fields">
+								<label>Email</label>
+								<input type="text"
+									value={this.state.email}
+									onChange={this.update("email")} />
+							</div>
+
+							<div className="user-auth-fields">
+								<label>Address</label>
+								<input type="text"
+									value={this.state.address}
+									onChange={this.update("address")} />
+							</div>
+
+							<div className="user-auth-fields">
+								<label>Phone Number</label>
+								<input type="text"
+									value={this.state.phone_number}
+									onChange={this.update("phone_number")} />
+							</div>
+
+							<button onClick={this.cloudinate}>Add Image</button>
+
 						</div>
 
-						<div className="user-auth-fields">
-							<label>Email</label>
-							<input type="text"
-								value={this.state.email}
-								onChange={this.update("email")} />
-						</div>
-
-						<div className="user-auth-fields">
-							<label>Address</label>
-							<input type="text"
-								value={this.state.address}
-								onChange={this.update("address")} />
-						</div>
-
-						<div className="user-auth-fields">
-							<label>Phone Number</label>
-							<input type="text"
-								value={this.state.phone_number}
-								onChange={this.update("phone_number")} />
-						</div>
-
-						<div className="user-auth-buttons">
-							<input className="auth-submit-button" type="submit" value="Submit" autoFocus/>
+						<div className="submit-button-container">
+							<input type="submit" value="Submit" autoFocus/>
 						</div>
 
 					</form>

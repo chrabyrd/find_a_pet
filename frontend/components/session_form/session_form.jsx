@@ -1,5 +1,6 @@
 import React from 'react';
 import Modal from 'react-modal';
+import classNames from 'classNames';
 
 class SessionForm extends React.Component {
 	constructor(props) {
@@ -102,29 +103,48 @@ class SessionForm extends React.Component {
 	}
 
 	emailField() {
-		return(
-			<div className="user-auth-fields">
-				<input type="email"
-					placeholder="Email Address"
-					value={this.state.email}
-					onChange={this.update("email")} />
-			</div>
-		);
+		if (this.state.signup) {
+			return(
+				<div className="user-auth-fields">
+					<input type="email"
+						placeholder="Email Address"
+						value={this.state.email}
+						onChange={this.update("email")} />
+				</div>
+			);
+		}
+	}
+
+	photoField() {
+		if (this.state.signup) {
+			return(
+				<div className="user-auth-fields">
+					<button onClick={this.cloudinate}>Add Image</button>
+				</div>
+			);
+		}
 	}
 
 	renderErrors() {
-		return(
-			<ul className="user-auth-errors">
-				{this.props.errors.map((error, i) => (
-					<li key={`error-${i}`}>
-						{error}
-					</li>
-				))}
-			</ul>
-		);
+		if (this.props.errors[0]) {
+			return(
+				<ul className="user-auth-errors">
+					{this.props.errors.map((error, i) => (
+						<li key={`error-${i}`}>
+							{error}
+						</li>
+					))}
+				</ul>
+			);
+		}
 	}
 
 	render() {
+
+		const demoBoolean = classNames ({
+			'demo-input': this.state.username === "Demo Account"
+		});
+
 		return (
 			<div className="authentication-form-container">
 
@@ -144,38 +164,43 @@ class SessionForm extends React.Component {
           contentLabel="Authentication"
         >
 
-					<form onSubmit={this.handleSubmit} className="auth-form">
+					<form onSubmit={this.handleSubmit}>
 
 						<div className="user-auth-title">
 							{this.state.signup ? <h3>Please Sign Up</h3> :
 								<h3>Please Log In</h3>}
 						</div>
 
-						<div className="user-auth-fields">
-							<input type="text"
-								placeholder={"Username"}
-								value={this.state.username}
-								onChange={this.update("username")}
-								onFocus={this.clear()} />
+						<div className="auth-form">
+							<div className="user-auth-fields">
+								<input type="text"
+									placeholder={"Username"}
+									value={this.state.username}
+									onChange={this.update("username")}
+									className={demoBoolean}
+									onFocus={this.clear()} />
+							</div>
+
+							{this.emailField()}
+
+							<div className="user-auth-fields">
+								<input type="password"
+									placeholder="Password"
+									value={this.state.password}
+									onChange={this.update("password")}
+									className={demoBoolean}
+									onFocus={this.clear()} />
+							</div>
+
+							{this.photoField()}
+
+							{this.renderErrors()}
+
 						</div>
 
-						{this.state.signup ? this.emailField() : ""}
-
-						<div className="user-auth-fields">
-							<input type="password"
-								placeholder="Password"
-								value={this.state.password}
-								onChange={this.update("password")}
-								onFocus={this.clear()} />
+						<div className="submit-button-container">
+							<input type="submit" value="Submit" autoFocus/>
 						</div>
-
-						{this.state.signup ? <button onClick={this.cloudinate}>Add Image</button> : ""}
-
-						<div className="user-auth-buttons">
-							<input className="auth-submit-button" type="submit" value="Submit" autoFocus/>
-						</div>
-
-						{this.renderErrors()}
 
 					</form>
 				</Modal>
