@@ -20,7 +20,7 @@ class Api::PetsController < ApplicationController
     @pet = Pet.new(pet_params)
 
     if @pet.save
-      render 'api/pets/show'
+      render :show
     else
       render json: @pet.errors.full_messages, status: 422
     end

@@ -15,10 +15,10 @@ Shelter.create(shelter_name: 'Test Shelter3', email: 'shelter3@shelter.shelter',
 
 
 Pet.create(name: 'Fido', pet_type:'blue', age: '3', breed: 'Husky', gender: 'M', pet_image: "http://res.cloudinary.com/du9y1z3ol/image/upload/v1484678131/ehmiaricnitlbj4kztrv.png", shelter_id:'1')
-Pet.create(name: 'Fido1', pet_type:'blue1', age: '31', breed: 'Husky1', gender: 'F', pet_image: "http://res.cloudinary.com/du9y1z3ol/image/upload/v1484678131/ehmiaricnitlbj4kztrv.png", shelter_id:'2')
-Pet.create(name: 'Fido', pet_type:'blue', age: '3', breed: 'Husky', gender: 'M', pet_image: "http://res.cloudinary.com/du9y1z3ol/image/upload/v1484678131/ehmiaricnitlbj4kztrv.png", shelter_id:'1')
-Pet.create(name: 'Fido1', pet_type:'blue1', age: '31', breed: 'Husky1', gender: 'F', pet_image: "http://res.cloudinary.com/du9y1z3ol/image/upload/v1484678131/ehmiaricnitlbj4kztrv.png", shelter_id:'2')
-Pet.create(name: 'Fido', pet_type:'blue', age: '3', breed: 'Husky', gender: 'M', pet_image: "http://res.cloudinary.com/du9y1z3ol/image/upload/v1484678131/ehmiaricnitlbj4kztrv.png", shelter_id:'1')
+Pet.create(name: 'Sarah', pet_type:'blue1', age: '31', breed: 'Husky1', gender: 'F', pet_image: "http://res.cloudinary.com/du9y1z3ol/image/upload/v1484678131/ehmiaricnitlbj4kztrv.png", shelter_id:'2')
+Pet.create(name: 'Lucy', pet_type:'blue', age: '3', breed: 'Husky', gender: 'M', pet_image: "http://res.cloudinary.com/du9y1z3ol/image/upload/v1484678131/ehmiaricnitlbj4kztrv.png", shelter_id:'1')
+Pet.create(name: 'Ignacio', pet_type:'blue1', age: '31', breed: 'Husky1', gender: 'F', pet_image: "http://res.cloudinary.com/du9y1z3ol/image/upload/v1484678131/ehmiaricnitlbj4kztrv.png", shelter_id:'2')
+Pet.create(name: 'Dog', pet_type:'blue', age: '3', breed: 'Husky', gender: 'M', pet_image: "http://res.cloudinary.com/du9y1z3ol/image/upload/v1484678131/ehmiaricnitlbj4kztrv.png", shelter_id:'1')
 Pet.create(name: 'Fido1', pet_type:'blue1', age: '31', breed: 'Husky1', gender: 'F', pet_image: "http://res.cloudinary.com/du9y1z3ol/image/upload/v1484678131/ehmiaricnitlbj4kztrv.png", shelter_id:'2')
 Pet.create(name: 'Fido', pet_type:'blue', age: '3', breed: 'Husky', gender: 'M', pet_image: "http://res.cloudinary.com/du9y1z3ol/image/upload/v1484678131/ehmiaricnitlbj4kztrv.png", shelter_id:'1')
 Pet.create(name: 'Fido1', pet_type:'blue1', age: '31', breed: 'Husky1', gender: 'F', pet_image: "http://res.cloudinary.com/du9y1z3ol/image/upload/v1484678131/ehmiaricnitlbj4kztrv.png", shelter_id:'2')

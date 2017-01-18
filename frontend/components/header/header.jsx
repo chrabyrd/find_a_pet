@@ -4,7 +4,7 @@ import GreetingContainer from './greeting/greeting_container';
 
 const Header = () => (
   <div className="header">
-    <Link to="/pets">
+    <Link to="/">
 
       <div className="header-logo">
         <div className="header-icon">

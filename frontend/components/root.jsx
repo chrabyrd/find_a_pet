@@ -17,10 +17,10 @@ const Root = ({store}) => {
 
 const _redirectIfLoggedIn = (nextState, replace) => {
   const currentUser = store.getState().session.user;
-  if (currentUser) {
-    replace('/');
-  }
-};
+    if (currentUser) {
+      replace('/');
+    }
+  };
 
   return(
     <Provider store={store}>
@@ -29,9 +29,7 @@ const _redirectIfLoggedIn = (nextState, replace) => {
           <IndexRoute component={Welcome} />
           <Route path="/users/:userId" component={UserShowContainer} />
           <Route path="/shelters/:shelterId" component={ShelterShowContainer} />
-          <Route path="/pets" component={PetIndexContainer} />
           <Route path="/pets/:petId" component={PetShowContainer} />
-          <Route path="/pet_images/:petImageId" component={PetImageShowContainer} />
         </Route>
       </Router>
     </Provider>

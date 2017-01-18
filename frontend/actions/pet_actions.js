@@ -5,8 +5,9 @@ export const RECEIVE_PET = 'RECEIVE_PET';
 export const RECEIVE_NEW_PET = 'RECEIVE_NEW_PET';
 export const RECEIVE_PETS = 'RECEIVE_PETS';
 export const REMOVE_PET = 'REMOVE_PET';
-export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
-export const CLEAR_ERRORS = 'CLEAR_ERRORS';
+export const RECEIVE_PET_ERRORS = 'RECEIVE_PET_ERRORS';
+export const CLEAR_PET_ERRORS = 'CLEAR_PET_ERRORS';
+export const CLEAR_PETS = 'CLEAR_PETS';
 
 const receivePets = pets => ({
   type: RECEIVE_PETS,
@@ -28,41 +29,45 @@ const removePet = pet => ({
   pet
 });
 
-const receiveErrors = errors => ({
-  type: RECEIVE_ERRORS,
+const receivePetErrors = errors => ({
+  type: RECEIVE_PET_ERRORS,
   errors
 });
 
-export const clearErrors = () => ({
-  type: CLEAR_ERRORS,
+export const clearPetErrors = () => ({
+  type: CLEAR_PET_ERRORS,
+});
+
+export const clearPets = () => ({
+  type: CLEAR_PETS,
 });
 
 export const fetchPets = () => dispatch => (
   APIUtil.fetchPets()
     .then(pets => dispatch(receivePets(pets)),
-      err => dispatch(receiveErrors(err.responseJSON)))
+      err => dispatch(receivePetErrors(err.responseJSON)))
 );
 
 export const fetchPet = id => dispatch => (
   APIUtil.fetchPet(id)
     .then(newPet => dispatch(receivePet(newPet)),
-      err => dispatch(receiveErrors(err.responseJSON)))
+      err => dispatch(receivePetErrors(err.responseJSON)))
 );
 
 export const createPet = pet => dispatch => (
   APIUtil.createPet(pet)
     .then(newPet => dispatch(receivePet(newPet)),
-      err => dispatch(receiveErrors(err.responseJSON)))
+      err => dispatch(receivePetErrors(err.responseJSON)))
 );
 
 export const updatePet = pet => dispatch => (
   APIUtil.updatePet(pet)
-    .then(newPet => dispatch(receivePet(newPet)))
-    .then(hashHistory.push('/'))
+    .then(newPet => dispatch(receivePet(newPet)),
+      err => dispatch(receivePetErrors(err.responseJSON)))
 );
 
 export const deletePet = id => dispatch => (
   APIUtil.deletePet(id)
     .then(pet => dispatch(removePet(pet)),
-      err => dispatch(receiveErrors(err.responseJSON)))
+      err => dispatch(receivePetErrors(err.responseJSON)))
 );

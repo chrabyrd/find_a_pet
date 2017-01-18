@@ -27,44 +27,31 @@ class PetForm extends React.Component {
 		this.cloudinate = this.cloudinate.bind(this);
 	}
 
-	componentWillReceiveProps(newProps) {
-		const petStringToBoolean = (this.props.createPetForm === 'true');
-
-		this.setState({
-			name: newProps.petDetails.name,
-			pet_type: newProps.petDetails.pet_type,
-			age: newProps.petDetails.age,
-			breed: newProps.petDetails.breed,
-			gender: newProps.petDetails.gender,
-			description: newProps.petDetails.description || "",
-			shelter_id: newProps.petDetails.shelter_id,
-			user_id: newProps.petDetails.user_id,
-			createPetForm: petStringToBoolean,
-		});
+	componentDidMount() {
+		if (!this.state.createPetForm) {
+			this.setState({
+				name: this.props.petDetails.name,
+				pet_type: this.props.petDetails.pet_type,
+				age: this.props.petDetails.age,
+				breed: this.props.petDetails.breed,
+				gender: this.props.petDetails.gender,
+				description: this.props.petDetails.description || "",
+				shelter_id: this.props.petDetails.shelter_id,
+				user_id: this.props.petDetails.user_id,
+				pet_image: this.props.petDetails.pet_image,
+			});
+		}
 	}
 
 	openModal() {
-		if (this.state.createPetForm) {
-			this.setState({
-				modalIsOpen: true,
-				name: "",
-				pet_type: "",
-				breed: "",
-				age: "",
-				gender: "",
-				description: "",
-			});
-		} else {
-			this.setState({
-				modalIsOpen: true,
-			});
-		}
-
+		this.setState({
+			modalIsOpen: true,
+		});
+		// this.props.clearPetErrors();
 	}
 
 	closeModal() {
 		this.setState({modalIsOpen: false});
-
 	}
 
 	update(field) {
@@ -122,24 +109,30 @@ class PetForm extends React.Component {
 			};
 			this.props.updatePet(pet);
 		}
-		this.closeModal();
+		// Work-around for ? in url
+	}
+
+	renderErrors() {
+		if (this.props.errors) {
+			return(
+				<ul className="user-auth-errors">
+					{this.props.errors.map((error, i) => (
+						<li key={`error-${i}`}>
+							{error}
+						</li>
+					))}
+				</ul>
+			);
+		}
 	}
 
 	render() {
-		const currentUser = this.props.session.user || "";
-		console.log(this.props);
+		// console.log(this.props);
+		// console.log(this.state);
 		return (
 			<div className="authentication-form-container">
 				{this.petActions()}
 
-				<Modal
-					className="auth-modal"
-					overlayClassName="auth-overlay"
-					isOpen={this.state.modalIsOpen}
-					onAfterOpen={this.afterOpenModal}
-					onRequestClose={this.closeModal}
-					contentLabel="Pet Modal"
-				>
 					<form onSubmit={this.handleSubmit}>
 
 						<div className="user-auth-title">
@@ -192,6 +185,8 @@ class PetForm extends React.Component {
 
 							<button onClick={this.cloudinate}>Add Image</button>
 
+							{this.renderErrors()}
+
 						</div>
 
 						<div className="submit-button-container">
@@ -199,7 +194,6 @@ class PetForm extends React.Component {
 						</div>
 
 					</form>
-				</Modal>
 			</div>
 		);
 	}

@@ -206,7 +206,7 @@
   flex-wrap: wrap;
   background-color: pink;
   align-items: center;
-  justify-content: space-around;
+  justify-content: flex-start;
   padding: 10px;
   margin: 10px;
 }
