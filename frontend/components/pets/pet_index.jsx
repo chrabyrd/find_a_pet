@@ -33,14 +33,15 @@ class PetIndex extends Component {
 
   filterPetList() {
     const petList = this.props.pets.filter(pet => this.filterPet(pet));
-
+    // console.log(petList);
     return (
      petList.map( pet => <PetIndexItemContainer key={`pet${pet.id}`} petDetails={pet} /> )
     );
   }
 
   render() {
-
+    // console.log(this.props);
+    // console.log(this.state);
     return(
       <section>
         <ul className="pet-index">

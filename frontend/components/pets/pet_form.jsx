@@ -127,7 +127,7 @@ class PetForm extends React.Component {
 
 	render() {
 		const currentUser = this.props.session.user || "";
-
+		console.log(this.props);
 		return (
 			<div className="authentication-form-container">
 				{this.petActions()}

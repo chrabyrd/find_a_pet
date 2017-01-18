@@ -1,6 +1,6 @@
 import React from 'react';
 import Modal from 'react-modal';
-import classNames from 'classNames';
+import classNames from 'classnames';
 
 class SessionForm extends React.Component {
 	constructor(props) {
