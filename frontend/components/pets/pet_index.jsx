@@ -23,7 +23,7 @@ class PetIndex extends Component {
     });
   }
 
-  filter(pet) {
+  filterPet(pet) {
     if (pet.shelter_id === this.state.shelter_id || this.state.shelter_id === "") {
       return true;
     } else {
@@ -32,7 +32,7 @@ class PetIndex extends Component {
   }
 
   filterPetList() {
-    const petList = this.props.pets.filter(pet => this.filter(pet));
+    const petList = this.props.pets.filter(pet => this.filterPet(pet));
 
     return (
      petList.map( pet => <PetIndexItemContainer key={`pet${pet.id}`} petDetails={pet} /> )
@@ -40,8 +40,7 @@ class PetIndex extends Component {
   }
 
   render() {
-    console.log(this.props);
-    console.log(this.state);
+
     return(
       <section>
         <ul className="pet-index">

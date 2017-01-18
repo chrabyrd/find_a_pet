@@ -23,7 +23,7 @@ class PetIndexItem extends React.Component {
 
     return (
       <div className="pet-index-item">
-        <label className="pet-name">Name</label>
+        <label className="pet-name">{this.state.name}</label>
         <li>
           <Link to={`/pets/${this.state.id}`}>
             <div className="index-img-container">
