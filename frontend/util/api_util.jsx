@@ -36,6 +36,7 @@ export const updateUser = userWithID => {
   const user = {
     username: userWithID.username,
     email: userWithID.email,
+    user_image: userWithID.user_image,
   };
 
   return (

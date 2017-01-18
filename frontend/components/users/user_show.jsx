@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router';
 import UserDetail from './user_detail';
 import ShelterIndexContainer from '../shelters/shelter_index_container';
-import ShelterFormContainer from '../shelters/shelter_form_container';
 
 class UserShow extends React.Component {
   constructor(props) {
@@ -10,16 +9,24 @@ class UserShow extends React.Component {
   }
 
   render () {
+
     return (
-      <div>
+      <div className="user-show">
+        <div className="user-container">
 
-        <label>Shelters</label>
-        <ShelterIndexContainer />
-        <ShelterFormContainer userDetails={this.props.session.user} createShelterForm="true"/>
+          <div className="user-info">
+            <div className="show-img-container">
+              {this.props.session.user.user_image === "" ? "" : <img src={this.props.session.user.user_image} alt="Shelter Photo"/>  }
+            </div>
 
-        <label>User Details</label>
-        <UserDetail session={this.props.session}/>
+            <UserDetail session={this.props.session}/>
+          </div>
+
+          <ShelterIndexContainer />
+        </div>
+
         <Link to="/">Back to Index</Link>
+
       </div>
     );
   }

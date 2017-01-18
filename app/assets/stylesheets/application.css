@@ -231,6 +231,7 @@
 
 .pet-show {
   display: flex;
+  flex-direction: column;
   background-color: turquoise;
   align-items: center;
   width: 100%;
@@ -238,12 +239,20 @@
   margin: 10px;
 }
 
+.pet-container {
+  background-color: firebrick;
+  display: flex;
+  width: 98%;
+  margin: 5px;
+  padding: 5px;
+}
+
 .pet-detail-container {
   display: flex;
   background: chocolate;
   flex-direction: column;
+  justify-content: space-between;
   flex: 1 1 auto;
-  height: 96%;
   margin: 5px;
   padding: 5px;
 }
@@ -289,6 +298,38 @@
   padding: 5px;
 }
 
+.shelter-list {
+  background-color: seagreen;
+  margin: 5px;
+  padding: 5px;
+  flex: 1 1 auto;
+}
+
+.shelter-create-button-container {
+  background-color: lightcyan;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: flex-end;
+}
+
+.shelter-index-container {
+  background-color: sienna;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  margin: 5px;
+  padding: 5px;
+}
+
+.shelter-index-item {
+  background-color: indianred;
+  display: flex;
+  justify-content: space-around;
+  margin: 5px;
+  padding: 5px;
+}
+
 .shelter-show {
   display: flex;
   background-color: lightgreen;
@@ -309,6 +350,48 @@
   margin: 5px;
   padding: 5px;
 }
+
+/* User Show */
+
+.user-info {
+  background-color: tomato;
+}
+
+.user-container {
+  background-color: lightsteelblue;
+  display: flex;
+  width: 98%;
+  margin: 5px;
+  padding: 5px;
+}
+
+.user-show {
+  display: flex;
+  background-color: peru;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  padding: 5px;
+  margin: 5px;
+}
+
+.user-details {
+  background-color: yellowgreen;
+  align-items: center;
+  justify-content: space-around;
+  display: flex;
+  margin: 5px;
+  padding: 5px;
+}
+
+.user-detail-item {
+  background-color: thistle;
+  text-align: center;
+  align-self: center;
+  margin: 5px;
+  padding: 5px;
+}
+
 
 /* User Auth */
 

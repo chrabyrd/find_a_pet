@@ -43,21 +43,24 @@ class PetShow extends React.Component {
   render () {
 
     return (
-      <div className= "pet-show">
+      <div className="pet-show">
+        <div className="pet-container">
 
-        <div className="show-img-container">
-          {this.props.petDetails.pet_image === "" ? "" : <img src={this.props.petDetails.pet_image} alt="Pet Photo"/>  }
-        </div>
-
-        <div className="pet-detail-container">
-          <PetDetail pet={this.props.petDetails} />
-          {this.props.session.user ? this.petActions() : "" }
-
-          <div className="pet-links">
-            <Link to="/pets">Back to Index</Link>
-            <Link to={`/shelters/${this.props.petDetails.shelter_id}`}>Shelter Page</Link>
+          <div className="show-img-container">
+            {this.props.petDetails.pet_image === "" ? "" : <img src={this.props.petDetails.pet_image} alt="Pet Photo"/>  }
           </div>
+
+          <div className="pet-detail-container">
+            <PetDetail pet={this.props.petDetails} />
+            {this.props.session.user ? this.petActions() : "" }
+
+            <div className="pet-links">
+              <Link to={`/shelters/${this.props.petDetails.shelter_id}`}>Shelter Page</Link>
+            </div>
+          </div>
+
         </div>
+        <Link to="/pets">Back to Index</Link>
 
       </div>
     );

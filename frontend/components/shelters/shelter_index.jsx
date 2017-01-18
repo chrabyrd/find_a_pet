@@ -1,6 +1,7 @@
 import React from 'react';
 import ShelterIndexItemContainer from './shelter_index_item_container';
 import { Link } from 'react-router';
+import ShelterFormContainer from '../shelters/shelter_form_container';
 
 class ShelterIndex extends React.Component {
   componentDidMount() {
@@ -9,14 +10,17 @@ class ShelterIndex extends React.Component {
 
   render() {
     return(
-      <section>
-        <ul>
-          {this.props.shelters.map(shelter => <ShelterIndexItemContainer key={`shelter${shelter.id}`} shelter={shelter} />)}
-        </ul>
+      <div className="shelter-index-container">
 
-        <Link to="/pets">Back to Index</Link>
+        <div className="shelter-list">
+          <ul>
+            {this.props.shelters.map(shelter => <ShelterIndexItemContainer key={`shelter${shelter.id}`} shelter={shelter} />)}
+          </ul>
+        </div>
+        
+        <ShelterFormContainer userDetails={this.props.session.user} createShelterForm="true"/>
 
-      </section>
+      </div>
     );
   }
 }

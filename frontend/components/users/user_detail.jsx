@@ -4,9 +4,9 @@ import { Link } from 'react-router';
 const UserDetail = ({ session }) => {
   return (
     <div>
-      <ul>
-        <li>Name: {session.user.username}</li>
-        <li>Email: {session.user.email}</li>
+      <ul className='user-details'>
+        <li><div className='user-detail-item'>{session.user.username}</div></li>
+        <li><div className='user-detail-item'>{session.user.email}</div></li>
       </ul>
       <br/>
     </div>

@@ -5,6 +5,7 @@ import { selectAllShelters } from '../../reducers/selectors';
 
 const mapStateToProps = state => ({
   shelters: selectAllShelters(state),
+  session: state.session
 });
 
 const mapDispatchToProps = dispatch => ({

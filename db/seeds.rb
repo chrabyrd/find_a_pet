@@ -6,8 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-User.create(username: 'Demo Account', email: 'demo@demo.demo', password: 'password')
-User.create(username: 'Richard', email: 'demo1@demo.demo', password: 'password')
+User.create(username: 'Demo Account', email: 'demo@demo.demo', user_image: "http://res.cloudinary.com/du9y1z3ol/image/upload/v1484678131/ehmiaricnitlbj4kztrv.png", password: 'password')
+User.create(username: 'Richard', email: 'demo1@demo.demo', user_image: "http://res.cloudinary.com/du9y1z3ol/image/upload/v1484678131/ehmiaricnitlbj4kztrv.png", password: 'password')
 
 Shelter.create(shelter_name: 'Test Shelter', email: 'shelter@shelter.shelter', address: '123 Fake st.', phone_number: '010101', shelter_image: "http://res.cloudinary.com/du9y1z3ol/image/upload/v1484678131/ehmiaricnitlbj4kztrv.png", user_id: '1')
 Shelter.create(shelter_name: 'Test Shelter2', email: 'shelte2r@shelter.shelter', address: '1232 Fake st.', phone_number: '0101012', shelter_image: "http://res.cloudinary.com/du9y1z3ol/image/upload/v1484678131/ehmiaricnitlbj4kztrv.png", user_id: '2')

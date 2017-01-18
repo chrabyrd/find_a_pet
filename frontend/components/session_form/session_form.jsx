@@ -9,6 +9,7 @@ class SessionForm extends React.Component {
 			username: "",
 			email: "",
 			password: "",
+			user_image: "",
 			modalIsOpen: false,
 			signup: false,
 		};
@@ -18,6 +19,7 @@ class SessionForm extends React.Component {
 		this.userSignupForm	= this.userSignupForm.bind(this);
 		this.loginForm = this.loginForm.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
+		this.cloudinate = this.cloudinate.bind(this);
 	}
 
 	openModal() {
@@ -65,9 +67,18 @@ class SessionForm extends React.Component {
 		}
 	}
 
-	demoOrNot() {
-		return (
-			this.state.username === "Demo Account" ? "demo-input" : "user-auth-input"
+	cloudinate(e) {
+		e.preventDefault();
+		cloudinary.openUploadWidget(
+			window.cloudinary_options,
+			(errors, imageInfo) => {
+				if (errors === null) {
+					let cloud_url = imageInfo[0].url;
+					this.setState({
+						user_image: cloud_url
+					});
+				}
+			}
 		);
 	}
 
@@ -77,6 +88,7 @@ class SessionForm extends React.Component {
 			const user = {
 				username: this.state.username,
 				email: this.state.email,
+				user_image: this.state.user_image,
 				password: this.state.password
 			};
 			this.props.processSignUpUser(user);
@@ -95,8 +107,7 @@ class SessionForm extends React.Component {
 				<input type="email"
 					placeholder="Email Address"
 					value={this.state.email}
-					onChange={this.update("email")}
-					className={this.demoOrNot()} />
+					onChange={this.update("email")} />
 			</div>
 		);
 	}
@@ -145,8 +156,7 @@ class SessionForm extends React.Component {
 								placeholder={"Username"}
 								value={this.state.username}
 								onChange={this.update("username")}
-								onFocus={this.clear()}
-								className={this.demoOrNot()} />
+								onFocus={this.clear()} />
 						</div>
 
 						{this.state.signup ? this.emailField() : ""}
@@ -156,9 +166,10 @@ class SessionForm extends React.Component {
 								placeholder="Password"
 								value={this.state.password}
 								onChange={this.update("password")}
-								onFocus={this.clear()}
-								className={this.demoOrNot()} />
+								onFocus={this.clear()} />
 						</div>
+
+						{this.state.signup ? <button onClick={this.cloudinate}>Add Image</button> : ""}
 
 						<div className="user-auth-buttons">
 							<input className="auth-submit-button" type="submit" value="Submit" autoFocus/>

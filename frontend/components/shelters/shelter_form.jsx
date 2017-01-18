@@ -29,11 +29,11 @@ class ShelterForm extends React.Component {
 		const shelterStringToBoolean = (this.props.createShelterForm === 'true');
 
 		this.setState({
-			shelter_name: this.props.shelterDetails.shelter_name,
-			email: this.props.shelterDetails.email,
-			address: this.props.shelterDetails.address,
-			phone_number: this.props.shelterDetails.phone_number,
-			user_id: this.props.shelterDetails.user_id,
+			shelter_name: newProps.shelterDetails.shelter_name,
+			email: newProps.shelterDetails.email,
+			address: newProps.shelterDetails.address,
+			phone_number: newProps.shelterDetails.phone_number,
+			user_id: newProps.shelterDetails.user_id,
 			createShelterForm: shelterStringToBoolean
 		});
 	}
@@ -81,9 +81,11 @@ class ShelterForm extends React.Component {
 
 	shelterActions() {
 		return (
-			this.state.createShelterForm ? <button onClick={this.openModal}>
-				Create Shelter</button> : <button onClick={this.openModal}>
-					Update Shelter</button>
+			<div className="shelter-create-button-container">
+				{this.state.createShelterForm ? <button onClick={this.openModal}>
+					Create Shelter</button> : <button onClick={this.openModal}>
+						Update Shelter</button>}
+			</div>
 		);
 	}
 

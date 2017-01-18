@@ -19,7 +19,6 @@ class PetIndexItem extends React.Component {
   }
 
   render () {
-    console.log(this.props);
     const currentUser = this.props.session.user || "";
 
     return (
