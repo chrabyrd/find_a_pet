@@ -77,8 +77,8 @@
  }
 
  .index-img-container {
-   max-width: 150px;
-   max-height: 150px;
+   width: 150px;
+   height: 150px;
    padding: 5px;
    margin: 5px;
    background-color: lime;
