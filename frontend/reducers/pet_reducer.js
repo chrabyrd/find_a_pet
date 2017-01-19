@@ -3,7 +3,6 @@ import { RECEIVE_PETS, RECEIVE_PET, REMOVE_PET} from '../actions/pet_actions';
 
 const petReducer = (state = {}, action) => {
   Object.freeze(state);
-  let newState = merge({}, state);
 
   switch (action.type) {
     case RECEIVE_PETS:
@@ -11,6 +10,7 @@ const petReducer = (state = {}, action) => {
     case RECEIVE_PET:
       return merge({}, state, { [action.pet.id]: action.pet });
     case REMOVE_PET:
+      let newState = merge({}, state);
       delete newState[action.pet.id];
       return newState;
     default:

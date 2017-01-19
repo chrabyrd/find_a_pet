@@ -24,7 +24,8 @@ class SessionForm extends React.Component {
 	}
 
 	openModal() {
-	this.setState({modalIsOpen: true});
+		this.setState({modalIsOpen: true});
+		this.props.clearErrors();
 	}
 
 	closeModal() {
@@ -32,7 +33,6 @@ class SessionForm extends React.Component {
 			modalIsOpen: false,
 			signup: false,
 		});
-		this.props.clearErrors();
 	}
 
 	userSignupForm() {

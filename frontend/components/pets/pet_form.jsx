@@ -8,17 +8,7 @@ class PetForm extends React.Component {
 		const petStringToBoolean = (this.props.createPetForm === 'true');
 
 		this.state = {
-			name: "",
-			pet_type: "",
-			age: "",
-			breed: "",
-			gender: "",
-			description: "",
-			shelter_id: "",
-			user_id: "",
-			pet_image: "",
 			createPetForm: petStringToBoolean,
-			modalIsOpen: false
 		};
 
 		this.openModal = this.openModal.bind(this);
@@ -27,8 +17,29 @@ class PetForm extends React.Component {
 		this.cloudinate = this.cloudinate.bind(this);
 	}
 
-	componentDidMount() {
-		if (!this.state.createPetForm) {
+	componentWillReceiveProps (newProps) {
+		if (!newProps.errors) {
+			this.setState({
+				modalIsOpen: false
+			});
+		}
+	}
+
+	inputFieldLogic () {
+		if (this.props.createPetForm) {
+			this.setState({
+				name: "",
+				pet_type: "",
+				age: "",
+				breed: "",
+				gender: "",
+				description: "",
+				shelter_id: "",
+				user_id: "",
+				pet_image: "",
+				modalIsOpen: true
+			});
+		} else {
 			this.setState({
 				name: this.props.petDetails.name,
 				pet_type: this.props.petDetails.pet_type,
@@ -39,15 +50,14 @@ class PetForm extends React.Component {
 				shelter_id: this.props.petDetails.shelter_id,
 				user_id: this.props.petDetails.user_id,
 				pet_image: this.props.petDetails.pet_image,
+				modalIsOpen: true
 			});
 		}
 	}
 
 	openModal() {
-		this.setState({
-			modalIsOpen: true,
-		});
-		// this.props.clearPetErrors();
+		this.inputFieldLogic();
+		this.props.clearPetErrors();
 	}
 
 	closeModal() {
@@ -84,6 +94,7 @@ class PetForm extends React.Component {
 	}
 
 	handleSubmit(e) {
+		e.preventDefault();
 		if (this.state.createPetForm) {
 			const pet = {
 				name: this.state.name,
@@ -109,7 +120,6 @@ class PetForm extends React.Component {
 			};
 			this.props.updatePet(pet);
 		}
-		// Work-around for ? in url
 	}
 
 	renderErrors() {
@@ -127,12 +137,19 @@ class PetForm extends React.Component {
 	}
 
 	render() {
-		// console.log(this.props);
-		// console.log(this.state);
 		return (
 			<div className="authentication-form-container">
+
 				{this.petActions()}
 
+				<Modal
+					className="auth-modal"
+					overlayClassName="auth-overlay"
+					isOpen={this.state.modalIsOpen}
+					onAfterOpen={this.afterOpenModal}
+					onRequestClose={this.closeModal}
+					contentLabel="petModal"
+				>
 					<form onSubmit={this.handleSubmit}>
 
 						<div className="user-auth-title">
@@ -194,6 +211,7 @@ class PetForm extends React.Component {
 						</div>
 
 					</form>
+				</Modal>
 			</div>
 		);
 	}

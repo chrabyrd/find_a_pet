@@ -20,21 +20,19 @@ const defaultPet = {
 
 export default (state = defaultPet, action) => {
   Object.freeze(state);
-  let newState = merge({}, defaultPet);
-  console.log('pet-detail-reducer');
-  console.log(action);
+
   switch(action.type){
     case RECEIVE_PET:
     case RECEIVE_NEW_PET:
       return merge({}, action.pet);
     case CLEAR_PETS:
+      let newState = merge({}, defaultPet);
       newState.errors = [];
       return newState;
     case RECEIVE_PET_ERRORS:
       return merge({}, state, { errors: action.errors });
     case CLEAR_PET_ERRORS:
-      newState.errors = [];
-      return newState;
+      return Object.assign({}, state, { errors: [] });
     default:
       return state;
   }

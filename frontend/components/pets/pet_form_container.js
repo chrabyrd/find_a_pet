@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { createPet, updatePet, fetchPet, clearPetErrors } from '../../actions/pet_actions';
+import { createPet, updatePet, clearPetErrors } from '../../actions/pet_actions';
 import PetForm from './pet_form';
 
 const mapStateToProps = ({ session, petDetails }) => ({
@@ -10,7 +10,6 @@ const mapStateToProps = ({ session, petDetails }) => ({
 
 const mapDispatchToProps = (dispatch) => ({
     createPet: pet => dispatch(createPet(pet)),
-    fetchPet: id => dispatch(fetchPet(id)),
     updatePet: pet => dispatch(updatePet(pet)),
     clearPetErrors: () => dispatch(clearPetErrors()),
   });

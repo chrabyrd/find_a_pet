@@ -5,8 +5,8 @@ export const RECEIVE_SHELTER = 'RECEIVE_SHELTER';
 export const RECEIVE_NEW_SHELTER = 'RECEIVE_NEW_SHELTER';
 export const RECEIVE_SHELTERS = 'RECEIVE_SHELTERS';
 export const REMOVE_SHELTER = 'REMOVE_SHELTER';
-export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
-export const CLEAR_ERRORS = 'CLEAR_ERRORS';
+export const RECEIVE_SHELTER_ERRORS = 'RECEIVE_SHELTER_ERRORS';
+export const CLEAR_SHELTER_ERRORS = 'CLEAR_SHELTER_ERRORS';
 export const CLEAR_SHELTERS = 'CLEAR_SHELTERS';
 
 const receiveShelters = shelters => ({
@@ -29,13 +29,13 @@ const removeShelter = shelter => ({
   shelter
 });
 
-const receiveErrors = errors => ({
-  type: RECEIVE_ERRORS,
+const receiveShelterErrors = errors => ({
+  type: RECEIVE_SHELTER_ERRORS,
   errors
 });
 
-export const clearErrors = () => ({
-  type: CLEAR_ERRORS,
+export const clearShelterErrors = () => ({
+  type: CLEAR_SHELTER_ERRORS,
 });
 
 export const clearShelters = () => ({
@@ -45,29 +45,29 @@ export const clearShelters = () => ({
 export const fetchShelters = () => dispatch => (
   APIUtil.fetchShelters()
     .then(shelters => dispatch(receiveShelters(shelters)),
-      err => dispatch(receiveErrors(err.responseJSON)))
+      err => dispatch(receiveShelterErrors(err.responseJSON)))
 );
 
 export const fetchShelter = id => dispatch => (
   APIUtil.fetchShelter(id)
     .then(newShelter => dispatch(receiveShelter(newShelter)),
-      err => dispatch(receiveErrors(err.responseJSON)))
+      err => dispatch(receiveShelterErrors(err.responseJSON)))
 );
 
 export const createShelter = shelter => dispatch => (
   APIUtil.createShelter(shelter)
     .then(newShelter => dispatch(receiveShelter(newShelter)),
-      err => dispatch(receiveErrors(err.responseJSON)))
+      err => dispatch(receiveShelterErrors(err.responseJSON)))
 );
 
 export const updateShelter = shelter => dispatch => (
   APIUtil.updateShelter(shelter)
-    .then(newShelter => dispatch(receiveShelter(newShelter)))
-    .then(hashHistory.push('/'))
+    .then(newShelter => dispatch(receiveShelter(newShelter)),
+      err => dispatch(receiveShelterErrors(err.responseJSON)))
 );
 
 export const deleteShelter = id => dispatch => (
   APIUtil.deleteShelter(id)
     .then(shelter => dispatch(removeShelter(shelter)),
-      err => dispatch(receiveErrors(err.responseJSON)))
+      err => dispatch(receiveShelterErrors(err.responseJSON)))
 );

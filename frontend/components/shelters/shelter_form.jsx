@@ -8,14 +8,7 @@ class ShelterForm extends React.Component {
 		const shelterStringToBoolean = (this.props.createShelterForm === 'true');
 
 		this.state = {
-			shelter_name: "",
-			email: "",
-			address: "",
-			phone_number: "",
-			user_id: "",
-			shelter_image: "",
 			createShelterForm: shelterStringToBoolean,
-			modalIsOpen: false
 		};
 
 		this.openModal = this.openModal.bind(this);
@@ -24,34 +17,41 @@ class ShelterForm extends React.Component {
 		this.cloudinate = this.cloudinate.bind(this);
 	}
 
-	componentWillReceiveProps(newProps) {
-
-		const shelterStringToBoolean = (this.props.createShelterForm === 'true');
-
-		this.setState({
-			shelter_name: newProps.shelterDetails.shelter_name,
-			email: newProps.shelterDetails.email,
-			address: newProps.shelterDetails.address,
-			phone_number: newProps.shelterDetails.phone_number,
-			user_id: newProps.shelterDetails.user_id,
-			createShelterForm: shelterStringToBoolean
-		});
+	componentWillReceiveProps (newProps) {
+		if (!newProps.errors) {
+			this.setState({
+				modalIsOpen: false
+			});
+		}
 	}
 
-	openModal() {
-		if (this.state.createPetForm) {
+	inputFieldLogic () {
+		if (this.props.createShelterForm) {
 			this.setState({
 				shelter_name: "",
 				email: "",
 				address: "",
 				phone_number: "",
+				user_id: "",
+				shelter_image: "",
 				modalIsOpen: true
 			});
 		} else {
 			this.setState({
+				shelter_name: this.props.shelterDetails.shelter_name,
+				email: this.props.shelterDetails.email,
+				address: this.props.shelterDetails.address,
+				phone_number: this.props.shelterDetails.phone_number,
+				user_id: this.props.shelterDetails.user_id,
+				shelter_image: this.props.shelterDetails.shelter_image,
 				modalIsOpen: true
 			});
 		}
+	}
+
+	openModal() {
+		this.inputFieldLogic();
+		this.props.clearShelterErrors();
 	}
 
 	closeModal() {
@@ -90,7 +90,6 @@ class ShelterForm extends React.Component {
 	}
 
 	handleSubmit(e) {
-
 		e.preventDefault();
 		if (this.state.createShelterForm) {
 			const shelter = {
@@ -115,7 +114,20 @@ class ShelterForm extends React.Component {
 			};
 			this.props.updateShelter(shelter);
 		}
-		this.closeModal();
+	}
+
+	renderErrors() {
+		if (this.props.errors) {
+			return(
+				<ul className="user-auth-errors">
+					{this.props.errors.map((error, i) => (
+						<li key={`error-${i}`}>
+							{error}
+						</li>
+					))}
+				</ul>
+			);
+		}
 	}
 
 	render() {
@@ -130,7 +142,7 @@ class ShelterForm extends React.Component {
 					isOpen={this.state.modalIsOpen}
 					onAfterOpen={this.afterOpenModal}
 					onRequestClose={this.closeModal}
-					contentLabel="Shelter Modal"
+					contentLabel="shelterModal"
 				>
 					<form onSubmit={this.handleSubmit}>
 
@@ -169,6 +181,8 @@ class ShelterForm extends React.Component {
 							</div>
 
 							<button onClick={this.cloudinate}>Add Image</button>
+
+							{this.renderErrors()}
 
 						</div>
 
