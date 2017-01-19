@@ -42,7 +42,7 @@ class ShelterForm extends React.Component {
 				email: this.props.shelterDetails.email,
 				address: this.props.shelterDetails.address,
 				phone_number: this.props.shelterDetails.phone_number,
-				user_id: this.props.shelterDetails.user_id,
+				user_id: this.props.shelterDetails.user_id || 'http://res.cloudinary.com/du9y1z3ol/image/upload/v1484638109/site-logo.png',
 				shelter_image: this.props.shelterDetails.shelter_image,
 				modalIsOpen: true
 			});

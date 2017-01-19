@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 
 const ShelterDetail = ({ shelter }) => {
   return (
-    <div className="pet-details">
+    <div className="shelter-details">
       <ul>
         <li>Name: {shelter.shelter_name}</li>
         <li>Email: {shelter.email}</li>

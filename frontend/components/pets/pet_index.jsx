@@ -42,11 +42,11 @@ class PetIndex extends Component {
   render() {
 
     return(
-      <section>
+      <div className="pet-index-container">
         <ul className="pet-index">
           {this.filterPetList()}
         </ul>
-      </section>
+      </div>
     );
   }
 }

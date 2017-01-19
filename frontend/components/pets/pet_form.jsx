@@ -103,7 +103,7 @@ class PetForm extends React.Component {
 				breed: this.state.breed,
 				gender: this.state.gender,
 				description: this.state.description,
-				pet_image: this.state.pet_image,
+				pet_image: this.state.pet_image || 'http://res.cloudinary.com/du9y1z3ol/image/upload/v1484638109/site-logo.png',
 				shelter_id: this.props.shelterDetails.id,
 			};
 			this.props.createPet(pet);

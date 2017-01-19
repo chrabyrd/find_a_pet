@@ -15,9 +15,9 @@ import Welcome from './content/welcome';
 
 const Root = ({store}) => {
 
-const _redirectIfLoggedIn = (nextState, replace) => {
+const _redirectIfNotLoggedIn = (nextState, replace) => {
   const currentUser = store.getState().session.user;
-    if (currentUser) {
+    if (!currentUser) {
       replace('/');
     }
   };
@@ -27,7 +27,7 @@ const _redirectIfLoggedIn = (nextState, replace) => {
       <Router history = {hashHistory}>
         <Route path='/' component={App}>
           <IndexRoute component={Welcome} />
-          <Route path="/users/:userId" component={UserShowContainer} />
+          <Route path="/users/:userId" component={UserShowContainer} onEnter={_redirectIfNotLoggedIn}/>
           <Route path="/shelters/:shelterId" component={ShelterShowContainer} />
           <Route path="/pets/:petId" component={PetShowContainer} />
         </Route>

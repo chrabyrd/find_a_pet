@@ -89,7 +89,7 @@ class SessionForm extends React.Component {
 			const user = {
 				username: this.state.username,
 				email: this.state.email,
-				user_image: this.state.user_image,
+				user_image: this.state.user_image  || 'http://res.cloudinary.com/du9y1z3ol/image/upload/v1484638109/site-logo.png',
 				password: this.state.password
 			};
 			this.props.processSignUpUser(user);

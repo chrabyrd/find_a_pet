@@ -34,7 +34,6 @@ export const fetchUser = id => dispatch => (
 export const updateUser = user => dispatch => (
   APIUtil.updateUser(user)
     .then(newUser => dispatch(receiveCurrentUser(newUser)))
-    .then(hashHistory.push('/'))
 );
 
 export const deleteUser = user => dispatch => (
