@@ -5,7 +5,6 @@ import SearchBarContainer from './search_bar_container';
 
 const Header = () => (
   <div className="header">
-    <div className="header-info">
 
       <Link to="/" className="header-logo">
 
@@ -18,10 +17,8 @@ const Header = () => (
         </div>
 
       </Link>
+      <SearchBarContainer />
       <GreetingContainer />
-    </div>
-    
-    <SearchBarContainer />
   </div>
 );
 
