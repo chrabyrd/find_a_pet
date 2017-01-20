@@ -109,6 +109,10 @@
  }
 
  .show-img-container {
+   height: 500px;
+   width: 500px;
+   overflow: hidden;
+   image-resolution:
    flex: 1 1 auto;
    padding: 5px;
    margin: 5px;
@@ -121,7 +125,7 @@
  }
 
  .show-img-container > img {
-   max-width: 500px;
+   width: 100%;
    border-radius: 5px;
  }
 
@@ -409,6 +413,7 @@
 .pet-container {
   background-color: #4b3832;
   display: flex;
+  justify-content: center;
   width: 98%;
   margin: 5px;
   padding: 5px;
@@ -483,6 +488,10 @@
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
   border: 2px 0 2px 2px solid #3c2f2f;
+}
+
+.pet-shelter-link-container {
+  flex: 1 1 auto
 }
 
 .pet-shelter-link {

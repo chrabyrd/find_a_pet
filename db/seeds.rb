@@ -6,12 +6,12 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-User.create(username: 'Demo Account', email: 'demo@demo.demo', user_image: "http://res.cloudinary.com/du9y1z3ol/image/upload/v1484638109/site-logo.png", password: 'password')
+User.create(username: 'Demo Account', email: 'demo_account@demo.com', user_image: "http://res.cloudinary.com/du9y1z3ol/image/upload/v1484946606/ojfqbkgaldxeo9b8eddj.jpg", password: 'password')
 User.create(username: 'Richard', email: 'demo1@demo.demo', user_image: "http://res.cloudinary.com/du9y1z3ol/image/upload/v1484638109/site-logo.png", password: 'password')
 
-Shelter.create(shelter_name: 'Test Shelter', email: 'shelter@shelter.shelter', address: '123 Fake st.', phone_number: '010101', shelter_image: "http://res.cloudinary.com/du9y1z3ol/image/upload/v1484638109/site-logo.png", user_id: '1')
-Shelter.create(shelter_name: 'Test Shelter2', email: 'shelte2r@shelter.shelter', address: '1232 Fake st.', phone_number: '0101012', shelter_image: "http://res.cloudinary.com/du9y1z3ol/image/upload/v1484638109/site-logo.png", user_id: '2')
-Shelter.create(shelter_name: 'Test Shelter3', email: 'shelter3@shelter.shelter', address: '1233 Fake st.', phone_number: '0101031', shelter_image: "http://res.cloudinary.com/du9y1z3ol/image/upload/v1484638109/site-logo.png", user_id: '1')
+Shelter.create(shelter_name: 'Pike Animal Shelter', email: 'pike_shelter@gmail.com', address: '2141 26th Street, San Francisco CA, 94107', phone_number: '731-555-4107', shelter_image: "http://res.cloudinary.com/du9y1z3ol/image/upload/v1484946169/b9jnpvnnbxk6lce4bz0s.jpg", user_id: '1')
+Shelter.create(shelter_name: 'Tri-City Animal Shelter', email: 'TriCityShelter@yahoo.com', address: '160 Spear Street, San Francisco CA, 92408', phone_number: '615-555-7738', shelter_image: "http://res.cloudinary.com/du9y1z3ol/image/upload/v1484946281/oecojcekrcoo9xc7xnao.jpg", user_id: '1')
+Shelter.create(shelter_name: 'Happy Paws Adoption Center', email: 'happy-paws@happypaws.com', address: '1233 3rd Street, San Francisco CA, 95608', phone_number: '407-383-0430', shelter_image: "http://res.cloudinary.com/du9y1z3ol/image/upload/v1484946414/ymgvqs74dhfqmcaqaqpj.jpg", user_id: '2')
 
 
 Pet.create(name: 'Zeke', pet_type:'dog', age: '3', breed: 'Pit Bull Terrier', gender: 'Male', pet_image: "http://res.cloudinary.com/du9y1z3ol/image/upload/v1484789083/qfpycczzgszerj46d4pk.jpg", shelter_id:'1', description:"Zeke is an active and enthusiastic pup who is very people social and loves to play. This happy fellow is stunningly handsome in his brown and gray brindle coat. A family with kids 12 years and older might be fine for Zeke -- come meet him and see if it is a good fit. Zeke's adoption also includes a Welcome Home Gift Package with toys, treats and more!")

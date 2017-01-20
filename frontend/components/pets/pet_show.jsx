@@ -54,11 +54,11 @@ class PetShow extends React.Component {
           <div className="pet-detail-container">
             <PetDetail pet={this.props.petDetails} />
 
-            <Link className="pet-shelter-link" to={`/shelters/${this.props.petDetails.shelter_id}`}>
-              <div>
-                Shelter Page
-              </div>
-            </Link>
+              <Link className="pet-shelter-link" to={`/shelters/${this.props.petDetails.shelter_id}`}>
+                <div>
+                  Shelter Page
+                </div>
+              </Link>
 
             {this.props.session.user ? this.petActions() : "" }
           </div>
