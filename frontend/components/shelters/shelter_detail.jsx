@@ -10,7 +10,6 @@ const ShelterDetail = ({ shelter }) => {
         <li>Address: {shelter.address}</li>
         <li>Phone Number: {shelter.phone_number}</li>
       </ul>
-      <br/>
     </div>
   );
 };

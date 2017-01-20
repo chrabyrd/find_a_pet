@@ -4,7 +4,9 @@ import PetIndexContainer from '../pets/pet_index_container';
 
 const Welcome = () => (
   <div className="welcome-container">
-    <h2>Here are some pets in your area:</h2>
+    <div>
+      <h2>Here are some pets in your area:</h2>
+    </div>
     <div>
       <PetIndexContainer />
     </div>

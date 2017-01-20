@@ -32,9 +32,10 @@ class PetShow extends React.Component {
       return (
         <div className="pet-actions">
           <PetFormContainer />
-          <div>
-            <button onClick={this.deleteCurrentPet}>Delete Pet</button>
-          </div>
+
+        <div className="pet-delete">
+          <div className="pet-buttons" onClick={this.deleteCurrentPet}>Delete Pet</div>
+        </div>
         </div>
       );
     }
@@ -52,16 +53,18 @@ class PetShow extends React.Component {
 
           <div className="pet-detail-container">
             <PetDetail pet={this.props.petDetails} />
-            
-            <div className="pet-links">
-              <Link to={`/shelters/${this.props.petDetails.shelter_id}`}>Shelter Page</Link>
-            </div>
+
+            <Link className="pet-shelter-link" to={`/shelters/${this.props.petDetails.shelter_id}`}>
+              <div>
+                Shelter Page
+              </div>
+            </Link>
 
             {this.props.session.user ? this.petActions() : "" }
           </div>
 
         </div>
-        <Link to="/">Back to Index</Link>
+        <Link className="index-button" to="/">Back to Index</Link>
 
       </div>
     );

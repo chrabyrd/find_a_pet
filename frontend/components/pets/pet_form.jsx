@@ -87,9 +87,9 @@ class PetForm extends React.Component {
 
 	petActions() {
 		return (
-			this.state.createPetForm ? <button onClick={this.openModal}>
-				Create Pet</button> : <button onClick={this.openModal}>
-					Update Pet</button>
+			this.state.createPetForm ? <div className="pet-buttons" onClick={this.openModal}>
+				Create Pet</div> : <div className="pet-buttons" onClick={this.openModal}>
+					Update Pet</div>
 		);
 	}
 
@@ -138,7 +138,7 @@ class PetForm extends React.Component {
 
 	render() {
 		return (
-			<div className="authentication-form-container">
+			<div className="pet-form-container">
 
 				{this.petActions()}
 
@@ -200,14 +200,14 @@ class PetForm extends React.Component {
 									onChange={this.update("description")} />
 							</div>
 
-							<button onClick={this.cloudinate}>Add Image</button>
+							<button className="image-button" onClick={this.cloudinate}>Add Image</button>
 
 							{this.renderErrors()}
 
 						</div>
 
 						<div className="submit-button-container">
-							<input type="submit" value="Submit" autoFocus/>
+							<input className="submit-button" type="submit" value="Submit" autoFocus/>
 						</div>
 
 					</form>

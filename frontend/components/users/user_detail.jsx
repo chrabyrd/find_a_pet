@@ -3,10 +3,10 @@ import { Link } from 'react-router';
 
 const UserDetail = ({ session }) => {
   return (
-    <div>
+    <div className="user-details-container">
       <ul className='user-details'>
-        <li><div className='user-detail-item'>{session.user.username}</div></li>
-        <li><div className='user-detail-item'>{session.user.email}</div></li>
+        <li>{session.user.username}</li>
+        <li>{session.user.email}</li>
       </ul>
       <br/>
     </div>

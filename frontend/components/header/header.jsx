@@ -1,22 +1,27 @@
 import React from 'react';
 import { Link } from 'react-router';
 import GreetingContainer from './greeting/greeting_container';
+import SearchBarContainer from './search_bar_container';
 
 const Header = () => (
   <div className="header">
-    <Link to="/" className="header-logo">
+    <div className="header-info">
 
-      <div className="header-icon">
-        <img className="header-icon-image" src={'assets/header-icon.png'} />
-      </div>
+      <Link to="/" className="header-logo">
 
-      <div className="header-title">
-        <h2>Find A Pet!</h2>
-      </div>
+        <div className="header-icon">
+          <img className="header-icon-image" src={'assets/header-icon.png'} />
+        </div>
 
-    </Link>
+        <div className="header-title">
+          <h2>Find A Pet!</h2>
+        </div>
 
-    <GreetingContainer />
+      </Link>
+      <GreetingContainer />
+    </div>
+    
+    <SearchBarContainer />
   </div>
 );
 

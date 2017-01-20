@@ -35,7 +35,7 @@ class Api::SheltersController < ApplicationController
   def destroy
     @shelter = Shelter.find(params[:id])
     @shelter.destroy
-    render json: @shelter
+    render 'json: @shelter'
   end
 
   private

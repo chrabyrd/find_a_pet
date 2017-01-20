@@ -81,11 +81,9 @@ class ShelterForm extends React.Component {
 
 	shelterActions() {
 		return (
-			<div className="shelter-create-button-container">
-				{this.state.createShelterForm ? <button onClick={this.openModal}>
-					Create Shelter</button> : <button onClick={this.openModal}>
-						Update Shelter</button>}
-			</div>
+				this.state.createShelterForm ? <button className="shelter-actions" onClick={this.openModal}>
+					Create Shelter</button> : <button className="shelter-actions" onClick={this.openModal}>
+						Update Shelter</button>
 		);
 	}
 
@@ -132,7 +130,7 @@ class ShelterForm extends React.Component {
 
 	render() {
 		return (
-			<div className="authentication-form-container">
+			<div className="shelter-form-container">
 
 				{this.shelterActions()}
 
@@ -180,14 +178,14 @@ class ShelterForm extends React.Component {
 									onChange={this.update("phone_number")} />
 							</div>
 
-							<button onClick={this.cloudinate}>Add Image</button>
+							<button className="image-button" onClick={this.cloudinate}>Add Image</button>
 
 							{this.renderErrors()}
 
 						</div>
 
 						<div className="submit-button-container">
-							<input type="submit" value="Submit" autoFocus/>
+							<input className="submit-button" type="submit" value="Submit" autoFocus/>
 						</div>
 
 					</form>

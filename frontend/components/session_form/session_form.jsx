@@ -119,7 +119,7 @@ class SessionForm extends React.Component {
 		if (this.state.signup) {
 			return(
 				<div className="user-auth-fields">
-					<button onClick={this.cloudinate}>Add Image</button>
+					<button className="image-button" onClick={this.cloudinate}>Add Image</button>
 				</div>
 			);
 		}
@@ -146,7 +146,7 @@ class SessionForm extends React.Component {
 		});
 
 		return (
-			<div className="authentication-form-container">
+			<div className="auth-form-container">
 
 				<button
 					className='greeting-button'
@@ -199,7 +199,7 @@ class SessionForm extends React.Component {
 						</div>
 
 						<div className="submit-button-container">
-							<input type="submit" value="Submit" autoFocus/>
+							<input className="search-button" type="submit" value="Submit" autoFocus/>
 						</div>
 
 					</form>

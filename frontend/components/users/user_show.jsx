@@ -25,7 +25,7 @@ class UserShow extends React.Component {
           <ShelterIndexContainer />
         </div>
 
-        <Link to="/">Back to Index</Link>
+        <Link className="index-button" to="/">Back to Index</Link>
 
       </div>
     );

@@ -32,10 +32,10 @@ class ShelterShow extends React.Component {
   shelterActions() {
     if (this.props.session.user.id === this.props.shelterDetails.user_id) {
       return (
-        <div className="shelter-actions">
+        <div className="shelter-actions-container">
           <PetFormContainer shelterDetails={this.props.shelterDetails} createPetForm="true"/>
           <ShelterFormContainer shelterDetails={this.props.shelterDetails}/>
-          <button onClick={this.deleteCurrentShelter}>Delete Shelter</button>
+          <button className="shelter-delete" onClick={this.deleteCurrentShelter}>Delete Shelter</button>
 
         </div>
       );
@@ -51,7 +51,7 @@ class ShelterShow extends React.Component {
             {this.props.shelterDetails.shelter_image === "" ? "" : <img src={this.props.shelterDetails.shelter_image} alt="Shelter Photo"/>  }
           </div>
 
-          <div className="shelter-actions-container">
+          <div className="shelter-info-container">
             <ShelterDetail shelter={this.props.shelterDetails} />
             { this.props.session.user ? this.shelterActions() : "" }
           </div>
@@ -60,7 +60,7 @@ class ShelterShow extends React.Component {
         <PetIndexContainer />
 
         <div className="pet-links">
-          <Link to="/">Back to Index</Link>
+          <Link className="index-button" to="/">Back to Index</Link>
         </div>
       </div>
     );

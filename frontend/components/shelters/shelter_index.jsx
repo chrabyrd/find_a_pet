@@ -34,7 +34,8 @@ class ShelterIndex extends React.Component {
     return(
       <div className="shelter-index-container">
 
-        <div className="shelter-list">
+        <div className="shelter-index">
+          <div className="shelter-index-title">Shelters You're Assisting</div>
           <ul>
             {this.filterShelterList()}
           </ul>

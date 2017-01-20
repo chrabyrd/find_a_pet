@@ -6,14 +6,13 @@ class SearchBar extends React.Component {
     super(props);
 
     this.state = {
-      "name": ""
+      name: ""
     };
 
     this.update = this.update.bind(this);
   }
 
   update(field) {
-    console.log(this.state);
     return (e) => this.setState({
       [field]: e.currentTarget.value
     });
@@ -28,16 +27,16 @@ class SearchBar extends React.Component {
 
     const listStyles = {
       pet: {
-        padding: '2px 6px',
+        padding: '10px',
+        background: '#fff4e6',
         cursor: 'default'
       },
 
       highlightedItem: {
-        color: 'white',
-        background: 'blue',
-        padding: '2px 6px',
-        cursor: 'default'
-      }
+        color: '#fff4e6',
+        background: '#854442',
+        padding: '10px',
+        cursor: 'default',      }
     };
 
     return (
@@ -60,26 +59,51 @@ class SearchBar extends React.Component {
     const matchName = (petName, value) => {
       // console.log(this.props);
       // console.log(petName);
-      console.log(this.state);
+      // console.log(this.state);
       // console.log(value);
       return petName.toLowerCase().indexOf(value.toLowerCase()) !== -1;
     };
 
+    console.log(this.state);
+    console.log(this.uniqueNameList());
     return (
       <div className="search-bar">
         <form onSubmit={this.handleSubmit}>
+          <input className="search-button" type="submit" value="Search" autoFocus/>
+
           <AutoComplete
             items={this.uniqueNameList()}
-            inputProps={{name: 'name'}}
-            getItemValue={(pet) => pet.name}
-            shouldItemRender={matchName}
+            getItemValue={(item) => item}
+            inputProps={{placeholder: "Type"}}
             renderItem={this.handleRenderItem.bind(this)}
-            onChange={this.update('name')}
-            onSelect={this.update('name')}
             value={this.state.name}
+            shouldItemRender={matchName}
+            onChange={this.update('name')}
+            onSelect={state => {this.setState({name: state});}}
             />
 
-          <input className="search-button" type="submit" value="Submit" autoFocus/>
+          <AutoComplete
+            items={this.uniqueNameList()}
+            getItemValue={(item) => item}
+            inputProps={{placeholder: "Breed"}}
+            renderItem={this.handleRenderItem.bind(this)}
+            value={this.state.name}
+            shouldItemRender={matchName}
+            onChange={this.update('name')}
+            onSelect={state => {this.setState({name: state});}}
+            />
+
+          <AutoComplete
+            items={this.uniqueNameList()}
+            getItemValue={(item) => item}
+            inputProps={{placeholder: "Gender"}}
+            renderItem={this.handleRenderItem.bind(this)}
+            value={this.state.name}
+            shouldItemRender={matchName}
+            onChange={this.update('name')}
+            onSelect={state => {this.setState({name: state});}}
+            />
+
 
         </form>
       </div>

@@ -24,14 +24,16 @@ class ShelterIndexItem extends React.Component {
     const currentUser = this.props.session.user || "";
 
     return (
-      <Link to={`/shelters/${this.state.id}`}>
-      <li className="shelter-index-item">
-          <span>{this.state.name}</span>
-          <span>{this.state.address}</span>
-        {(this.state.user_id === currentUser.id) ?
-        <button onClick={this.deleteCurrentShelter}>Delete Shelter</button> : ""}
-      </li>
-    </Link>
+      <div className="shelter-index-item-container" >
+        <Link to={`/shelters/${this.state.id}`}>
+          <li className="shelter-index-item">
+            <div>{this.state.name}</div>
+            <div>{this.state.address}</div>
+            {(this.state.user_id === currentUser.id) ?
+              <button className="shelter-buttons" onClick={this.deleteCurrentShelter}>Delete Shelter</button> : ""}
+              </li>
+            </Link>
+      </div>
     );
   }
 }
