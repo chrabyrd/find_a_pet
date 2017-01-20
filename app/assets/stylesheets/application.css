@@ -78,10 +78,6 @@
    outline: none;
  }
 
- img {
-   max-width:100%;
- }
-
  body {
    background-color: #3c2f2f;
    color: #3c2f2f;
@@ -101,7 +97,6 @@
  .index-img-container {
    width: 175px;
    height: 175px;
-   background-color: #fff4e6;
    overflow: hidden;
    display: flex;
    justify-content: center;
@@ -110,7 +105,6 @@
 
  .index-img-container > img {
    width: 100%;
-   border: 1px solid #3c2f2f;
    border-radius: 5px;
  }
 
@@ -130,7 +124,6 @@
 
  .show-img-container > img {
    width: 100%;
-   border: 1px solid #3c2f2f;
    border-radius: 5px;
  }
 
@@ -150,7 +143,7 @@
    display: flex;
    flex-direction: column;
    align-items: center;
-   background: linear-gradient(#fff4e6, #be9b7b);
+   background: linear-gradient(#fff4e6, #be9b7b, #4b3832);
    flex: 1 0 auto;
    margin: 0 10px;
    padding: 0 10px;
@@ -162,7 +155,7 @@
  .content {
    width: 92.5%;
    display: flex;
-   background-color: #fff4e6;
+   background: linear-gradient(#fff4e6, #be9b7b, #4b3832);
    align-items: center;
    flex: 1 0 auto;
    margin: 0 10px;
@@ -184,7 +177,7 @@
 
  .index-button {
    color: #3c2f2f;
-   background-color: #fff4e6;
+   background: linear-gradient(#fff4e6, #be9b7b);
    text-transform: uppercase;
    letter-spacing: 2px;
    font-size: 12px;
@@ -200,7 +193,7 @@
  }
 
  .index-button:hover {
-   background-color: #854442;
+   background: linear-gradient(#be9b7b, #4b3832);
    cursor: pointer;
  }
 
@@ -262,18 +255,15 @@
   flex: 6 6 auto;
   padding: 5px;
   margin: 5px;
-  font-size: 40px;
+  text-shadow: 2px 2px #fff4e6;
+  font-size: 45px;
   color: #3c2f2f;
   font-weight: bold;
 }
 
-.header-logo:hover {
-  color:#fff4e6;
-}
-
 .header-icon {
-  max-width: 50px;
-  max-height: 50px;
+  max-width: 75px;
+  max-height: 75px;
   margin: 5px;
   padding: 5px;
 }
@@ -292,7 +282,7 @@
 
 .greeting-button {
   color: #3c2f2f;
-  background-color: #fff4e6;
+  background: linear-gradient(#fff4e6, #be9b7b);
   text-transform: uppercase;
   border: 1px solid #3c2f2f;
   letter-spacing: 2px;
@@ -303,7 +293,7 @@
 }
 
 .greeting-button:hover {
-  background-color: #854442;
+  background: linear-gradient(#be9b7b, #4b3832);
   border-color: rgba(0,0,0,0.5);
   cursor: pointer;
 }
@@ -324,11 +314,14 @@
   border-bottom: none;
   vertical-align: middle;
   align-items: center;
+  padding: 10px;
+  margin: 5px 5px 0 5px;
+  background: linear-gradient(#fff4e6, #be9b7b, #4b3832);
 }
 
 .search-button {
   color: #3c2f2f;
-  background-color: #fff4e6;
+  background: linear-gradient(#fff4e6, #be9b7b);
   text-transform: uppercase;
   letter-spacing: 2px;
   font-size: 12px;
@@ -341,13 +334,8 @@
 }
 
 .search-button:hover {
-  background-color: #854442;
+  background: linear-gradient(#be9b7b, #4b3832);
   border-color: rgba(0,0,0,0.5);
-}
-
-.search-button:active {
-  background-color: #CCC;
-  border-color: rgba(0,0,0,0.9);
 }
 
 /* Welcome Page*/
@@ -363,7 +351,7 @@
 /* Pet Index */
 
 .pet-index-container {
-  background-color: #be9b7b;
+  background: linear-gradient(#be9b7b, #4b3832);
   display: flex;
   padding: 10px;
   margin: 10px;
@@ -385,7 +373,7 @@
 
 .pet-name {
   position: absolute;
-  background: #be9b7b;
+  background: linear-gradient(#fff4e6, #be9b7b);
   opacity: .6;
   border: 1px solid #3c2f2f;
   border-radius: 5px;
@@ -426,11 +414,6 @@
   border-radius: 5px;
 }
 
-.pet-show-index-link {
-  margin: 5px;
-  padding: 5px;
-}
-
 .pet-container {
   background-color: #4b3832;
   display: flex;
@@ -465,6 +448,7 @@
   justify-content: center;
   border-radius: 5px;
   border: 2px solid #3c2f2f;
+  background-color: #be9b7b;
 }
 
 .pet-form-interior {
@@ -682,7 +666,7 @@
 /* Shelter Index */
 
 .shelter-index-container {
-  background-color: #4b3832;
+  background: linear-gradient(#4b3832, #3c2f2f);
   display: flex;
   flex-direction: column;
   flex: 1 1 auto;
@@ -693,7 +677,7 @@
 }
 
 .shelter-index {
-  background-color: #fff4e6;
+  background: linear-gradient(#fff4e6, #be9b7b);
   border-radius: 5px;
   border: 2px solid #3c2f2f;
   margin: 5px;
@@ -733,7 +717,7 @@
 }
 
 .shelter-index-item {
-  background-color: #fff4e6;
+  background: linear-gradient(#fff4e6, #be9b7b);
   display: flex;
   align-items: center;
   border-radius: 5px;
@@ -744,7 +728,7 @@
 }
 
 .shelter-index-item:hover {
-  background-color: #854442;
+  background: linear-gradient(#be9b7b, #4b3832);
 }
 
 .shelter-index-item > div {
@@ -758,7 +742,6 @@
 }
 
 .shelter-buttons {
-  color: #3c2f2f;
   background-color: #fff4e6;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -784,7 +767,7 @@
 .user-info {
   display: flex;
   flex-direction: column;
-  background-color: #4b3832;
+  background: linear-gradient(#4b3832, #3c2f2f);
   justify-content: space-between;
   vertical-align: middle;
   border: 2px solid #3c2f2f;
@@ -796,7 +779,7 @@
 .user-details-container {
   display: flex;
   justify-content: center;
-  background-color: #fff4e6;
+  background: linear-gradient(#fff4e6, #be9b7b);
   border: 2px solid #3c2f2f;
   border-radius: 5px;
   margin: 5px;

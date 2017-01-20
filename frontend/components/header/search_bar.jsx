@@ -6,7 +6,9 @@ class SearchBar extends React.Component {
     super(props);
 
     this.state = {
-      name: ""
+      pet_type: "",
+      breed: "",
+      gender: "",
     };
 
     this.update = this.update.bind(this);
@@ -48,62 +50,55 @@ class SearchBar extends React.Component {
     );
   }
 
-  uniqueNameList () {
+  uniqueTypeList (input) {
     return (
-      $.uniqueSort(this.props.pets.map((pet) => pet.name))
+      $.uniqueSort(this.props.pets.map((pet) => pet[input]))
     );
   }
 
   render () {
 
-    const matchName = (petName, value) => {
-      // console.log(this.props);
-      // console.log(petName);
-      // console.log(this.state);
-      // console.log(value);
-      return petName.toLowerCase().indexOf(value.toLowerCase()) !== -1;
+    const matchField = (field, value) => {
+      return field.toLowerCase().indexOf(value.toLowerCase()) !== -1;
     };
 
-    console.log(this.state);
-    console.log(this.uniqueNameList());
     return (
       <div className="search-bar">
         <form onSubmit={this.handleSubmit}>
           <input className="search-button" type="submit" value="Search" autoFocus/>
 
           <AutoComplete
-            items={this.uniqueNameList()}
+            items={this.uniqueTypeList('pet_type')}
             getItemValue={(item) => item}
             inputProps={{placeholder: "Type"}}
             renderItem={this.handleRenderItem.bind(this)}
-            value={this.state.name}
-            shouldItemRender={matchName}
-            onChange={this.update('name')}
-            onSelect={state => {this.setState({name: state});}}
+            value={this.state.pet_type}
+            shouldItemRender={matchField}
+            onChange={this.update('pet_type')}
+            onSelect={state => {this.setState({pet_type: state});}}
             />
 
           <AutoComplete
-            items={this.uniqueNameList()}
+            items={this.uniqueTypeList('breed')}
             getItemValue={(item) => item}
             inputProps={{placeholder: "Breed"}}
             renderItem={this.handleRenderItem.bind(this)}
-            value={this.state.name}
-            shouldItemRender={matchName}
-            onChange={this.update('name')}
-            onSelect={state => {this.setState({name: state});}}
+            value={this.state.breed}
+            shouldItemRender={matchField}
+            onChange={this.update('breed')}
+            onSelect={state => {this.setState({breed: state});}}
             />
 
           <AutoComplete
-            items={this.uniqueNameList()}
+            items={this.uniqueTypeList('gender')}
             getItemValue={(item) => item}
             inputProps={{placeholder: "Gender"}}
             renderItem={this.handleRenderItem.bind(this)}
-            value={this.state.name}
-            shouldItemRender={matchName}
-            onChange={this.update('name')}
-            onSelect={state => {this.setState({name: state});}}
+            value={this.state.gender}
+            shouldItemRender={matchField}
+            onChange={this.update('gender')}
+            onSelect={state => {this.setState({gender: state});}}
             />
-
 
         </form>
       </div>

@@ -14,7 +14,7 @@ Shelter.create(shelter_name: 'Test Shelter2', email: 'shelte2r@shelter.shelter',
 Shelter.create(shelter_name: 'Test Shelter3', email: 'shelter3@shelter.shelter', address: '1233 Fake st.', phone_number: '0101031', shelter_image: "http://res.cloudinary.com/du9y1z3ol/image/upload/v1484638109/site-logo.png", user_id: '1')
 
 
-Pet.create(name: 'Fido', pet_type:'blue', age: '3', breed: 'Husky', gender: 'M', pet_image: "http://res.cloudinary.com/du9y1z3ol/image/upload/v1484638109/site-logo.png", shelter_id:'1')
+Pet.create(name: 'Zeke', pet_type:'dog', age: '3 years old', breed: 'Pit Bull Terrier', gender: 'M', pet_image: "http://res.cloudinary.com/du9y1z3ol/image/upload/v1484638109/site-logo.png", shelter_id:'1', description:"Zeke is an active and enthusiastic pup who is very people social and loves to play. This happy fellow is stunningly handsome in his brown and gray brindle coat. A family with kids 12 years and older might be fine for Zeke -- come meet him and see if it is a good fit. Zeke's adoption also includes a Welcome Home Gift Package with toys, treats and more!")
 Pet.create(name: 'Sarah', pet_type:'blue1', age: '31', breed: 'Husky1', gender: 'F', pet_image: "http://res.cloudinary.com/du9y1z3ol/image/upload/v1484638109/site-logo.png", shelter_id:'2')
 Pet.create(name: 'Lucy', pet_type:'blue', age: '3', breed: 'Husky', gender: 'M', pet_image: "http://res.cloudinary.com/du9y1z3ol/image/upload/v1484638109/site-logo.png", shelter_id:'1')
 Pet.create(name: 'Ignacio', pet_type:'blue1', age: '31', breed: 'Husky1', gender: 'F', pet_image: "http://res.cloudinary.com/du9y1z3ol/image/upload/v1484638109/site-logo.png", shelter_id:'2')
