@@ -5,10 +5,10 @@ const ShelterDetail = ({ shelter }) => {
   return (
     <div className="shelter-details">
       <ul>
-        <li>Name: {shelter.shelter_name}</li>
-        <li>Email: {shelter.email}</li>
-        <li>Address: {shelter.address}</li>
-        <li>Phone Number: {shelter.phone_number}</li>
+        <li>{shelter.shelter_name}</li>
+        <li>{shelter.email}</li>
+        <li>{shelter.address}</li>
+        <li>{shelter.phone_number}</li>
       </ul>
     </div>
   );

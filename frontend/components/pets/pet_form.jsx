@@ -157,54 +157,62 @@ class PetForm extends React.Component {
 								<h3>Update a Pet</h3>}
 						</div>
 
-						<div className="auth-form">
-							<div className="user-auth-fields">
-								<label>Name</label>
-								<input type="text"
-									value={this.state.name}
-									onChange={this.update("name")} />
-							</div>
+						<div className="pet-form">
+							<div className="pet-form-interior">
+								<div className="pet-form-left">
+									<div className="user-auth-fields">
+										<label>Name</label>
+										<input type="text"
+											value={this.state.name}
+											onChange={this.update("name")} />
+									</div>
 
-							<div className="user-auth-fields">
-								<label>Type</label>
-								<input type="text"
-									value={this.state.pet_type}
-									onChange={this.update("pet_type")} />
-							</div>
+									<div className="user-auth-fields">
+										<label>Type</label>
+										<input type="text"
+											value={this.state.pet_type}
+											onChange={this.update("pet_type")} />
+									</div>
 
-							<div className="user-auth-fields">
-								<label>Breed</label>
-								<input type="text"
-									value={this.state.breed}
-									onChange={this.update("breed")} />
-							</div>
+									<div className="user-auth-fields">
+										<label>Breed</label>
+										<input type="text"
+											value={this.state.breed}
+											onChange={this.update("breed")} />
+									</div>
+								</div>
 
-							<div className="user-auth-fields">
-								<label>Age</label>
-								<input type="text"
-									value={this.state.age}
-									onChange={this.update("age")} />
-							</div>
+								<div className="pet-form-right">
+									<div className="user-auth-fields">
+										<label>Age</label>
+										<input type="text"
+											value={this.state.age}
+											onChange={this.update("age")} />
+									</div>
 
-							<div className="user-auth-fields">
-								<label>Gender</label>
-								<input type="text"
-									value={this.state.gender}
-									onChange={this.update("gender")} />
-							</div>
+									<div className="user-auth-fields">
+										<label>Gender</label>
+										<input type="text"
+											value={this.state.gender}
+											onChange={this.update("gender")} />
+									</div>
 
-							<div className="user-auth-fields">
-								<label>Description</label>
-								<input type="text"
-									value={this.state.description}
-									onChange={this.update("description")} />
+									<div className="user-auth-fields">
+										<label>Description</label>
+										<input type="textarea"
+											value={this.state.description}
+											onChange={this.update("description")}>
+										</input>
+									</div>
+								</div>
 							</div>
-
+							
 							<button className="image-button" onClick={this.cloudinate}>Add Image</button>
 
 							{this.renderErrors()}
 
 						</div>
+
 
 						<div className="submit-button-container">
 							<input className="submit-button" type="submit" value="Submit" autoFocus/>
