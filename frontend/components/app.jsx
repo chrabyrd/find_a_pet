@@ -5,7 +5,6 @@ const App = props => (
   <div className="page">
     <HeaderContainer />
     <div className="content">{props.children}</div>
-    <div className="footer"></div>
   </div>
 );
 

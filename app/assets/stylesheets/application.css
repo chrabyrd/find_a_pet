@@ -97,6 +97,7 @@
  .index-img-container {
    width: 175px;
    height: 175px;
+   flex: 1 1 auto;
    overflow: hidden;
    display: flex;
    justify-content: center;
@@ -105,18 +106,19 @@
 
  .index-img-container > img {
    width: 100%;
+   min-width: 100%;
+   min-height: 100%;
    border-radius: 5px;
  }
 
  .show-img-container {
-   height: 500px;
+   height: 100%;
    width: 500px;
-   overflow: hidden;
    flex: 1 1 auto;
+   overflow: hidden;
    padding: 5px;
    margin: 5px;
    display: flex;
-   justify-content: center;
    align-items: center;
    border-radius: 5px;
    border: 2px solid #3c2f2f;
@@ -147,6 +149,8 @@
    margin: 0 10px;
    padding: 0 10px;
    overflow: scroll;
+   align-items: center;
+   justify-content: space-between;
    border-bottom-left-radius: 10px;
    border-bottom-right-radius: 10px;
    border-bottom: 2px solid #3c2f2f;
@@ -157,22 +161,11 @@
    display: flex;
    background: linear-gradient(#fff4e6, #be9b7b, #4b3832);
    align-items: center;
-   flex: 1 0 auto;
+   flex: 9 0 auto;
    margin: 0 10px;
    padding: 10px;
    border-left: 2px solid black;
    border-right: 2px solid black;
- }
-
- .footer {
-   width: 95%;
-   display: flex;
-   background: linear-gradient(#be9b7b, #3c2f2f);
-   flex: 1 0 auto;
-   margin: 0 10px;
-   padding: 0 10px;
-   border-top-left-radius: 10px;
-   border-top-right-radius: 10px;
  }
 
  .index-button {
@@ -220,23 +213,19 @@
 
  .header-info {
    padding: 5px;
-   margin: 0 5px;
-   width: 100%;
+   margin: 5px;
    height: 200px;
    display: flex;
  }
 
 .greeting-container {
   display: flex;
-  justify-content: flex-end;
-  flex: 1 1 auto;
   padding: 5px;
   margin: 5px;
 }
 
 .greeting {
   display: flex;
-  flex: 1 1 auto;
   justify-content: space-around;
   align-items: center;
   color: #3c2f2f;
@@ -253,7 +242,6 @@
 .header-logo {
   font-family: Cinzel Decorative, cursive;
   display: flex;
-  flex: 6 6 auto;
   padding: 5px;
   margin: 5px;
   text-shadow: 2px 2px #fff4e6;
@@ -300,11 +288,6 @@
 }
 
 /* Search Bar */
-
-.search-bar {
-  display: flex;
-  justify-content: flex-start;
-}
 
 .search-bar > form {
   display: flex;
@@ -502,7 +485,7 @@
   font-size: 20px;
   margin: 5px;
   padding: 5px;
-  flex: 2 2 auto;
+  flex: 1 1 auto;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -573,6 +556,18 @@
   flex: 1 1 auto;
   margin: 5px;
   padding: 5px;
+}
+
+.pet-index-title {
+  background-color: #fff4e6;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-around;
+  border: 2px solid #3c2f2f;
+  font-size: 22px;
+  border-radius: 5px;
+  margin: 25px;
+  padding: 25px;
 }
 
 .shelter-actions-container {
