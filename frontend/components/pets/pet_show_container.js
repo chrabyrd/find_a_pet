@@ -1,7 +1,6 @@
 import { connect } from 'react-redux';
 import PetShow from './pet_show';
 import { fetchPet, deletePet, updatePet } from '../../actions/pet_actions';
-import { selectPet } from '../../reducers/selectors';
 import { fetchShelter } from '../../actions/shelter_actions';
 
 const mapStateToProps = ({ petDetails, session }) => ({

@@ -79,8 +79,7 @@
  }
 
  body {
-   background-color: #3c2f2f;
-   color: #3c2f2f;
+   background-color: #fff4e6;
    font-family: sans-serif;
  }
 
@@ -144,7 +143,7 @@
  .header {
    width: 95%;
    display: flex;
-   background: linear-gradient(#fff4e6, #be9b7b, #4b3832);
+   background: linear-gradient(#be9b7b, #4b3832);
    flex: 1 0 auto;
    margin: 0 10px;
    padding: 0 10px;
@@ -159,13 +158,13 @@
  .content {
    width: 92.5%;
    display: flex;
-   background: linear-gradient(#fff4e6, #be9b7b, #4b3832);
+   background: linear-gradient(#be9b7b, #4b3832);
    align-items: center;
    flex: 9 0 auto;
    margin: 0 10px;
    padding: 10px;
-   border-left: 2px solid black;
-   border-right: 2px solid black;
+   border-left: 1px solid #3c2f2f;
+   border-right: 1px solid #3c2f2f;
  }
 
  .index-button {
@@ -228,13 +227,14 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  color: #3c2f2f;
   padding: 5px;
   margin: 5px;
   font-size: 20px;
 }
 
 .greeting-name {
+  color: #fff4e6;
+  text-shadow: #3c2f2f 2px 2px;
   padding: 5px;
   margin: 5px;
 }
@@ -244,9 +244,9 @@
   display: flex;
   padding: 5px;
   margin: 5px;
-  text-shadow: 2px 2px #fff4e6;
+  color: #fff4e6;
+  text-shadow: #3c2f2f 3px 3px;
   font-size: 45px;
-  color: #3c2f2f;
   font-weight: bold;
 }
 
@@ -330,7 +330,7 @@
 /* Pet Index */
 
 .pet-index-container {
-  background: linear-gradient(#be9b7b, #4b3832);
+  background: linear-gradient(#fff4e6, #be9b7b);
   display: flex;
   padding: 10px;
   margin: 10px;
