@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import PetIndexItemContainer from './pet_index_item_container';
+import { ReactRpg } from 'react-rpg';
+import { hashHistory } from 'react-router';
 
 class PetIndex extends Component {
   constructor(props) {
@@ -8,8 +9,6 @@ class PetIndex extends Component {
     this.state = {
       shelter_id: ""
     };
-
-    this.filterPetList = this.filterPetList.bind(this);
   }
 
   componentDidMount() {
@@ -31,21 +30,26 @@ class PetIndex extends Component {
     }
   }
 
-  filterPetList() {
+  render() {
     const petList = this.props.pets.filter(pet => this.filterPet(pet));
 
+    const petImages = petList.map(item => ({
+      url: item.pet_image,
+      id: item.id,
+
+      clickHandler: (imgUrl) => {
+        const petId = petImages.find(image => {
+          return image.url === imgUrl;
+        }).id;
+
+        hashHistory.push(`/pets/${petId}`);
+      }
+    }));
+
+    console.log(petImages);
     return (
-     petList.map( pet => <PetIndexItemContainer key={`pet${pet.id}`} petDetails={pet} /> )
-    );
-  }
-
-  render() {
-
-    return(
-      <div className="pet-index-container">
-        <ul className="pet-index">
-          {this.filterPetList()}
-        </ul>
+      <div style={{height: '100%'}}>
+        <ReactRpg imagesArray={petImages} columns={[ 1, 2, 5 ]} padding={0} />
       </div>
     );
   }

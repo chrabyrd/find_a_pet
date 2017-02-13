@@ -72,6 +72,7 @@ class SearchBar extends React.Component {
             getItemValue={(item) => item}
             inputProps={{placeholder: "Type"}}
             renderItem={this.handleRenderItem.bind(this)}
+            menuStyle={{ position: 'absolute', zIndex: 1}}
             value={this.state.pet_type}
             shouldItemRender={matchField}
             onChange={this.update('pet_type')}
@@ -83,6 +84,7 @@ class SearchBar extends React.Component {
             getItemValue={(item) => item}
             inputProps={{placeholder: "Breed"}}
             renderItem={this.handleRenderItem.bind(this)}
+            menuStyle={{ position: 'absolute', zIndex: 1}}
             value={this.state.breed}
             shouldItemRender={matchField}
             onChange={this.update('breed')}
@@ -94,6 +96,7 @@ class SearchBar extends React.Component {
             getItemValue={(item) => item}
             inputProps={{placeholder: "Gender"}}
             renderItem={this.handleRenderItem.bind(this)}
+            menuStyle={{ position: 'absolute', zIndex: 1}}
             value={this.state.gender}
             shouldItemRender={matchField}
             onChange={this.update('gender')}

@@ -13,6 +13,7 @@ const Welcome = () => (
     </div>
 
     <div>
+      <h1>Pets in your area:</h1>
       <PetIndexContainer />
     </div>
 

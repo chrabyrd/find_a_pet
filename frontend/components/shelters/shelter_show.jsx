@@ -58,7 +58,9 @@ class ShelterShow extends React.Component {
         </div>
 
         <h1 className="pet-index-title">These pets are currently available in this shelter!</h1>
-        <PetIndexContainer />
+        <div style={{height: '100%', width: '100%'}}>
+          <PetIndexContainer />
+        </div>
 
         <div className="pet-links">
           <Link className="index-button" to="/">Back to Index</Link>
