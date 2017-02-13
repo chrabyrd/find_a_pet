@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-import SessionFormContainer from '../../session_form/session_form_container';
+import SessionFormContainer from '../session_form/session_form_container';
 
 const personalGreeting = (user, logout) => (
 	<div className = "greeting">
