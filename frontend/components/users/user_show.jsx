@@ -10,13 +10,23 @@ class UserShow extends React.Component {
 
   render () {
 
+    const imgUrl = this.props.session.user.user_image;
+
     return (
       <div className="user-show">
+        <h1 className="local-pets">Your Personal Profile</h1>
         <div className="user-container">
 
           <div className="user-info">
-            <div className="show-img-container">
-              {this.props.session.user.user_image === "" ? "" : <img src={this.props.session.user.user_image} alt="Shelter Photo"/>  }
+            <div
+              className="show-img-container"
+              style={{
+                backgroundImage: `url(${imgUrl})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat'
+              }}
+            >
             </div>
 
             <UserDetail session={this.props.session}/>
@@ -24,9 +34,7 @@ class UserShow extends React.Component {
 
           <ShelterIndexContainer />
         </div>
-
         <Link className="index-button" to="/">Back to Index</Link>
-
       </div>
     );
   }

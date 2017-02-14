@@ -32,18 +32,15 @@ class ShelterIndex extends React.Component {
 
   render() {
     return(
-      <div className="shelter-index-container">
-
         <div className="shelter-index">
-          <div className="shelter-index-title">Shelters You're Assisting</div>
+          <div className="shelter-index-title">
+            Shelters You're Assisting
+          </div>
           <ul>
             {this.filterShelterList()}
           </ul>
+          <ShelterFormContainer userDetails={this.props.session.user} createShelterForm="true"/>
         </div>
-
-        <ShelterFormContainer userDetails={this.props.session.user} createShelterForm="true"/>
-
-      </div>
     );
   }
 }

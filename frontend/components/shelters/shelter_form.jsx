@@ -81,8 +81,8 @@ class ShelterForm extends React.Component {
 
 	shelterActions() {
 		return (
-				this.state.createShelterForm ? <button className="shelter-actions" onClick={this.openModal}>
-					Create Shelter</button> : <button className="shelter-actions" onClick={this.openModal}>
+				this.state.createShelterForm ? <button className="shelter-button" onClick={this.openModal}>
+					+ Create a New Shelter</button> : <button className="shelter-button" onClick={this.openModal}>
 						Update Shelter</button>
 		);
 	}

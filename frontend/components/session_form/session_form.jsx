@@ -149,10 +149,10 @@ class SessionForm extends React.Component {
 			<div className="auth-form-container">
 
 				<button
-					className='greeting-button'
+					className='login-button'
 					onClick={this.loginForm}>Log In</button>
 				<button
-					className='greeting-button'
+					className='signup-button'
 					onClick={this.userSignupForm}>Create User Account</button>
 
         <Modal

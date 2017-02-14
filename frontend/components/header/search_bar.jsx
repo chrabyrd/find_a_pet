@@ -36,7 +36,7 @@ class SearchBar extends React.Component {
 
       highlightedItem: {
         color: '#fff4e6',
-        background: '#854442',
+        background: '#41658A',
         padding: '10px',
         cursor: 'default',      }
     };
@@ -65,7 +65,7 @@ class SearchBar extends React.Component {
     return (
       <div className="search-bar">
         <form onSubmit={this.handleSubmit}>
-          <input className="search-button" type="submit" value="Search" autoFocus/>
+          <input className="search-button" type="submit" value="Find a Pet!" autoFocus/>
 
           <AutoComplete
             items={this.uniqueTypeList('pet_type')}

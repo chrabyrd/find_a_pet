@@ -11,6 +11,7 @@ const PetSlider = React.createClass({
           easing="easeInSine"
           edgeEasing="easeInSine"
           wrapAround={true}
+          autoplayInterval={5000}
           decorators={[]}
           >
           <img src={'assets/slide-1.jpg'} />
