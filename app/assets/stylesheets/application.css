@@ -294,7 +294,7 @@
 .shelter-button:hover,
 .shelter-button:active {
   background: #fff4e6;
-  color: #41658A;
+  color: #5C6F68;
 }
 
 .shelter-link-button:hover,
@@ -568,6 +568,7 @@
   align-items: center;
   background: #3C2F2F;
   padding: 10px;
+  width: 98%;
 }
 
 .shelter-info-container {
@@ -575,6 +576,7 @@
   flex-direction: column;
   background-color: #fff4e6;
   flex: 1 1 auto;
+  width: 100%;
 }
 
 .shelter-actions-container {
