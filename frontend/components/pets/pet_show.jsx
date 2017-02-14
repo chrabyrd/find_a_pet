@@ -34,7 +34,7 @@ class PetShow extends React.Component {
           <PetFormContainer />
 
           <div className="pet-delete">
-            <div className="delete-button" style={{width:'100%', margin:'0', padding:'20px'}} onClick={this.deleteCurrentPet}>Delete Pet</div>
+            <div className="delete-button" style={{width:'100%', margin:'0', padding:'30px'}} onClick={this.deleteCurrentPet}>Delete Pet</div>
           </div>
         </div>
       );

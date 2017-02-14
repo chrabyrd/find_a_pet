@@ -191,6 +191,8 @@
 .index-button,
 .shelter-button,
 .shelter-link-button,
+.update-shelter-button,
+.delete-shelter-button,
 .delete-button,
 .pet-button,
 .profile-button {
@@ -240,10 +242,19 @@
   background: #FFF4E6;
 }
 
-.pet-button {
+.delete-shelter-button {
+  color: #ED2939;
   width: 100%;
   margin: 0;
-  padding: 20px;
+  padding: 30px;
+  background: #FFF4E6;
+}
+
+.pet-button,
+.update-shelter-button {
+  width: 100%;
+  margin: 0;
+  padding: 30px;
   color: #3C2F2F;
   background: #FFF4E6;
 }
@@ -260,6 +271,10 @@
 .shelter-button:active,
 .shelter-link-button:hover,
 .shelter-link-button:active,
+.update-shelter-button:hover,
+.update-shelter-button:active,
+.delete-shelter-button:hover,
+.delete-shelter-button:active,
 .pet-button:hover,
 .pet-button:active,
 .profile-button:hover,
@@ -287,6 +302,13 @@
   background: #5C6F68;
 }
 
+.update-shelter-button:hover,
+.update-shelter-button:active {
+  background: #5C6F68;
+}
+
+.delete-shelter-button:hover,
+.delete-shelter-button:active,
 .delete-button:hover,
 .delete-button:active {
   color: #FFF4E6;
@@ -451,7 +473,7 @@
 }
 
 .pet-detail-container {
-  width: 50%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -494,10 +516,6 @@
   background: #fff4e6;
   display: flex;
   flex: 1 1 auto;
-  align-items: center;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-  border: 2px 0 2px 2px solid #3c2f2f;
 }
 
 .pet-details {
@@ -532,55 +550,31 @@
   margin: 10px;
   font-size: 20pt;
   font-family: Pacifico;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #3C2F2F;
 }
 
 /* Shelter Show */
 
 .shelter-show {
   display: flex;
-  background-color: #4b3832;
   align-items: center;
   flex-direction: column;
-  border-radius: 5px;
-  border: 2px solid #3c2f2f;
   width: 100%;
-  padding: 10px;
-  margin: 10px;
 }
 
 .shelter-detail-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #be9b7b;
-  border-radius: 5px;
-  border: 2px solid #3c2f2f;
-  margin: 20px;
-  padding: 20px;
+  background: #3C2F2F;
+  padding: 10px;
 }
 
 .shelter-info-container {
   display: flex;
   flex-direction: column;
-  background-color: #854442;
-  border-radius: 5px;
-  border: 2px solid #3c2f2f;
-  flex: 1 1 auto;
-  margin: 5px;
-  padding: 5px;
-}
-
-.pet-index-title {
   background-color: #fff4e6;
-  display: flex;
-  align-items: stretch;
-  justify-content: space-around;
-  border: 2px solid #3c2f2f;
-  font-size: 22px;
-  border-radius: 5px;
-  margin: 25px;
-  padding: 25px;
+  flex: 1 1 auto;
 }
 
 .shelter-actions-container {
@@ -588,50 +582,6 @@
   display: flex;
   align-items: stretch;
   justify-content: space-around;
-  border: 2px solid #3c2f2f;
-  border-radius: 5px;
-  margin: 5px;
-  padding: 5px;
-}
-
-.shelter-actions {
-  color: #3c2f2f;
-  background-color: #fff4e6;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-size: 12px;
-  padding: 25px;
-  margin: 15px;
-  flex: 1 1 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid #3c2f2f;
-  border-radius: 5px;}
-
-.shelter-actions:hover {
-  background-color: #854442;
-  cursor: pointer;
-}
-
-.shelter-delete {
-  color: #3c2f2f;
-  background-color: #fff4e6;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-size: 12px;
-  padding: 20px;
-  margin: 25px;
-  flex: 1 1 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid #3c2f2f;
-  border-radius: 5px;}
-
-.shelter-delete:hover {
-  background-color: #854442;
-  cursor: pointer;
 }
 
 .shelter-details {
@@ -639,31 +589,40 @@
   display: flex;
   flex-direction: column;
   flex: 1 1 auto;
-  border-radius: 5px;
-  border: 2px solid #3c2f2f;
-  margin: 5px;
-  padding: 5px;
 }
 
 .shelter-details > ul {
   display: flex;
   flex-direction: column;
   background-color: #fff4e6;
-  margin: 5px;
-  padding: 5px;
+  border-bottom: 5px solid #3C2F2F;
 }
 
 .shelter-details > ul > li {
   display: flex;
-  align-self: center;
-  margin: 10px;
   padding: 5px;
   font-size: 20px;
   color: #3c2f2f;
 }
 
+.shelter-detail {
+  display: flex;
+  font-size: 20pt;
+  justify-content: flex-end;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.shelter-description {
+  padding: 20px;
+  font-size: 20pt;
+  font-family: Pacifico;
+}
+
 .shelter-form-container {
   display: flex;
+  flex: 1 1 auto;
   flex-direction: column;
 }
 

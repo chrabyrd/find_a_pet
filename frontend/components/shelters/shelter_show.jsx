@@ -35,7 +35,9 @@ class ShelterShow extends React.Component {
         <div className="shelter-actions-container">
           <PetFormContainer shelterDetails={this.props.shelterDetails} createPetForm="true"/>
           <ShelterFormContainer shelterDetails={this.props.shelterDetails}/>
-          <button className="shelter-delete" onClick={this.deleteCurrentShelter}>Delete Shelter</button>
+          <div style={{flex:'1 1 auto'}}>
+            <button className="delete-shelter-button" onClick={this.deleteCurrentShelter}>Delete Shelter</button>
+          </div>
 
         </div>
       );
@@ -43,13 +45,22 @@ class ShelterShow extends React.Component {
   }
 
   render () {
+
+    const imgUrl = this.props.shelterDetails.shelter_image;
+
     return (
       <div className="shelter-show">
-
+        <h1 className="local-pets">Shelter Information</h1>
         <div className="shelter-detail-container">
-          <div className="show-img-container">
-            {this.props.shelterDetails.shelter_image === "" ? "" : <img src={this.props.shelterDetails.shelter_image} alt="Shelter Photo"/>  }
-          </div>
+          <div
+            className="show-img-container"
+            style={{
+              backgroundImage: `url(${imgUrl})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat',
+            }}
+            />
 
           <div className="shelter-info-container">
             <ShelterDetail shelter={this.props.shelterDetails} />
@@ -57,7 +68,7 @@ class ShelterShow extends React.Component {
           </div>
         </div>
 
-        <h1 className="pet-index-title">These pets are currently available in this shelter!</h1>
+        <h1 className="local-pets">Available in this shelter!</h1>
         <div style={{height: '100%', width: '100%'}}>
           <PetIndexContainer />
         </div>
