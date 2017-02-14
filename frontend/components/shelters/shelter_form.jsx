@@ -135,7 +135,7 @@ class ShelterForm extends React.Component {
 				{this.shelterActions()}
 
 				<Modal
-					className="auth-modal"
+					className="shelter-modal"
 					overlayClassName="auth-overlay"
 					isOpen={this.state.modalIsOpen}
 					onAfterOpen={this.afterOpenModal}
@@ -145,44 +145,50 @@ class ShelterForm extends React.Component {
 					<form onSubmit={this.handleSubmit}>
 
 						<div className="user-auth-title">
-							{this.state.createShelterForm ? <h3>Create a Shelter</h3> :
-								<h3>Update a Shelter</h3>}
+							{this.state.createShelterForm ? <div className="shelter-index-title">Create Shelter</div> :
+								<div className="shelter-index-title">Update Shelter</div>}
 						</div>
 
-						<div className="auth-form">
-							<div className="user-auth-fields">
-								<label>Name</label>
-								<input type="text"
-									value={this.state.shelter_name}
-									onChange={this.update("shelter_name")} />
+						<div className="shelter-form">
+							<div className="shelter-form-left">
+								<div className="user-auth-fields">
+									<input type="text"
+										value={this.state.shelter_name}
+										style={{width: '100%', margin: '30px', borderBottom: '2px solid #3c2f2f'}}
+										placeholder={"Name"}
+										onChange={this.update("shelter_name")} />
+								</div>
+
+								<div className="user-auth-fields">
+									<input type="text"
+										value={this.state.email}
+										style={{width: '100%', margin: '30px', borderBottom: '2px solid #3c2f2f'}}
+										placeholder={"Email"}
+										onChange={this.update("email")} />
+								</div>
 							</div>
 
-							<div className="user-auth-fields">
-								<label>Email</label>
-								<input type="text"
-									value={this.state.email}
-									onChange={this.update("email")} />
+							<div className="shelter-form-right">
+								<div className="user-auth-fields">
+									<input type="text"
+										value={this.state.address}
+										style={{width: '100%', margin: '30px', borderBottom: '2px solid #3c2f2f'}}
+										placeholder={"Address"}
+										onChange={this.update("address")} />
+								</div>
+
+								<div className="user-auth-fields">
+									<input type="text"
+										value={this.state.phone_number}
+										style={{width: '100%', margin: '30px', borderBottom: '2px solid #3c2f2f'}}
+										placeholder={"Phone Number"}
+										onChange={this.update("phone_number")} />
+								</div>
 							</div>
-
-							<div className="user-auth-fields">
-								<label>Address</label>
-								<input type="text"
-									value={this.state.address}
-									onChange={this.update("address")} />
-							</div>
-
-							<div className="user-auth-fields">
-								<label>Phone Number</label>
-								<input type="text"
-									value={this.state.phone_number}
-									onChange={this.update("phone_number")} />
-							</div>
-
-							<button className="image-button" onClick={this.cloudinate}>Add Image</button>
-
-							{this.renderErrors()}
-
 						</div>
+
+						{this.renderErrors()}
+						<button className="image-button" onClick={this.cloudinate}>Add Image</button>
 
 						<div className="submit-button-container">
 							<input className="submit-button" type="submit" value="Submit" autoFocus/>

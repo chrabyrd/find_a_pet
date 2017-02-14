@@ -109,6 +109,7 @@ class SessionForm extends React.Component {
 					<input type="email"
 						placeholder="Email Address"
 						value={this.state.email}
+						style={{width: '100%', margin: '30px', borderBottom: '2px solid #3c2f2f'}}
 						onChange={this.update("email")} />
 				</div>
 			);
@@ -118,9 +119,7 @@ class SessionForm extends React.Component {
 	photoField() {
 		if (this.state.signup) {
 			return(
-				<div className="user-auth-fields">
 					<button className="image-button" onClick={this.cloudinate}>Add Image</button>
-				</div>
 			);
 		}
 	}
@@ -167,8 +166,8 @@ class SessionForm extends React.Component {
 					<form onSubmit={this.handleSubmit}>
 
 						<div className="user-auth-title">
-							{this.state.signup ? <h3>Please Sign Up</h3> :
-								<h3>Please Log In</h3>}
+							{this.state.signup ? <div className="shelter-index-title">Please Sign Up</div> :
+								<div className="shelter-index-title">Please Log In</div>}
 						</div>
 
 						<div className="auth-form">
@@ -178,6 +177,7 @@ class SessionForm extends React.Component {
 									value={this.state.username}
 									onChange={this.update("username")}
 									className={demoBoolean}
+									style={{width: '100%', margin: '30px', borderBottom: '2px solid #3c2f2f'}}
 									onFocus={this.clear()} />
 							</div>
 
@@ -189,6 +189,7 @@ class SessionForm extends React.Component {
 									value={this.state.password}
 									onChange={this.update("password")}
 									className={demoBoolean}
+									style={{width: '100%', margin: '30px', borderBottom: '2px solid #3c2f2f'}}
 									onFocus={this.clear()} />
 							</div>
 
@@ -199,7 +200,7 @@ class SessionForm extends React.Component {
 						</div>
 
 						<div className="submit-button-container">
-							<input className="search-button" type="submit" value="Submit" autoFocus/>
+							<input className="submit-button" type="submit" value="Submit" autoFocus/>
 						</div>
 
 					</form>

@@ -143,7 +143,7 @@ class PetForm extends React.Component {
 				{this.petActions()}
 
 				<Modal
-					className="auth-modal"
+					className="shelter-modal"
 					overlayClassName="auth-overlay"
 					isOpen={this.state.modalIsOpen}
 					onAfterOpen={this.afterOpenModal}
@@ -153,66 +153,69 @@ class PetForm extends React.Component {
 					<form onSubmit={this.handleSubmit}>
 
 						<div className="user-auth-title">
-							{this.state.createPetForm ? <h3>Create a Pet</h3> :
-								<h3>Update a Pet</h3>}
+							{this.state.createPetForm ? <div className="shelter-index-title">Create a Pet</div> :
+								<div className="shelter-index-title">Update a Pet</div>}
 						</div>
 
 						<div className="pet-form">
-							<div className="pet-form-interior">
+
 								<div className="pet-form-left">
 									<div className="user-auth-fields">
-										<label>Name</label>
 										<input type="text"
 											value={this.state.name}
+											style={{width: '100%', margin: '30px', borderBottom: '2px solid #3c2f2f'}}
+											placeholder={"Name"}
 											onChange={this.update("name")} />
 									</div>
 
 									<div className="user-auth-fields">
-										<label>Type</label>
 										<input type="text"
 											value={this.state.pet_type}
+											style={{width: '100%', margin: '30px', borderBottom: '2px solid #3c2f2f'}}
+											placeholder={"Type"}
 											onChange={this.update("pet_type")} />
 									</div>
 
 									<div className="user-auth-fields">
-										<label>Breed</label>
 										<input type="text"
 											value={this.state.breed}
+											style={{width: '100%', margin: '30px', borderBottom: '2px solid #3c2f2f'}}
+											placeholder={"Breed"}
 											onChange={this.update("breed")} />
 									</div>
 								</div>
 
 								<div className="pet-form-right">
 									<div className="user-auth-fields">
-										<label>Age</label>
 										<input type="text"
 											value={this.state.age}
+											style={{width: '100%', margin: '30px', borderBottom: '2px solid #3c2f2f'}}
+											placeholder={"Age"}
 											onChange={this.update("age")} />
 									</div>
 
 									<div className="user-auth-fields">
-										<label>Gender</label>
 										<input type="text"
 											value={this.state.gender}
+											style={{width: '100%', margin: '30px', borderBottom: '2px solid #3c2f2f'}}
+											placeholder={"Gender"}
 											onChange={this.update("gender")} />
 									</div>
 
 									<div className="user-auth-fields">
-										<label>Description</label>
-										<input type="textarea"
+										<textarea type="textarea"
 											value={this.state.description}
+											style={{width: '100%', height: '100px', margin: '30px', borderBottom: '2px solid #3c2f2f'}}
+											placeholder={"Description"}
 											onChange={this.update("description")}>
-										</input>
+										</textarea>
 									</div>
 								</div>
-							</div>
-
-							<button className="image-button" onClick={this.cloudinate}>Add Image</button>
-
-							{this.renderErrors()}
-
 						</div>
 
+						{this.renderErrors()}
+
+						<button className="image-button" onClick={this.cloudinate}>Add Image</button>
 
 						<div className="submit-button-container">
 							<input className="submit-button" type="submit" value="Submit" autoFocus/>
