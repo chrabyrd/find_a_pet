@@ -12,6 +12,7 @@ class SearchBar extends React.Component {
     };
 
     this.update = this.update.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   update(field) {
@@ -22,7 +23,7 @@ class SearchBar extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    debugger
+    console.log(this.state);
   }
 
   handleRenderItem(pet, isHighlighted) {

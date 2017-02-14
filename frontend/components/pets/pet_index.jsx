@@ -46,7 +46,6 @@ class PetIndex extends Component {
       }
     }));
 
-    console.log(petImages);
     return (
       <div style={{height: '100%'}}>
         <ReactRpg imagesArray={petImages} columns={[ 1, 2, 5 ]} padding={0} />
