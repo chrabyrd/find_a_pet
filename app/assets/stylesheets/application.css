@@ -94,12 +94,11 @@
 
  .show-img-container {
    height: 500px;
-   width: 99.5%;
+   width: 100%;
    flex: 1 1 auto;
    overflow: hidden;
    display: flex;
    align-items: center;
-   border: 2px solid #3c2f2f;
    background-color: #854442;
  }
 
@@ -136,47 +135,6 @@
    margin: 0 10px;
    border-left: 1px solid #3c2f2f;
    border-right: 1px solid #3c2f2f;
- }
-
- .index-button {
-   color: #3c2f2f;
-   background: linear-gradient(#fff4e6, #be9b7b);
-   text-transform: uppercase;
-   letter-spacing: 2px;
-   font-size: 12px;
-   padding: 10px 20px;
-   margin: 0 10px;
-   flex: 1 1 auto;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   border: 1px solid #3c2f2f;
-   border-radius: 5px;
-
- }
-
- .index-button:hover {
-   background: linear-gradient(#be9b7b, #4b3832);
-   cursor: pointer;
- }
-
- .image-button {
-   color: #3c2f2f;
-   background-color: #fff4e6;
-   text-transform: uppercase;
-   letter-spacing: 2px;
-   font-size: 12px;
-   padding: 10px 10px;
-   border: 1px solid #3c2f2f;
-   border-radius: 5px;
-   margin: 5px;
-   cursor: pointer;
-   outline: none;
- }
-
- .image-button:hover {
-   background-color: #854442;
-   border-color: rgba(0,0,0,0.5);
  }
 
 /* Header */
@@ -232,7 +190,9 @@
 .logout-button,
 .index-button,
 .shelter-button,
+.shelter-link-button,
 .delete-button,
+.pet-button,
 .profile-button {
   display: block;
   box-sizing: border-box;
@@ -267,15 +227,25 @@
   background: #FFF4E6;
 }
 
+.shelter-link-button {
+  color: #3C2F2F;
+  font-size: 40pt;
+  margin: 0;
+  padding: 20px;
+  background: #FFF4E6;
+}
+
 .delete-button {
   color: #ED2939;
   background: #FFF4E6;
 }
 
-.delete-button:hover,
-.delete-button:active {
-  color: #FFF4E6;
-  background: #ED2939;
+.pet-button {
+  width: 100%;
+  margin: 0;
+  padding: 20px;
+  color: #3C2F2F;
+  background: #FFF4E6;
 }
 
 .signup-button:hover,
@@ -288,6 +258,10 @@
 .index-button:active,
 .shelter-button:hover,
 .shelter-button:active,
+.shelter-link-button:hover,
+.shelter-link-button:active,
+.pet-button:hover,
+.pet-button:active,
 .profile-button:hover,
 .profile-button:active {
   background: rgba(65, 101, 138, 0.95);
@@ -298,13 +272,30 @@
 
 .index-button:hover,
 .index-button:active {
-  background: rgba(36, 0, 69, 0.95);
+  color: #41658A;
+  background: #FFF4E6;
 }
 
 .shelter-button:hover,
 .shelter-button:active {
   background: #fff4e6;
   color: #41658A;
+}
+
+.shelter-link-button:hover,
+.shelter-link-button:active {
+  background: #5C6F68;
+}
+
+.delete-button:hover,
+.delete-button:active {
+  color: #FFF4E6;
+  background: #ED2939;
+}
+
+.pet-button:hover,
+.pet-button:active {
+  background: #240045;
 }
 
 .header-logo {
@@ -445,25 +436,18 @@
 .pet-show {
   display: flex;
   flex-direction: column;
-  background-color: #be9b7b;
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 10px;
-  margin: 10px;
-  border: 2px solid #3c2f2f;
-  border-radius: 5px;
 }
 
 .pet-container {
   background-color: #4b3832;
   display: flex;
   justify-content: center;
-  width: 98%;
+  width: 100%;
   margin: 5px;
-  padding: 5px;
   border: 1px solid #4b3832;
-  border-radius: 5px;
 }
 
 .pet-detail-container {
@@ -473,13 +457,18 @@
   justify-content: space-between;
 }
 
+.pet-actions-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: #fff4e6;
+  margin: 5px;
+}
+
 .pet-actions {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-radius: 5px;
-  margin: 5px;
-  padding: 5px;
 }
 
 
@@ -498,31 +487,7 @@
 }
 
 .pet-delete {
-  background-color: #fff4e6;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-  border: 2px 2px 2px 0 solid #3c2f2f;
-}
-
-.pet-buttons {
-  color: #3c2f2f;
-  background-color: #fff4e6;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-size: 12px;
-  padding: 26px;
-  margin: 20px;
   flex: 1 1 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 5px;
-  border: 1px solid #3c2f2f;
-}
-
-.pet-buttons:hover {
-  background-color: #854442;
-  cursor: pointer;
 }
 
 .pet-form-container {
@@ -535,53 +500,39 @@
   border: 2px 0 2px 2px solid #3c2f2f;
 }
 
-.pet-shelter-link-container {
-  flex: 1 1 auto;
-}
-
-.pet-shelter-link {
-  color: #3c2f2f;
-  background-color: #fff4e6;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-size: 20px;
-  margin: 5px;
-  padding: 5px;
-  flex: 1 1 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  border: 1px solid #3c2f2f;
-  border-radius: 5px;
-}
-
-.pet-shelter-link:hover {
-  background-color: #854442;
-}
-
 .pet-details {
   background-color: #fff4e6;
   display: flex;
   flex: 1 1 auto;
-  align-items: center;
-  justify-content: center;
-  border-radius: 5px;
-  border: 1px solid #3c2f2f;
   margin: 5px;
-  padding: 5px;
 }
 
 .pet-details > ul {
   display: flex;
+  justify-content: space-between;
   flex-direction: column;
+  width: 100%;
 }
 
 .pet-details > ul > li {
-  align-self: center;
-  margin: 10px;
   padding: 5px;
   font-size: 20px;
   color: #3c2f2f;
+}
+
+.pet-detail {
+  display: flex;
+  font-size: 20pt;
+  justify-content: flex-end;
+  padding: 10px;
+}
+
+.pet-description {
+  padding: 10px;
+  margin: 10px;
+  font-size: 20pt;
+  font-family: Pacifico;
+  border-bottom: 1px solid black;
 }
 
 /* Shelter Show */
@@ -778,7 +729,7 @@
 }
 
 .shelter-index-item:hover {
-  background: rgba(65, 101, 138, 0.95);
+  background: #5C6F68;
   color: #FFF4E6;
   transition: all 0.3s ease-in;
   cursor: pointer;

@@ -26,8 +26,7 @@ class UserShow extends React.Component {
                 backgroundPosition: 'center',
                 backgroundRepeat: 'no-repeat'
               }}
-            >
-            </div>
+            />
 
             <UserDetail session={this.props.session}/>
           </div>

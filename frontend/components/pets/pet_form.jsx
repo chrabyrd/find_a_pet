@@ -87,8 +87,8 @@ class PetForm extends React.Component {
 
 	petActions() {
 		return (
-			this.state.createPetForm ? <div className="pet-buttons" onClick={this.openModal}>
-				Create Pet</div> : <div className="pet-buttons" onClick={this.openModal}>
+			this.state.createPetForm ? <div className="pet-button" onClick={this.openModal}>
+				Create Pet</div> : <div className="pet-button" onClick={this.openModal}>
 					Update Pet</div>
 		);
 	}
@@ -206,7 +206,7 @@ class PetForm extends React.Component {
 									</div>
 								</div>
 							</div>
-							
+
 							<button className="image-button" onClick={this.cloudinate}>Add Image</button>
 
 							{this.renderErrors()}
