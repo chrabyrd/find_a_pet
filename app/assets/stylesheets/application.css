@@ -86,10 +86,8 @@
  input {
    background-color: #fff4e6;
    color: #3c2f2f;
-   font-size: 14px;
-   margin: 5px;
-   padding: 5px;
-   border-radius: 5px;
+   font-size: 16pt;
+   padding: 10px;
    border: 1px solid #3c2f2f;
  }
 
@@ -141,10 +139,10 @@
 
  .header {
    width: 100%;
+   height: 50%;
    display: flex;
    flex-direction: column;
-   background: #be9b7b;
-   /*background: rgba(101, 4, 181, 1);*/
+   background: #41658A;
    flex: 1 0 auto;
    margin: 0 10px;
    padding: 0 10px;
@@ -154,7 +152,7 @@
  }
 
  .content {
-   width: 98%;
+   width: 96%;
    display: flex;
    background: linear-gradient(#be9b7b, #4b3832);
    align-items: center;
@@ -207,10 +205,30 @@
 
 /* Header */
 
+.header-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(60, 47, 47, .3);
+}
+
+.header-modal {
+  overflow: scroll;
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
  .header-info {
    display: flex;
    width: 100%;
    justify-content: space-between;
+   padding: 20px 0;
  }
 
 .greeting-container {
@@ -230,12 +248,11 @@
 }
 
 .header-logo {
-  font-family: Cinzel Decorative, cursive;
+  font-family: Pacifico, cursive;
   display: flex;
   color: #fff4e6;
   text-shadow: #3c2f2f 3px 3px;
-  font-size: 45px;
-  font-weight: bold;
+  font-size: 48pt;
 }
 
 .header-icon {
@@ -278,10 +295,12 @@
 /* Search Bar */
 
 .search-bar {
-  background-color: rgba(101, 4, 181, 1);
   display: flex;
+  align-self: center;
   justify-content: center;
   z-index: 2;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .search-bar > form {
@@ -296,11 +315,10 @@
   background: linear-gradient(#fff4e6, #be9b7b);
   text-transform: uppercase;
   letter-spacing: 2px;
-  font-size: 12px;
-  padding: 5px 20px;
+  font-size: 16pt;
+  padding: 10px;
   border: 1px solid #3c2f2f;
-  border-radius: 5px;
-  margin: 5px 10px;
+  border-radius: 2px;
   cursor: pointer;
   outline: none;
 }
@@ -362,21 +380,24 @@
   color: #3c2f2f;
 }
 
-.pet-index-item {
-  border-radius: 5px;
-  margin: 15px;
-}
-
-.pet-index-item:hover > label {
-  opacity: 1;
-}
-
-.pet-index-item > li {
-  background-color: #fff4e6;
+.local-pets-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   margin: 5px;
   padding: 5px;
-  border: 2px solid #3c2f2f;
-  border-radius: 5px;
+  background-color: gold;
+}
+
+.local-pets {
+  font-family: Pacifico, cursive;
+  align-self: center;
+  display: flex;
+  color: #fff4e6;
+  text-shadow: #3c2f2f 2px 2px;
+  font-size: 40pt;
+  padding-bottom: 30px;
+  padding-top: 20px;
 }
 
 /* Pet Show */
