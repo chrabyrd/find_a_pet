@@ -11,6 +11,7 @@ import ShelterShowContainer from './shelters/shelter_show_container';
 import PetShowContainer from './pets/pet_show_container';
 import PetIndexContainer from './pets/pet_index_container';
 import PetImageShowContainer from './pets/pet_image_show_container';
+import SearchResultsContainer from './content/SearchResultsContainer';
 import Welcome from './content/welcome';
 
 const Root = ({store}) => {
@@ -30,6 +31,7 @@ const Root = ({store}) => {
           <Route path="/users/:userId" component={UserShowContainer} onEnter={_redirectIfNotLoggedIn}/>
           <Route path="/shelters/:shelterId" component={ShelterShowContainer} />
           <Route path="/pets/:petId" component={PetShowContainer} />
+          <Route path="/search" component={SearchResultsContainer} />
         </Route>
       </Router>
     </Provider>

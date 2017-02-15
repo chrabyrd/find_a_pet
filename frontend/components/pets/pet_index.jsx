@@ -9,6 +9,7 @@ class PetIndex extends Component {
     this.state = {
       shelter_id: ""
     };
+
   }
 
   componentDidMount() {
@@ -23,7 +24,31 @@ class PetIndex extends Component {
   }
 
   filterPet(pet) {
-    if (pet.shelter_id === this.state.shelter_id || this.state.shelter_id === "") {
+    if (pet.shelter_id === this.state.shelter_id || !this.state.shelter_id) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  filterType(pet) {
+    if (pet.pet_type === this.props.searchResults.pet_type || !this.props.searchResults.pet_type) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  filterBreed(pet) {
+    if (pet.breed === this.props.searchResults.breed || !this.props.searchResults.breed) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  filterGender(pet) {
+    if (pet.gender === this.props.searchResults.gender || !this.props.searchResults.gender) {
       return true;
     } else {
       return false;
@@ -31,7 +56,16 @@ class PetIndex extends Component {
   }
 
   render() {
-    const petList = this.props.pets.filter(pet => this.filterPet(pet));
+
+    let petList = this.props.pets;
+
+    if (this.props.searchResults) {
+      petList = petList.filter(pet => this.filterType(pet));
+      petList = petList.filter(pet => this.filterBreed(pet));
+      petList = petList.filter(pet => this.filterGender(pet));
+    }
+
+    petList = petList.filter(pet => this.filterPet(pet));
 
     const petImages = petList.map(item => ({
       url: item.pet_image,

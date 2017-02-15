@@ -23,8 +23,8 @@ class SearchBar extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log(this.state);
-    console.log(e);
+    this.props.search(this.state);
+    window.location = "/#/search";
   }
 
   handleRenderItem(pet, isHighlighted) {

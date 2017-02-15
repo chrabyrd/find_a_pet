@@ -1,5 +1,4 @@
 import * as APIUtil from '../util/api_util';
-import { hashHistory } from 'react-router';
 
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const REMOVE_USER = 'REMOVE_USER';
