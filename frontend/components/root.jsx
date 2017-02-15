@@ -11,7 +11,7 @@ import ShelterShowContainer from './shelters/shelter_show_container';
 import PetShowContainer from './pets/pet_show_container';
 import PetIndexContainer from './pets/pet_index_container';
 import PetImageShowContainer from './pets/pet_image_show_container';
-import SearchResultsContainer from './content/SearchResultsContainer';
+import SearchResultsContainer from './content/searchResultsContainer';
 import Welcome from './content/welcome';
 
 const Root = ({store}) => {
