@@ -11,7 +11,7 @@ const mapStateToProps = ({ petDetails, session }) => ({
 const mapDispatchToProps = dispatch => ({
   fetchPet: id => dispatch(fetchPet(id)),
   updatePet: pet => dispatch(updatePet(pet)),
-  deletePet: id => dispatch(deletePet(id)),
+  deletePet: id => dispatch(deletePet(id)).then(window.location = "/"),
   fetchShelter: id => dispatch(fetchShelter(id))
 });
 

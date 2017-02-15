@@ -1,6 +1,6 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { Router, Route, IndexRoute, hashHistory } from 'react-router';
+import { Router, Redirect, Route, IndexRoute, hashHistory } from 'react-router';
 import App from './app';
 
 // Components
@@ -15,14 +15,14 @@ import Welcome from './content/welcome';
 
 const Root = ({store}) => {
 
-const _redirectIfNotLoggedIn = (nextState, replace) => {
-  const currentUser = store.getState().session.user;
+  const _redirectIfNotLoggedIn = (nextState, replace) => {
+    const currentUser = store.getState().session.user;
     if (!currentUser) {
       replace('/');
     }
   };
 
-  return(
+  return (
     <Provider store={store}>
       <Router history = {hashHistory}>
         <Route path='/' component={App}>

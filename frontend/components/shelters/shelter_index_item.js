@@ -29,8 +29,6 @@ class ShelterIndexItem extends React.Component {
           <li className="shelter-index-item">
             <div>{this.state.name}</div>
             <div>{this.state.address}</div>
-            {(this.state.user_id === currentUser.id) ?
-              <button className="delete-button" onClick={this.deleteCurrentShelter}>Delete Shelter</button> : ""}
               </li>
             </Link>
       </div>
