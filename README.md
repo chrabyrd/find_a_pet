@@ -1,6 +1,6 @@
-#Find-A-Pet!
+# Find-A-Pet!
 
-[Find-A-Pet! live][findapet]
+[Live][findapet]
 
 Find-A-Pet is a full-stack web application inspired by PetFinder. It utilizes a Ruby on Rails backend, a PostgreSQL database, and a React / Redux front end.
 
